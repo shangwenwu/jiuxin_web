@@ -1,0 +1,118 @@
+.login_page_module {
+	position: relative;
+	width: 100%;
+	min-height: 450px;
+	_height: 450px;
+	background: url("images/loginBg.jpg") no-repeat center center;
+}
+.login_page_module .login_container_bg {
+	position: absolute;
+	top: 50%;
+ 	width: 418px;
+ 	height: 390px;
+  	left: 50%;
+  	margin-left: -209px;
+  	margin-top: -195px;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	opacity: 0.3;
+  	filter:Alpha(Opacity=30);
+}
+.login_page_module .login_container {
+	position: absolute;
+	top: 50%;
+ 	width: 388px;
+ 	height: 300px;
+  	left: 50%;
+  	margin-left: -194px;
+  	margin-top: -150px;
+}
+
+.login_page_module .login_container .btns a {
+  	display: block;
+  	margin: 0px auto;
+  	width: 328px;
+  	height: 42px;
+  	line-height: 42px;
+  	border-radius: 4px;
+  	font-size: 16px;
+  	color: #fff;
+  	text-decoration: none;
+  	text-align: center;
+}
+.login_page_module .login_container .btns .login_btn {
+	background-color: #555f81;
+}
+.login_page_module .login_container .btns .reg_btn {
+	margin-top: 20px;
+	background-color: #b5a16b;
+}
+.login_page_module .login_container .input_wrapper {
+	position: relative;
+  	width: 308px;
+  	border-radius: 4px;
+  	background-color: #fff;
+  	padding: 10px;
+  	margin: 0px auto;
+  	-moz-box-shadow: 2px 2px 7px rgba(0,0,0,0.58) inset;
+  	-webkit-box-shadow: 2px 2px 7px rgba(0,0,0,0.58) inset;
+  	box-shadow: 2px 2px 7px rgba(0,0,0,0.58) inset;
+}
+.login_page_module .login_container .input_wrapper .input_item {
+	position: relative;
+	height: 56px;
+	padding-left: 56px;
+}
+.login_page_module .login_container .input_wrapper .username_item {
+	border-bottom: 1px solid #e5e5e5;
+}
+.login_page_module .login_container .input_wrapper .icon {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	left: 18px;
+	top: 18px;
+	background: url("images/loginIcon.png") no-repeat;
+}
+.login_page_module .login_container .input_wrapper .username {
+	background-position: 2px 1px;
+/*	width: 20px;
+	height: 20px;
+	left: 18px;
+	top: 18px;*/
+}
+.login_page_module .login_container .input_wrapper .password {
+	background-position: -107px 1px;
+
+}
+.login_page_module .login_container .input_wrapper input {
+	height: 26px;
+	padding: 15px 0;
+  	line-height: normal;
+  	width: 252px;
+  	font-size: 14px;
+  	border: none;
+}
+.login_page_module .login_container .input_wrapper label {
+	position: absolute;
+	left: 56px;
+	top: 0px;
+	line-height: 56px;
+	color: #666;
+	font-size: 14px;
+}
+.login_page_module .login_container .other_info {
+	width: 328px;
+	margin: 0px auto;
+	line-height: 40px;
+}
+.login_page_module .login_container .err {
+	display: none;
+	color: #f00;
+	float: left;
+}
+.login_page_module .login_container .forget_pass {
+	float: right;
+	color: #324075;
+	text-decoration: none;
+}

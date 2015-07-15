@@ -1,0 +1,42 @@
+.safe_module .headBg{background: url("images/safe_header.png") no-repeat center center;background-size: 100% 100%;width: 100%;min-width: 1200px;_width:1200px;height: 176px;margin-top: -20px;}
+.safe_module .safe_row{ width: 100%; background: #fff;}
+.safe_module .bgGray{background: #f3f2ef;}
+.safe_module .fixedW{width: 998px; margin: 0 auto;}
+.safe_module .percentage50{width: 50%;}
+.safe_module .percentage33{width: 33.3333%;}
+.safe_module .inline{display: inline-block;vertical-align: top;}
+.safe_module .lineH25{line-height: 25px;}
+.safe_module .f16{font-size: 16px;line-height: 80px;}
+.safe_module .p30{padding: 0 30px;}
+.safe_module .pb40{padding-bottom:40px;}
+.safe_module .p60{padding: 0 60px;}
+.safe_module h3{line-height: 100px;font-size: 30px;font-weight: normal;color: #232B50;}
+.safe_module .mAuto{ margin: 0 auto;}
+.safe_module .padtb{padding-top:40px; padding-bottom:80px;}
+.safe_module .icon1{ width: 74px; height: 72px; background: url(images/safe_icon01.png) no-repeat;}
+.safe_module .icon2{ width: 76px; height: 72px; background: url(images/safe_icon02.png) no-repeat;}
+.safe_module .icon3{ width: 74px; height: 72px; background: url(images/safe_icon03.png) no-repeat;}
+.safe_module .icon4{ width: 94px; height: 72px; background: url(images/safe_icon04.gif) no-repeat;}
+.safe_module .icon5{ width: 80px; height: 74px; background: url(images/safe_icon05.gif) no-repeat;}
+.safe_module .icon6{ width: 66px; height: 74px; background: url(images/safe_icon06.png) no-repeat;}
+.safe_module .icon7{ width: 55px; height: 74px; background: url(images/safe_icon07.png) no-repeat;}
+.safe_module .icon8{ width: 75px; height: 74px; background: url(images/safe_icon08.png) 0 20px no-repeat;}
+.safe_module .icon9{ margin-top:60px; margin-bottom: 25px; width: 152px; height: 152px; background: url(images/safe_01.png) no-repeat;}
+.safe_module .icon10{margin-top:60px; margin-bottom: 25px;  width: 152px; height: 152px; background: url(images/safe_02.png) no-repeat;}
+.safe_module .icon11{margin-top:60px; margin-bottom: 25px;  width: 152px; height: 152px; background: url(images/safe_03.png) no-repeat;}
+.safe_module .icon12{margin-top:60px; margin-bottom: 25px;  width: 152px; height: 152px; background: url(images/safe_04.png) no-repeat;}
+
+
+.safe_module .percentage50 .pr60{ padding: 0 60px 0 0;}
+.safe_module .logos{position:relative;height: 242px;background: url("images/safe_logos.jpg") 0 -30px no-repeat;}
+.safe_module .logos a{display: block;position: absolute;}
+.safe_module .logos .logo1{top:0px; left: 140px; width: 200px; height: 50px;}
+.safe_module .logos .logo2{top:110px; left: 30px; width: 140px; height: 60px;}
+.safe_module .logos .logo3{top:110px; left: 210px; width: 150px; height: 50px;}
+.safe_module .logos .logo4{top:100px; left: 400px; width: 70px; height: 80px;}
+.safe_module a.btn{margin: 0 auto;display: block;color: #fff; text-decoration: none;line-height: 40px;  width:250px;border-radius: 4px;}
+
+
+.safe_module .percentage25{ width: 24%; margin-right:1%; border-radius: 5px; padding-bottom:40px; position: relative;}
+.safe_module .percentage25 .lineH25{ border-radius: 5px;  padding-top:80px; color:#fff; line-height: 20px; position: absolute; top:0; left: 0; right: 0; bottom: 0; background: #7c91bf;}
+

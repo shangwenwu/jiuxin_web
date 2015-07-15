@@ -1,0 +1,201 @@
+.coupon_page_module {
+  font-family: "微软雅黑", 'Microsoft Yahei', '幼圆', 'YouYuan SimYou?', SimSun, '宋体', Helvetica, Arial, sans-serif;
+}
+.coupon_page_module .ellipsis{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.coupon_page_module .box {
+  background-color: #FFFFFF;
+  padding: 46px 50px;
+}
+.coupon_page_module h2 {
+  font-size: 20px;
+}
+.coupon_page_module .operate {
+  margin: 25px 0;
+  font-size: 14px;
+}
+.coupon_page_module .operate_category {
+  display: inline-block;
+  vertical-align: middle;
+  /*select {
+      width: 200px;
+      padding: 5px 15px;
+      border: 1px #e8e8e8 solid;
+      option {
+        line-height: 30px;
+        border-right: 1px #e8e8e8 solid;
+        border-bottom: 1px #e8e8e8 solid;
+        border-left: 1px #e8e8e8 solid;
+      }
+    }*/
+}
+.coupon_page_module .operate_category .category {
+  position: relative;
+  width: 200px;
+}
+.coupon_page_module .operate_category .category .category_select {
+  padding: 5px 15px;
+  border: 1px #e8e8e8 solid;
+  background: url(img/dropdown.png) right 8px no-repeat;
+}
+.coupon_page_module .operate_category .category .category_list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  line-height: 30px;
+  background-color: #FFFFFF;
+}
+.coupon_page_module .operate_category .category .category_item_link {
+  display: block;
+  padding-left: 15px;
+  border-right: 1px #e8e8e8 solid;
+  border-bottom: 1px #e8e8e8 solid;
+  border-left: 1px #e8e8e8 solid;
+  cursor: default;
+}
+.coupon_page_module .operate_category .category .category_item_link:hover {
+  background-color: #e8e8e8;
+  text-decoration: none;
+}
+.coupon_page_module .operate_date {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+.coupon_page_module .operate_date .date_type {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+.coupon_page_module .operate_date .date_type:hover {
+  text-decoration: none;
+}
+.coupon_page_module .operate_date .date_type_active {
+  background-color: #242d4f;
+  color: #fff;
+  text-decoration: none;
+}
+.coupon_page_module .no-data {
+  padding-top: 54px;
+  color: #b80000;
+  font-size: 14px;
+  text-align: center;
+}
+.coupon_page_module .list {
+  color: #FFFFFF;
+  min-height: 435px;
+}
+.coupon_page_module .list .item {
+  float: left;
+  margin: 0 15px 15px 0;
+  background-color: #e8e8e8;
+  color: #666666;
+}
+.coupon_page_module .list .item p.use {
+  margin-top: 25px;
+}
+.coupon_page_module .list .item_left {
+  float: left;
+  width: 192px;
+  border-right: 3px #FFFFFF dotted;
+}
+.coupon_page_module .list .item_left_info {
+  padding: 20px 18px;
+}
+.coupon_page_module .list .item_left_info p.title {
+  font-size: 18px;
+}
+.coupon_page_module .list .item_left_info p.time {
+  font-size: 13px;
+}
+.coupon_page_module .list .item_left_info p.detail {
+  margin-top: 20px;
+  font-size: 16px;
+}
+.coupon_page_module .list .item_right {
+  float: left;
+  width: 95px;
+  padding-top: 30px;
+  text-align: center;
+}
+.coupon_page_module .list .item_right p.price {
+  line-height: 1;
+}
+.coupon_page_module .list .item_right p.price .price_lable {
+  font-size: 12px;
+  vertical-align: text-bottom;
+  line-height: 16px;
+}
+.coupon_page_module .list .item_right p.price .price_num {
+  font-size: 30px;
+  vertical-align: text-bottom;
+}
+.coupon_page_module .list .item_last {
+  margin-right: 0;
+}
+.coupon_page_module .list .item_INTEREST {
+  background-color: #F5CF3E;
+  color: #FFFFFF;
+}
+.coupon_page_module .list .item_INTEREST .item_right {
+  padding-top: 45px;
+}
+.coupon_page_module .list .item_PRINCIPAL {
+  background-color: #555D82;
+  color: #FFFFFF;
+}
+.coupon_page_module .list .item_PRINCIPAL .item_right {
+  padding-top: 45px;
+}
+.coupon_page_module .list .item_REBATE {
+  background-color: #E9714F;
+  color: #FFFFFF;
+}
+.coupon_page_module .list .item_REBATE .item_right {
+  padding-top: 45px;
+}
+.coupon_page_module .list .item_CASH {
+  background-color: #92CBE6;
+  color: #FFFFFF;
+}
+.coupon_page_module .list .item_CASH .item_right {
+  padding-top: 45px;
+}
+.coupon_page_module .list .item_USED,
+.coupon_page_module .list .item_EXPIRED,
+.coupon_page_module .list .item_REDEEMED {
+  background-color: #e8e8e8;
+  color: #666666;
+}
+.coupon_page_module .list .item_USED .item_right,
+.coupon_page_module .list .item_EXPIRED .item_right,
+.coupon_page_module .list .item_REDEEMED .item_right {
+  padding-top: 30px;
+}
+.coupon_page_module .page {
+  text-align: right;
+  margin: 30px 0px;
+  height: 20px;
+}
+.coupon_page_module .page a,
+.coupon_page_module .page span {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 8px;
+  margin: 0 3px;
+}
+.coupon_page_module .page span.on,
+.coupon_page_module .page a:hover {
+  border-radius: 1px;
+  background: #242d4f;
+  color: #FFF;
+}
+.coupon_page_module .page a:hover {
+  text-decoration: none;
+}

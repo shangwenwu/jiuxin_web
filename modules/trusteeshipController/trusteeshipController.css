@@ -1,0 +1,55 @@
+.trusteeship_module .box1,.trusteeship_module .box2{ display: none;}
+.trusteeship_module{ font-size: 14px;  background: #fff; padding: 40px 50px 80px 50px;  }
+.trusteeship_module p,.trusteeship_module span,.trusteeship_module lable,.trusteeship_module button{color: #666;font-size: 14px; }
+.trusteeship_module input{ border: 1px solid #e3e3e3;}
+.trusteeship_module .bRed{ border: 1px solid #b80000;}
+.trusteeship_module .red{ color: #b80000; }
+.trusteeship_module button{ border: none; line-height: 40px; color: #fff; cursor: pointer;}
+.trusteeship_module .f18{ font-size: 18px; padding-left: 200px;}
+.trusteeship_module .f16{ font-size: 16px; }
+.trusteeship_module .pl100{ padding-left: 100px; }
+.trusteeship_module .mt10{ margin-top: 10px;}
+.trusteeship_module .mt20{ margin-top: 20px;}
+.trusteeship_module .mt30{ margin-top: 30px;}
+.trusteeship_module .mt80{ margin-top: 100px;}
+.trusteeship_module .mt60{ margin-top: 60px;}
+.trusteeship_module .mt40{ margin-top: 40px;}
+.trusteeship_module .l25{ line-height: 25px;}
+
+
+.trusteeship_module p.statusTitle{ font-size: 24px; color: #242d4f; }
+
+.trusteeship_module div.status{ margin-top:10px; height: 34px;}
+.trusteeship_module div.bg1{ background: url('images/progress1.png') 240px 0 no-repeat;}
+.trusteeship_module div.bg2{ background: url('images/progress2.png') 240px 0 no-repeat;}
+.trusteeship_module div.bg3{ background: url('images/progress3.png') 240px 0 no-repeat;}
+.trusteeship_module div.statusBox1,.trusteeship_module div.statusBox2,.trusteeship_module div.statusBox3{ margin: auto; width: 336px; height: 300px; }
+
+
+
+.trusteeship_module div.statusBox3{ display: none;}
+.trusteeship_module div.statusBox3 .finishIcon{ width: 75px; height: 75px; background: url('images/finish.png') no-repeat;  margin: 50px auto 20px auto;}
+.trusteeship_module div.statusBox3 a{ display: inline-block; text-decoration: none; line-height: 40px; color: #fff; width: 46%; margin:40px 2%; }
+
+.trusteeship_module div.statusBox2{ display: none;}
+.trusteeship_module div.statusBox2 .submit,
+.trusteeship_module div.statusBox1 .submit,
+.trusteeship_module div.statusBox3 .submit{ margin-top: 30px; width: 100%; }
+.trusteeship_module label{ position: relative; background: #f5f5f5;padding:10px 10px 10px 20px; display: inline-block; border: 1px solid #e3e3e3; width: 60%;}
+.trusteeship_module label span{ width: 45px; display: inline-block;}
+.trusteeship_module label input{ display: inline-block; border:none; background: none; margin-left:10px; padding-left: 10px; border-left:1px solid #e3e3e3;}
+.trusteeship_module div.statusBox2 div button{ background: #c2c2c2; cursor: pointer;  width: 28%;display: inline-block; line-height: 42px;}
+.trusteeship_module div.statusBox2 div{ margin: 20px 0 10px ;}
+.trusteeship_module div.statusBox2 p.discription{ margin-top: 50px;}
+.trusteeship_module div.statusBox2 label p{ display: none; font-size: 12px; position: absolute; top:10px; right:-370px;  width: 250px;}
+
+.trusteeship_module div.statusBox1{ display: block;}
+.trusteeship_module div.statusBox1 .f12 input{ vertical-align: bottom; margin-right: 5px;  width: 16px; height: 16px;}
+.trusteeship_module div.statusBox1 label{ width: 90%; position: relative;}
+.trusteeship_module div.statusBox1 label span{ width: 65px;}
+.trusteeship_module div.statusBox1 label p{ display: none; font-size: 12px; position: absolute; top:10px; right:-260px;  width: 250px;}
+.trusteeship_module div.statusBox1 label input{ width: 210px;}
+.trusteeship_module div.statusBox1 p.failed{ display: none; padding-top: 10px; color: #a40000; padding-left: 20px; background:url(images/close.png) 0 13px no-repeat;}
+
+.mobileIcon{ width: 29px; height: 48px; margin: 0 auto; margin-bottom:20px;  background: url(images/mobile1.png) no-repeat; }
+.trusteeship_module div.statusBox1 p a.aImg{cursor: pointer; vertical-align: middle; display: inline-block; width: 18px; height: 18px; background:url(images/question.png) no-repeat;}

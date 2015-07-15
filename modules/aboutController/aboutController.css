@@ -1,0 +1,88 @@
+.about_page_module {
+    width: 998px;
+    margin: 40px auto 60px;
+}
+.about_page_module .tab_list {
+    float: left;
+    width: 152px;
+}
+.about_page_module .tab_list a {
+    display: block;
+    height: 55px;
+    line-height: 55px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    text-decoration: none;
+}
+.about_page_module .tab_list .active {
+    color: #fff;
+    background-color: #232b50;           
+}
+.about_page_module .content {
+    float: left;
+    margin-left: 20px;
+    padding: 0px 20px 30px 20px;
+    width: 783px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+.about_page_module .content .tab_item {
+    display: none;
+}
+.about_page_module .content .jiuxin {
+    display: block;
+}
+.about_page_module .content .title {
+    width: 120px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 50px;
+    border-bottom: 2px solid #232b50;
+    color: #232b50;
+    text-align: center;
+}
+.about_page_module .content .sub_title {
+    margin-top: 15px;
+    line-height: 22px;
+    font-size: 15px;
+}
+.about_page_module .content .beijing .text,
+.about_page_module .content .jiuxin .text {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 26px;           
+}
+.about_page_module .content .beijing .table_desc {
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    line-height: 26px;
+}
+.about_page_module table {
+    text-align: center;
+    margin-left: 22px;
+    width: 696px;
+    font-size: 12px;
+    color: #858585;
+    border-collapse: collapse;
+}
+.about_page_module table tr {
+  height: 30px;
+}
+.about_page_module table td {
+  border: solid 1px #c5c5c5;
+}
+.about_page_module .contact h2 {
+    margin-top: 10px;
+    line-height: 60px;
+    font-size: 16px;
+    font-weight: 200;
+}
+.about_page_module .contact .text {
+    line-height: 20px;
+    font-size: 14px;
+}

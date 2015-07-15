@@ -1,0 +1,112 @@
+.underRepay_page_module {
+    position: relative;
+    padding: 30px 50px;
+    min-height: 300px;
+    background-color: #fff;
+}
+.underRepay_page_module .title {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 10px;            
+}
+.underRepay_page_module .filer_wrapper {
+    padding: 15px;
+    border: 1px solid #e8e8e8;
+    margin-top: 20px;
+    line-height: 26px;
+    font-size: 14px;
+}
+.underRepay_page_module .filer_wrapper .item a{
+    margin-bottom: 10px;
+}
+.underRepay_page_module .filer_wrapper .label {
+    display: inline-block;
+    margin-right: 20px;
+}
+.underRepay_page_module .filer_wrapper .nav {
+    /*display: inline-block;*/
+
+}
+.underRepay_page_module .filer_wrapper .nav li {
+    float: left;
+    height: 26px;
+    padding: 0px 20px;
+    margin-right: 10px;
+    cursor: pointer;            
+}
+.underRepay_page_module .filer_wrapper .nav li.active {
+    background-color: #242d4f;
+    color: #fff;
+}
+.underRepay_page_module .filer_wrapper .time_wrapper {
+    position: relative;
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    margin-right: 10px;
+    height: 24px;
+    /*line-height: 24*/
+    width: 148px;
+    border: 1px solid #f6f6f6;
+}
+.underRepay_page_module .filer_wrapper .time_wrapper span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #e8e8e8;
+    text-align: center;
+}
+.underRepay_page_module .filer_wrapper .time_wrapper input {
+    padding-left: 5px;
+    width: 113px;
+    border: none;
+    height: 24px;
+    line-height: 24px;
+    position: absolute;
+    left: 24px;
+    top: 0px;
+    background: transparent;
+}
+.underRepay_page_module table {
+    width: 900px;
+    margin-top: 20px;
+}
+.underRepay_page_module table th {
+    height: 36px;
+    background-color: #e8e8e8;
+    text-align: left;
+}
+.underRepay_page_module .first_tada {
+    padding-left: 2%;
+}
+.underRepay_page_module table td {
+    height: 80px;
+}
+.underRepay_page_module table tr.even {
+    background-color: #f6f6f6;
+}
+.underRepay_page_module .pager_bar {
+    /*float: right;*/
+    text-align: right;
+    margin-top: 30px;
+    height: 20px;
+}
+.underRepay_page_module .pager_bar span.on, .underRepay_page_module .pager_bar a:hover  {
+    border-radius: 1px;
+    background: #242d4f;
+    color: #FFF;
+}
+.underRepay_page_module .pager_bar a:hover  {
+    text-decoration: none;
+}
+.underRepay_page_module .pager_bar a.pager-pre, .pager_bar a.pager-next {
+    /*border: 1px solid #ccc;*/
+/*  background-color: #fff;*/
+}
+.underRepay_page_module .pager_bar a, .underRepay_page_module .pager_bar span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+    margin: 0 3px;
+}

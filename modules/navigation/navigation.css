@@ -1,0 +1,10 @@
+.navigation_module{ padding-top: 40px;}
+.navigation_module ul.menuNav a{ cursor: pointer; text-decoration: none; display:block;  color:white; text-align: center; font-size: 14px; line-height: 40px;}
+.navigation_module ul.menuNav ul li a{ text-align: left; padding-left: 80px; color: #9ea9cd;}
+.navigation_module ul.menuNav li.menuSelected a{ border-left: 5px solid #af985c; background-color: #1b223d; }
+.navigation_module ul.menuNav li.menuSelected{ border-top:1px solid #0f1427;}
+.navigation_module ul.menuNav li{ position: relative;}
+.navigation_module ul.menuNav li div.triangle{ display: none; position: absolute; top: 11px; right: 0;background: red;  border:8px solid #1b223d;   border-right:8px solid #fff;}
+.navigation_module ul.menuNav ul li div{ display: none; position: absolute; top: 16px; left: 64px; background-color: #af985c; border-radius: 3px; height: 6px; width: 6px;}
+.navigation_module ul.menuNav ul{ display: none;}
+.navigation_module ul.menuNav li.menuSelected div.triangle,.navigation_module ul.menuNav li.menuSelected ul,.navigation_module ul.menuNav li.menuSelected ul div.circle{ display: block;}

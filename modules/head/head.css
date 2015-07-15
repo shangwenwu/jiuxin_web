@@ -1,0 +1,246 @@
+.head_module a:link,.head_module a:visited,.head_module a:hover,.head_module a:active{ text-decoration: none;}
+.head_module {
+  font-family: "微软雅黑",'Microsoft Yahei','幼圆','YouYuan SimYou?',SimSun,'宋体',Helvetica,Arial,sans-serif;
+  display: inline-block;
+  min-width: 1200px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #666;
+  background-color: #fff;
+
+  position: relative;
+  width: 100%;
+  height: 115px;
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,0.27);
+  -moz-box-shadow: 0 1px 6px rgba(0,0,0,0.27);
+  -ms-box-shadow: 0 1px 6px rgba(0,0,0,0.27);
+  -o-box-shadow: 0 1px 6px rgba(0,0,0,0.27);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.27);
+}
+.head_module .user_info {
+  float: right;
+  color: #fff;
+}
+.head_module .user_info a {
+  display: inline-block;
+  float: none;
+  margin: 0px;
+  padding: 0px 10px;
+  position: inherit;
+  line-height: 20px;
+  margin-top: 5px;  
+}
+.head_module .user_info i {
+  font-style: normal;
+}
+.head_module .user_info .message {
+  padding: 0px 5px;
+  color: #f00;
+}
+.head_module .user_info .usercenter {
+  margin: 0px 10px;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+}
+.head_module .user_info .logout {
+  margin-left: 10px;
+  border-left: 1px solid #ddd;
+}
+.head_module .user_info .register {
+  border-left: 1px solid #fff;
+}
+.head_module-info {
+  width: 100%;
+  height: 40px;
+  background-color: #232d4e;
+}
+.head_module-info-content {
+  position: relative;
+  top: 6px;
+  margin: 0 auto;
+  width: 1200px;
+  height: inherit;
+}
+.u-pos-r-center {
+  width: 1200px;
+  margin: 0 auto;
+}
+img {
+  vertical-align: middle;
+}
+
+.head_module-info-content span.weiboIcon {
+  background: url("images/weiboIcon.png") no-repeat center center;
+}
+.head_module-info-content span.weiboIcon:hover {
+    background: url("images/weibo.png") no-repeat center center
+}
+
+
+.head_module-info-content span {
+  display: inline-block;
+  margin: 3px 5px;
+  height: 23px;
+  width: 24px;
+  text-align: center;
+}
+.head_module-info-content a {
+  float: right;
+  display: inline-block;
+  padding: 0 10px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  position: relative;
+  top: 6px;
+  text-decoration: none;
+}
+.head_module-info-content p, .head_module-info-content a {
+  width: auto;
+  height: inherit;
+  line-height: 28px;
+  color: #fff;
+  font-size: 0.8em;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a, input, textarea, button {
+  outline: none !important;
+}
+.head_module-info-content span.weixinIcon {
+  background: url("images/weixinIcon.png") no-repeat center 4px;
+}
+.head_module-info-content span.weixinIcon:hover {
+    background: url("images/weixin.png") no-repeat center 4px
+}
+
+.head_module-info-content span {
+  display: inline-block;
+  margin: 3px 5px;
+  height: 23px;
+  width: 24px;
+  text-align: center;
+}
+.head_module-info-content .dropdown {
+  display: none;
+}
+.dropup, .dropdown {
+  position: relative;
+}
+.head_module-info-content p, .head_module-info-content a {
+  width: auto;
+  height: inherit;
+  line-height: 28px;
+  color: #fff;
+  font-size: .8em;
+}
+.head_module-info-content a.text {
+  height: 16px;
+  line-height: 16px;
+  top: 7px;
+  text-decoration: none;
+  color:#fff;
+}
+
+.head_module-menu {
+  width: 100%;
+  height: 75px;
+  background-color: white;
+}
+.head_module-menu-content {
+  width: 1200px;
+  height: inherit;
+}
+.head_module-info-content .hotline{
+	height:16px;
+	width: 257px;
+	background: url("images/head_hotline.png");
+}
+.head_module-menu-content .s-icon {
+  	height:41px;
+	width: 336px;
+	background: url("images/logo.png") no-repeat;	
+	display: block;
+	margin-top: 17px;
+}
+.head_module-info-content span.why {
+  height: 19px;
+  width: 19px;
+  background: url("images/bangzhu.png");
+  border: none;
+  margin: -1px;
+}
+.head_module-info-content .feedback {
+  background: url("images/fankui.png") no-repeat;
+  width: 19px;
+  height: 19px;
+  float: right;
+  padding: 0px;
+}
+.head_module-menu-content .u-nolist-ul {
+  float: right;
+  height: 75px;
+  line-height: 75px;
+}
+.u-nolist-ul {
+  list-style: none;
+}
+ul, ol {
+  list-style: none;
+}
+.head_module-menu-content .u-nolist-ul li {
+  margin-left: 33px;
+  cursor: pointer;
+}
+.u-nolist-ul li {
+  margin: 0;
+}
+.u-nolist-ul li {
+  display: inline;
+}
+
+.head_module-menu-content .u-nolist-ul li.s__is-selected a:hover {
+  text-decoration: none;
+}
+.head_module-menu-content .u-nolist-ul li.s__is-selected a {
+  height: 72px;
+  border-bottom: 3px solid #b5a16b;
+  color: #232d4e;
+}
+.head_module .u-nolist-ul li a:hover {
+  height: 72px;
+  border-bottom: 3px solid #b5a16b;
+  color: #232d4e;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #a0a0a0;
+  text-decoration: underline;
+}
+.head_module li a {
+  color: #666;
+  text-decoration: none;
+  width: 75px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.head_module-info-content span.weixinIcon:hover+div.dropdown {
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+    top: 28px;
+    margin-left: -100px;
+    width: 150px; 
+    height: 150px;
+    background: url('images/2wm.jpg') no-repeat;
+}
+
+.head_module-info-content .loginOn{ display: block;}
+.head_module-info-content .loginOff{ display: none;}

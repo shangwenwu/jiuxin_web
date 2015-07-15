@@ -1,0 +1,58 @@
+.home_page_module{
+	background: #f5f5f5;
+}
+.home_page_module .one_bulletin{
+	width: 1200px;
+	height: 44px;
+	margin: 0 auto;
+	line-height: 44px;
+  	font-size: 14px;
+}
+.home_page_module .spot_light{
+   margin-bottom: 40px;
+   background: #232d4e;
+     display: inline-block;
+  width: 100%;
+}
+.home_page_module .spot_light .box{
+   width: 1200px;
+   height: 142px;
+   margin: 60px auto;
+}
+.home_page_module .spot_light .item{
+  text-align: center;
+  width: 300px;
+}
+.home_page_module .spot_light .icon{
+  display: inline-block;
+  width: 120px;
+  height: 100px;
+  margin:; 0 0 10px;
+}
+.home_page_module .spot_light .one{
+  background: url(images/icon01.png) no-repeat center;
+}
+.home_page_module .spot_light .two{
+  background: url(images/icon02.png) no-repeat center;
+}
+.home_page_module .spot_light .three{
+  background: url(images/icon03.png) no-repeat center;
+}
+.home_page_module .spot_light .four{
+  background: url(images/icon04.png) no-repeat center;
+}
+.home_page_module .spot_light .note{
+  color: #FFF;
+  font-size: 14px;
+  line-height: 1.2;
+}
+.home_page_module .invest_more{
+  text-decoration: none;
+  color: #324075;
+  display: block;
+  width: 1200px;
+  margin: 0 auto;
+  text-align: right;
+  line-height: 40px;
+  cursor: pointer;
+}

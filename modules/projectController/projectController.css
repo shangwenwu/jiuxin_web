@@ -1,0 +1,267 @@
+.project_page_module {
+    position: relative;
+    padding: 30px 50px;
+    min-height: 300px;
+    background-color: #fff;
+}
+.project_page_module .title {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 10px;            
+}
+.project_page_module .filer_wrapper {
+    margin-top: 20px;
+    line-height: 26px;
+    font-size: 14px;
+}
+.project_page_module .filer_wrapper .item {
+    margin-bottom: 10px;
+}
+.project_page_module .filer_wrapper .label {
+    display: inline-block;
+    margin-right: 20px;
+}
+.project_page_module .filer_wrapper .nav {
+    /*display: inline-block;*/
+
+}
+.project_page_module .filer_wrapper .nav li {
+    float: left;
+    height: 26px;
+    padding: 0px 20px;
+    margin-right: 10px;
+    cursor: pointer;            
+}
+.project_page_module .filer_wrapper .nav li.active {
+    background-color: #242d4f;
+    color: #fff;
+}
+.project_page_module .filer_wrapper .time_wrapper {
+    display: inline-block;
+    position: relative;
+    *zoom: 1;
+    *display: inline;
+    /**display: inline;*/
+    margin-right: 10px;
+    height: 24px;
+    line-height: 24px;
+    width: 148px;
+    border: 1px solid #f6f6f6;
+}
+.project_page_module .filer_wrapper .time_wrapper span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: #e8e8e8;
+    text-align: center;
+    overflow: hidden;
+}
+.project_page_module .filer_wrapper .time_wrapper input {
+    padding-left: 5px;
+    width: 113px;
+    border: none;
+    height: 22px;
+    line-height: 22px;
+    position: absolute;
+    left: 22px;
+    top: 1px;
+    /*display: inline-block;*/
+    background: transparent;
+}
+.project_page_module .project_wrapper {
+    /*margin: 20px auto;*/
+    width: 900px;
+    font-size: 14px;
+}
+.project_page_module .project_wrapper_header {
+    margin-top: 20px;
+    height: 36px;
+    line-height: 36px;
+    background-color: #e8e8e8;
+}
+.project_page_module .project_wrapper .meassage_wrapper_data {
+    height: 120px;
+    overflow: hidden ;
+    position: relative;
+}
+.project_page_module .project_wrapper .no_data {
+    height: 120px;
+    line-height: 120px;
+    font-size: 16px;
+    text-align: center;
+}
+.project_page_module .project_wrapper .meassage_wrapper_data .data{
+    padding: 30px 0px;
+    float: left;
+    height: 60px;
+}
+.project_page_module .project_wrapper_header .container1, 
+.project_page_module .project_wrapper .meassage_wrapper_data .container1 {
+    width: 15.5%;
+    padding-left: 1.5%;
+    display: inline-block;
+}
+.project_page_module .project_wrapper .meassage_wrapper_data .container2, 
+.project_page_module .project_wrapper .meassage_wrapper_data .container3,
+.project_page_module .project_wrapper .meassage_wrapper_data .container4,
+.project_page_module .project_wrapper .meassage_wrapper_data .container5 {
+    line-height: 60px;
+}
+.project_page_module .container2, 
+.project_page_module .container3,
+.project_page_module .container4,
+.project_page_module  .container5,
+.project_page_module .container6 {
+    width: 12.6%;
+    display: inline-block;
+    /*line-height: 60px;*/
+}
+.project_page_module .project_wrapper .container7 {
+    width: 17%;
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+}
+.project_page_module .project_wrapper .container1 .name {
+    color: #666;
+    font-size: 14px;
+    line-height: 24px;
+}
+.project_page_module .project_wrapper .container1 {
+    font-size: 12px;
+    color: #999;
+    line-height: 18px;
+}
+.project_page_module .project_wrapper .container1 .rate {
+    margin-right: 10px;
+}
+.project_page_module .project_wrapper .container7 a {
+    display: block;
+    width: 70px;
+    height: 23px;
+    line-height: 23px;
+    border: 1px solid #242d4f;
+    text-align: center;
+    color: #666;
+    text-decoration: none;
+}
+.project_page_module .project_wrapper .container6 .status {
+    margin-bottom: 5px;
+}
+.project_page_module .project_wrapper .container6.collecting .status {
+    line-height: 60px;
+}
+.project_page_module .project_wrapper .container7 .agreemengt {
+    margin-bottom: 5px;
+}
+.project_page_module .project_wrapper .collecting .agreemengt {
+    margin-top: 20px;
+    *margin-top: 45px;
+}
+.project_page_module .project_wrapper .even {
+    background-color: #f6f6f6;
+
+}
+.project_page_module .repay_recordlist_wrapper {
+    position: absolute;
+    left: 50px;
+    background-color: #eceef5;
+    padding: 30px;
+    width: 840px;
+    border: solid #242d4f;
+    border-width: 3px 0px 3px 0px;
+    display: none;
+}
+.project_page_module .repay_recordlist_wrapper table {
+    width: 100%;
+    text-align: center;
+}
+.project_page_module .repay_recordlist_wrapper th {
+      /*color: #666;*/
+      font-size: 14px;
+      height: 34px; 
+      border-bottom: 1px solid #666;  
+      font-weight: normal;         
+}
+.project_page_module .repay_recordlist_wrapper td {
+    height: 45px;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px;
+}
+.project_page_module .repay_recordlist_wrapper .triangle {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    margin-left: -17px;
+    width: 34px;
+    height: 16px;
+    background: url(./images/sanjiao.png) no-repeat;
+}
+.project_page_module .repay_recordlist_wrapper .close_recordlist_wrapper {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+    background: url(./images/guanbi.png) no-repeat;
+}
+#project_pager {
+    /*float: right;*/
+    text-align: right;
+    margin: 30px 0px;
+    height: 20px;
+}
+#project_pager span.on, #project_pager a:hover  {
+    /*border: 1px solid #008cd7;*/
+    border-radius: 1px;
+    background: #242d4f;
+    color: #FFF;
+}
+#project_pager a:hover  {
+    text-decoration: none;
+}
+#project_pager a.pager-pre, #project_pager a.pager-next {
+    /*border: 1px solid #ccc;*/
+/*  background-color: #fff;*/
+}
+#project_pager a, #project_pager span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+    margin: 0 3px;
+}
+#repay_record_pager {
+    /*float: right;*/
+    /*text-align: right;*/
+    text-align: center;
+    margin: 30px auto;
+    height: 20px;
+}
+#repay_record_pager span.on, #repay_record_pager a:hover  {
+    /*border: 1px solid #008cd7;*/
+    border-radius: 1px;
+    background: #242d4f;
+    color: #FFF;
+}
+#repay_record_pager a:hover  {
+    text-decoration: none;
+}
+#repay_record_pager a.pager-pre, #repay_record_pager a.pager-next {
+    /*border: 1px solid #ccc;*/
+/*  background-color: #fff;*/
+}
+#repay_record_pager a, #repay_record_pager span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 20px;
+    margin: 0 3px;
+    background-color: #eceef5;
+    color: #242d4f;
+    border: 1px solid #242d4f;
+}
+#repay_record_pager .pager_more {
+    border: none;
+    background: transparent;
+}

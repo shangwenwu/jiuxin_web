@@ -1,0 +1,91 @@
+.footer_module{ padding: 20px 0; background:#676d82; font-family: "微软雅黑",'Microsoft Yahei','幼圆','YouYuan SimYou?',SimSun,'宋体',Helvetica,Arial,sans-serif;}
+.footer_module a,.footer_module p,.footer_module li{ color: #c7c7c8;}
+.footer_module a:hover{color: #b5a16b;}
+.footer_module .footerLink,.footer_module .footerInfo{ width: 1200px; margin: 0 auto; clear: both; }
+.footer_module .footerLink ul.linkL{ float: left;  position: relative; width: 66%;}
+.footer_module .footerLink ul.linkL a{margin-right:25px; vertical-align: middle;}
+.footer_module .footerLink ul.linkL li,.footer_module .footerLink ul.linkR li{ margin:20px 0;}
+
+.footer_module .footerLink ul.linkL a.weibo{display: inline-block; width: 38px; height: 38px; background: url("images/wb.png")  no-repeat;}
+.footer_module .footerLink ul.linkL a.weibo:hover{background: url("images/wb-golden.png")  no-repeat;}
+
+.footer_module .footerLink ul.linkL a.weixin{ cursor: pointer; display: inline-block; width: 37px; height: 37px; background: url("images/wx.png")  no-repeat;}
+.footer_module .footerLink ul.linkL a.weixin:hover{background: url("images/wx-golden.png")  no-repeat;}
+
+.footer_module .footerLink ul.linkL div.weixinBox{ display: none;}
+.footer_module .footerLink ul.linkL a.weixin:hover+div.weixinBox {
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+    top: 83px;
+    width: 150px; 
+    margin-left: -25px;
+    height: 150px;
+    background: url('images/2wm.jpg') no-repeat;
+}
+
+.footer_module .footerLink ul.linkR{ float: right; text-align: right;}
+.footer_module .footerLink ul.linkR li a{ cursor: pointer; display: inline-block;  width: 30px; height: 23px; vertical-align: middle; background: url("images/lt.png") 7px 0px no-repeat;}
+.footer_module .footerLink ul.linkR li a:hover{ background: url("images/lt-golden.png") 7px 0px no-repeat;}
+.footer_module .footerLink ul.linkR li.tel{font-size: 2em; line-height: 20px; width: 200px; white-space: nowrap;}
+
+.footer_module .footerInfo p span{ float: right;}
+.footer_module .footerInfo div{ text-align: right; }
+.footer_module .footerInfo div a{display: inline-block; width: 100px;height: 54px; margin-left:20px;}
+.footer_module .footerInfo div a.Norton{ background:url("images/Norton-bk.png") no-repeat;}
+.footer_module .footerInfo div a.itrust{ background:url("images/itrust-bk.png") 0 6px no-repeat;}
+.footer_module .footerInfo div a.goodfaith{ background:url("images/good-faith-bk.png") 60px 5px no-repeat;}
+.footer_module .footerInfo div a.Norton:hover{ background:url("images/Norton.png") no-repeat;}
+.footer_module .footerInfo div a.itrust:hover{ background:url("images/itrust.png") 0 6px no-repeat;}
+.footer_module .footerInfo div a.goodfaith:hover{ background:url("images/good-faith.png") 60px 5px no-repeat;}
+
+.footer_module.clear{ clear: both;border-bottom: 1px solid #939393;}
+.footer_module a{ text-decoration: none;}
+#mainFooter .sidebar {
+	position: fixed;
+	right: 0px;
+	bottom: 115px;
+	z-index: 100;
+}
+#mainFooter .sidebar .nav_item {
+	display: block;
+	width: 47px;
+	height: 47px;
+}
+#mainFooter .sidebar a.nav_item:hover {
+	background: #232b50;
+}
+#mainFooter .sidebar .to_top {
+	display: none;
+}
+#mainFooter .sidebar a span {
+	display: block;
+	width: 45px;
+	height: 45px;
+	border: 1px solid transparent;
+	background: url('images/icon.png') no-repeat;
+	margin-bottom: 1px;
+}
+#mainFooter .sidebar a:hover span {
+	border-color: #dfdfdf;
+}
+#mainFooter .sidebar .qq span {
+	background-position: 0 0;
+}
+#mainFooter .sidebar a.qq:hover span {
+	background-position: 0px -50px;
+}
+#mainFooter .sidebar .to_top span {
+	background-position: -50px 0px;
+}
+#mainFooter .sidebar a.to_top:hover span {
+	background-position: -50px -50px;
+}
+#mainFooter .sidebar .feedback span {
+	background-position: -102px 0;
+}
+#mainFooter .sidebar a.feedback:hover span {
+	background-position: -102px -50px;
+}
+
+

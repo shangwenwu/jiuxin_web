@@ -1,0 +1,24 @@
+.cms_page_module{
+  margin: 0 auto;
+  width: 998px;
+}
+.cms_page_module .cms_head{
+  font-size: 28px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  height: 90px;
+  line-height: 80px;
+}
+.cms_page_module .cms_time{
+  font-size: 14px;
+  color: #a0a0a0;
+  text-align: right;
+  line-height: 40px;
+}
+.cms_page_module .cms_content{
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 30px;
+}

@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Todo</title>
+    <link href="../lib/css/reset.css" type="text/css" rel="stylesheet"/>  
+    <script type="text/javascript" src="../lib/js/mod.js"></script>
+    <script type="text/javascript" src="../lib/js/jquery-1.8.2.min.js"></script>
+    <style type="text/css">
+        .project_page_module {
+            padding: 30px 50px;
+            min-height: 300px;
+        }
+        .project_page_module .title {
+            font-size: 20px;
+            line-height: 28px;
+            margin-top: 10px;            
+        }
+        .project_page_module .filer_wrapper {
+            margin-top: 20px;
+            line-height: 26px;
+            font-size: 14px;
+        }
+        .project_page_module .filer_wrapper .item {
+            margin-bottom: 10px;
+        }
+        .project_page_module .filer_wrapper .label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .project_page_module .filer_wrapper .nav {
+            /*display: inline-block;*/
+
+        }
+        .project_page_module .filer_wrapper .nav li {
+            float: left;
+            height: 26px;
+            padding: 0px 20px;
+            margin-right: 10px;
+            cursor: pointer;            
+        }
+        .project_page_module .filer_wrapper .nav li.active {
+            background-color: #242d4f;
+            color: #fff;
+        }
+        .project_page_module .filer_wrapper .time_wrapper {
+            display: inline-block;
+            margin-right: 10px;
+            height: 24px;
+            line-height: 
+            width: 148px;
+            border: 1px solid #f6f6f6;
+        }
+        .project_page_module .filer_wrapper .time_wrapper span {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #e8e8e8;
+            text-align: center;
+        }
+        .project_page_module .filer_wrapper .time_wrapper input {
+            padding-left: 5px;
+            width: 113px;
+            border: none;
+            height: 24px;
+            display: inline-block;
+            background: transparent;
+        }
+        .project_page_module .project_wrapper {
+            margin: 20px auto;
+            width: 900px;
+            font-size: 14px;
+        }
+        .project_page_module .project_wrapper .project_wrapper_header {
+            height: 36px;
+            line-height: 36px;
+            background-color: #e8e8e8;
+        }
+        .project_page_module .project_wrapper .meassage_wrapper_data {
+            height: 120px;
+            overflow: hidden ;
+            position: relative;
+        }
+        .project_page_module .project_wrapper .meassage_wrapper_data .data{
+            padding: 30px 0px;
+            float: left;
+            height: 60px;
+/*          position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;*/
+        }
+        .project_page_module .project_wrapper .container1, .project_page_module .project_wrapper .meassage_wrapper_data .container1 {
+            width: 15.5%;
+            padding-left: 1.5%;
+            display: inline-block;
+        }
+        .project_page_module .project_wrapper .meassage_wrapper_data .container2, 
+        .project_page_module .project_wrapper .meassage_wrapper_data .container3,
+        .project_page_module .project_wrapper .meassage_wrapper_data .container4,
+        .project_page_module .project_wrapper .meassage_wrapper_data .container5 {
+            line-height: 60px;
+        }
+        .project_page_module .project_wrapper .container2, 
+        .project_page_module .project_wrapper .container3,
+        .project_page_module .project_wrapper .container4,
+        .project_page_module .project_wrapper .container5,
+        .project_page_module .project_wrapper .container6 {
+            width: 12.6%;
+            display: inline-block;
+            /*line-height: 60px;*/
+        }
+        .project_page_module .project_wrapper .container7 {
+            width: 17%;
+            display: inline-block;
+        }
+        .project_page_module .project_wrapper .container1 .name {
+            color: #666;
+            font-size: 14px;
+            line-height: 24px;
+        }
+        .project_page_module .project_wrapper .container1 {
+            font-size: 12px;
+            color: #999;
+            line-height: 18px;
+        }
+        .project_page_module .project_wrapper .container1 .rate {
+            margin-right: 10px;
+        }
+        .project_page_module .project_wrapper .container7 a {
+            display: block;
+            width: 70px;
+            height: 23px;
+            line-height: 23px;
+            border: 1px solid #242d4f;
+            text-align: center;
+            color: #666;
+            text-decoration: none;
+        }
+        .project_page_module .project_wrapper .even {
+            background-color: #f6f6f6;
+
+        }
+        .project_page_module .repay_recordlist_wrapper {
+            background-color: #eceef5;
+            padding: 30px;
+            width: 840px;
+            border: solid #242d4f;
+            border-width: 3px 0px 3px 0px;
+            position: relative;
+        }
+        .project_page_module .repay_recordlist_wrapper table {
+            width: 100%;
+            text-align: center;
+        }
+        .project_page_module .repay_recordlist_wrapper th {
+              /*color: #666;*/
+              font-size: 14px;
+              height: 34px; 
+              border-bottom: 1px solid #666;  
+              font-weight: normal;         
+        }
+        .project_page_module .repay_recordlist_wrapper td {
+            height: 45px;
+            border-bottom: 1px solid #ddd;
+            font-size: 12px;
+        }
+        .project_page_module .repay_recordlist_wrapper .triangle {
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            margin-left: -17px;
+            width: 34px;
+            height: 16px;
+            background: url(./sanjiao.png) no-repeat;
+        }
+        .project_page_module .repay_recordlist_wrapper .close_recordlist_wrapper {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 18px;
+            height: 18px;
+            background: url(./guanbi.png) no-repeat;
+        }
+        #project_pager {
+            /*float: right;*/
+            text-align: right;
+            margin: 30px 0px;
+            height: 20px;
+        }
+        #project_pager span.on, #project_pager a:hover  {
+            /*border: 1px solid #008cd7;*/
+            border-radius: 1px;
+            background: #242d4f;
+            color: #FFF;
+        }
+        #project_pager a:hover  {
+            text-decoration: none;
+        }
+        #project_pager a.pager-pre, #project_pager a.pager-next {
+            /*border: 1px solid #ccc;*/
+        /*  background-color: #fff;*/
+        }
+        #project_pager a, #project_pager span {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 8px;
+            margin: 0 3px;
+        }
+        #repay_record_pager {
+            /*float: right;*/
+            /*text-align: right;*/
+            text-align: center;
+            margin: 30px auto;
+            height: 20px;
+        }
+        #repay_record_pager span.on, #repay_record_pager a:hover  {
+            /*border: 1px solid #008cd7;*/
+            border-radius: 1px;
+            background: #242d4f;
+            color: #FFF;
+        }
+        #repay_record_pager a:hover  {
+            text-decoration: none;
+        }
+        #repay_record_pager a.pager-pre, #repay_record_pager a.pager-next {
+            /*border: 1px solid #ccc;*/
+        /*  background-color: #fff;*/
+        }
+        #repay_record_pager a, #repay_record_pager span {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 20px;
+            margin: 0 3px;
+            background-color: #eceef5;
+            color: #242d4f;
+            border: 1px solid #242d4f;
+        }
+        #repay_record_pager .pager_more {
+            border: none;
+            background: transparent;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header id="mainHeader">
+
+    </header>
+    <div id="mainBody">
+        <div id="ProjectPageModule" class="project_page_module">
+            <p class="title">已投项目</p>
+            <div class="filer_wrapper">
+                <div class="status_filter item">
+                    <span class="label fl">项目状态:</span>
+                    <ul class="nav status clear fl">
+                        <li class="active" data-status="0">全部</li>
+                        <li class="" data-status="1">融资中(1)</li>
+                        <li class="" data-status="2">还款中</li>
+                        <li class="" data-status="3">还款完成</li>
+                    </ul>
+                </div>
+
+                <div class="time_filer item">
+                    <span class="label">交易时间:</span>
+                    <ul class="nav status fl clear">
+                        <li class="active" data-status="1">融资中(1)</li>
+                        <li class="" data-status="2">还款中</li>
+                        <li class="" data-status="3">还款完成</li>
+                    </ul>
+                    <div class="time_wrapper">
+                        <span>起</span>
+                        <input type="text" id="startTime">
+                    </div>
+                    <div class="time_wrapper">
+                        <span>止</span>
+                        <input type="text" id="endTime">
+                    </div>                
+                </div>
+            </div>
+            <div class="project_wrapper_header">
+                <span class="container1">项目信息</span>
+                <span class="container2">投资金额(元)</span>
+                <span class="container3">预期收益(元)</span>
+                <span class="container4">已收款(元)</span>
+                <span class="container5">待收款(元)</span>
+                <span class="container6">状态</span>
+                <span class="container7">操作</span>
+            </div>
+            <ul class="project_wrapper" id="projectWrapper">
+                <li class="meassage_wrapper_data">
+                    <div class="data container1">
+                        <a class="name" href="#">信哲_203294</a>
+                        <p class="time">2014-03-10 12:11</p>
+                        <p><span class="rate">利率: 13.5%</span><span class="duretion"></span></p>
+                    </div>
+                    <div class="data container2">31.01</div>
+                    <div class="data container3">31.09</div>
+                    <div class="data container4">31.01</div>
+                    <div class="data container5">3331.01</div>
+                    <div class="data container6">
+                        <p class="status">还款中</p>
+                        <p class="current">2/9期</p>                        
+                    </div>
+                    <div class="data container7">
+                        <a class="agreemengt" href="#" target="_blank">查看协议</a>
+                        <a class="repay_record" href="#" target="_blank">收款记录</a>                       
+                    </div>
+                </li>
+                <li class="meassage_wrapper_data even">
+                    <div class="data container1">
+                        <a class="name" href="#">信哲_203294</a>
+                        <p class="time">2014-03-10 12:11</p>
+                        <p><span class="rate">利率: 13.5%</span><span class="duretion">期限:9个月</span></p>
+                    </div>
+                    <div class="data container2">31.01</div>
+                    <div class="data container3">31.09</div>
+                    <div class="data container4">31.01</div>
+                    <div class="data container5">3331.01</div>
+                    <div class="data container6">
+                        <p class="status">还款中</p>
+                        <p class="current">2/9期</p>                        
+                    </div>
+                    <div class="data container7">
+                        <a class="agreemengt" href="#" target="_blank">查看协议</a>
+                        <a class="repay_record" href="#" target="_blank">收款记录</a>              
+                    </div>
+                </li>
+            </table>
+            <div class="pager_bar clear" id="project_pager"><span class="on">1</span><a class="pager_normal" href="#">2</a><a class="pager_normal" href="#">3</a><a class="pager_normal" href="#">4</a><a class="pager_normal" href="#">5</a><a class="pager_normal" href="#">6</a><a class="pager_normal" href="#">7</a><span class="pager_more">...</span><a class="pager_normal" href="#">100</a><a class="pager_next" href="#">&gt;</a></div>
+            <!-- <div class="pager_bar" id="project_pager"></div> -->
+            <div class="repay_recordlist_wrapper">
+                <a class="close_recordlist_wrapper" href="#" title="关闭"></a>
+                <span class="triangle"></span>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="10%">期数</th>
+                            <th width="20%">收款时间</th>
+                            <th width="20%">收款金额(元)</th>
+                            <th width="15%">本金(元)</th>
+                            <th width="15%">利息(元)</th>
+                            <th width="20%">状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第1期</td>
+                            <td>2013-05-13</td>
+                            <td>34.3</td>
+                            <td>34</td>
+                            <td>0.5</td>
+                            <td>已收款</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pager_bar" id="repay_record_pager">
+                    <span class="on">1</span>
+                    <a class="pager_normal" href="#">2</a>
+                    <a class="pager_normal" href="#">3</a>
+                    <a class="pager_normal" href="#">4</a>
+                    <a class="pager_normal" href="#">5</a>
+                    <a class="pager_normal" href="#">6</a>
+                    <a class="pager_normal" href="#">7</a>
+                    <span class="pager_more">...</span>
+                    <a class="pager_normal" href="#">100</a>
+                    <a class="pager_next" href="#">&gt;</a>
+                </div>
+            </div>
+        </div>
+    </div>   
+    <footer id="mainFooter">
+    
+    </footer>
+
+    <script type="text/javascript">
+        require('pc:index');
+    </script>
+</body>
+</html>

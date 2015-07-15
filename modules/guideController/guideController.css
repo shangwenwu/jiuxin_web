@@ -1,0 +1,134 @@
+.guide_page_module .guide_header {
+	width: 100%;
+	min-height: 176px;
+	_height: 176px;
+	background: url(images/guide-header.png) no-repeat center center;
+	margin-top: -20px;
+}
+.guide_page_module .section_white {
+	background: #fff;
+	width: 100%;
+}
+.guide_page_module .section_gray{
+	background: #F3F2EF;
+	width: 100%;
+}
+.guide_page_module .wrapper {
+	width: 600px;
+	margin: 0px auto;
+	text-align: center;
+	overflow: hidden;
+}
+.guide_page_module .desc_wrapper .title {
+	font-size: 30px;
+  	padding: 50px 0px 30px;
+  	color: #324075;	
+  	font-weight: 200;
+}
+.guide_page_module .desc_wrapper .text {
+  	font-size: 12px;
+  	line-height: 24px;
+  	color: #666666;
+  	text-align: left;
+  	margin-bottom: 50px;	
+}
+.guide_page_module .patten_wrapper .title {
+	font-size: 30px;
+  	margin: 50px 0px 30px;
+  	color: #324075;	
+  	font-weight: 200;
+  	overflow: hidden;
+}
+.guide_page_module .goodness {
+	width: 488px;
+	margin: 0px auto;
+}
+.guide_page_module .goodness li {
+	width: 160px;
+	float: left;
+}
+.guide_page_module .goodness li p {
+  	font-size: 12px;
+  	line-height: 18px;
+  	color: #666666;
+  	margin: 10px 0 20px 0;	
+}
+.guide_page_module .goodness li.left83 {
+	margin-left: 83px;
+}
+.guide_page_module .goodness li.right83 {
+	margin-right: 83px;
+}
+.guide_page_module .goodness li div {
+	width: 159px;
+	height: 94px;
+}
+.guide_page_module .goodness .guide_icon1 {
+	background: url(images/guide-icon1.png) no-repeat center;
+}
+.guide_page_module .goodness .guide_icon2 {
+	background: url(images/guide-icon2.png) no-repeat center;
+}
+.guide_page_module .goodness .guide_icon3 {
+	background: url(images/guide-icon3.png) no-repeat center;
+}
+.guide_page_module .goodness .guide_icon4 {
+	background: url(images/guide-icon4.png) no-repeat center;
+}
+.guide_page_module .patten_wrapper h3 {
+	font-size: 24px;
+  	margin-bottom: 25px;
+  	color: #666;
+  	font-weight: 200;
+}
+.guide_page_module .patten_wrapper .text {
+	font-size: 12px;
+  line-height: 24px;
+  text-align: left;
+}
+.guide_page_module .patten_wrapper .invest-patten {
+	width: 537px;
+	height: 537px;
+  	margin: 30px auto;
+	background: url(images/invest-patten.png) no-repeat center;
+}
+.guide_page_module .invest_wrapper .title {
+	font-size: 30px;
+  	margin: 50px 0px;
+  	color: #324075;
+  	font-weight: 200;
+}
+.guide_page_module .invest_wrapper {
+	width: 875px;
+}
+.guide_page_module .invest_wrapper .invest-step {
+	width: 875px;
+	height: 55px;
+	margin-bottom: 20px;
+	background: url(images/invest-step.png) no-repeat center;
+}
+.guide_page_module .invest_wrapper .invest-money-icon {
+	width: 164px;
+	height: 178px;
+	margin: 50px auto 20px;
+	background: url(images/invest-money-icon.png) no-repeat center;
+}
+.guide_page_module .invest_wrapper h3 {
+  	margin-top: 10px;
+  	font-size: 30px;
+  	color: #232d4f;
+  	font-weight: 200;
+}
+.guide_page_module .invest_wrapper .to_register {
+	display: block;
+	margin: 20px auto;
+	width: 200px;
+  	height: 40px;
+  	line-height: 40px;
+  	border: none;
+  	background-color: #b5a16b;
+  	border-radius: 4px;
+  	color: #fff;
+  	font-size: 14px;
+  	text-decoration: none;
+}

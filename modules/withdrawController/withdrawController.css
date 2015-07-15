@@ -1,0 +1,112 @@
+.withdraw_module{
+  background: #fff;
+  display: inline-block;
+  width: 100%;
+  height: 700px;
+  font-size: 14px;
+}
+.withdraw_module .hd{
+  margin: 46px 50px 26px;
+  font-size: 20px;
+  color: #232d4f;
+}
+.withdraw_module .box{
+  width: 900px;
+  height: 215px;
+  background: #f4f4f4;
+  margin: 0 auto;
+  line-height: 40px;
+}
+.withdraw_module .box .top{
+  margin-top: 20px;
+  display: inline-block;
+}
+.withdraw_module .box .title{
+  width: 320px;
+  text-align: right;
+}
+.withdraw_module .box .greet{
+  color: #127a12;
+}
+.withdraw_module .box .bank_info{
+  width: 262px;
+  height: 40px;
+  border: 1px solid #c9c9c9;
+  background: #fff;
+}
+.withdraw_module .box .bank_img{
+  width: 130px;
+  height: 40px;
+  background: url(images/cardlist.png) no-repeat;
+  margin: 0 25px;
+}
+.withdraw_module .box .bank_img.ICBC{
+  background-position: 50% 4px;
+}
+.withdraw_module .box .bank_img.ABC{
+  background-position: 50% -34px;
+}
+.withdraw_module .box .bank_img.BOC{
+  background-position: 50% -76px;
+}
+.withdraw_module .box .bank_img.CCB{
+  background-position: 50% -118px;
+}
+.withdraw_module .box .bank_img.CIB{
+  background-position: 50% -158px;
+}
+.withdraw_module .box .bank_img.CMBC{
+  background-position: 50% -196px;
+}
+.withdraw_module .box .bank_img.PSBC{
+  background-position: 50% -235px;
+}
+.withdraw_module .box .bank_img.CMB{
+  background-position: 50% -274px;
+}
+.withdraw_module .box .bank_img.CEB{
+  background-position: 50% -314px;
+}
+.withdraw_module .box .bank_nu{
+
+}
+.withdraw_module .box .hint{
+  margin-left: 320px;
+  font-size: 12px;
+}
+.withdraw_module .box .red{
+  font-size: 11px;
+  line-height: 20px;
+}
+.withdraw_module .box .red .tip{
+  color: #b80000;
+  margin-left: 320px;
+}
+.withdraw_module .box .amount{
+  width: 262px;
+  height: 40px;
+  border: 1px solid #c9c9c9;
+  text-indent: 10px;
+}
+.withdraw_module .box .href{
+  margin-left: 20px;
+  color: #9ea9cd;
+  text-decoration: underline;
+}
+.withdraw_module .submit{
+  display: block;
+  margin: 20px auto;
+  border: none;
+  width: 262px;
+  height: 36px;
+  color: #fff;
+}
+.withdraw_module .explanation{
+  background: #f4f4f4;
+  width: 900px;
+  margin: 0 auto;
+}
+.withdraw_module .explanation ul{
+  margin: 26px 50px;
+  display: inline-block;
+}

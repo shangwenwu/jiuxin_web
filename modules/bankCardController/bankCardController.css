@@ -1,0 +1,145 @@
+.bank_card_module{
+  background: #fff;
+  display: inline-block;
+  width: 100%;
+  height: 700px;
+}
+.bank_card_module .hd{
+  margin: 46px 50px 42px;
+  font-size: 20px;
+  color: #232d4f;
+}
+.bank_card_module .card_box{
+  margin: 0 50px;
+}
+.bank_card_module .hint{
+  font-size: 14px;
+  margin-bottom: 26px;
+}
+.bank_card_module .card_list{
+  margin-bottom: 38px;
+}
+.bank_card_module .card_list .card_item{
+  width: 130px;
+  height: 40px;
+  border: 1px solid #c9c9c9;
+  margin-right: 26px;
+  margin-bottom: 14px;
+  background: url(images/cardlist.png) no-repeat;
+  cursor: pointer;
+}
+.bank_card_module .card_list .card_item.on{
+  border: 1px solid #242d4f;
+}
+.bank_card_module .card_list .card_item.on:before{
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: relative;
+  right: -110px;
+  top: 0px;
+  background: url(images/xuanze.png) no-repeat center;
+  display: inline-block;
+}
+.bank_card_module .card_list .card_item.gs{
+  background-position: 50% 4px;
+}
+.bank_card_module .card_list .card_item.ny{
+  background-position: 50% -34px;
+}
+.bank_card_module .card_list .card_item.zg{
+  background-position: 50% -76px;
+}
+.bank_card_module .card_list .card_item.js{
+  background-position: 50% -118px;
+}
+.bank_card_module .card_list .card_item.xy{
+  background-position: 50% -158px;
+}
+.bank_card_module .card_list .card_item.ms{
+  background-position: 50% -196px;
+}
+.bank_card_module .card_list .card_item.yz{
+  background-position: 50% -235px;
+}
+.bank_card_module .card_list .card_item.zs{
+  background-position: 50% -274px;
+}
+.bank_card_module .card_list .card_item.gd{
+  background-position: 50% -314px;
+}
+.bank_card_module .card_number .label{
+  width: 70px;
+  display: inline-block;
+}
+.bank_card_module .card_number .card_input{
+  width: 260px;
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #c9c9c9;
+  text-indent: 15px;
+}
+.bank_card_module .card_hint{
+  margin: 14px 0 14px 70px;
+}
+.bank_card_module .submit{
+  margin-left: 70px;
+  border: none;
+  width: 260px;
+  height: 36px;
+  color: #fff;
+}
+.bank_card_module .card_img{
+  width: 290px;
+  height: 118px;
+  margin: 0 auto;
+  text-align:center;
+}
+.bank_card_module .card_img.ABC{
+  background: url(images/abc.png) no-repeat center;
+}
+.bank_card_module .card_img.BOC{
+  background: url(images/boc.png) no-repeat center;
+}
+.bank_card_module .card_img.CCB{
+  background: url(images/ccb.png) no-repeat center;
+}
+.bank_card_module .card_img.CEB{
+  background: url(images/ceb.png) no-repeat center;
+}
+.bank_card_module .card_img.CIB{
+  background: url(images/cib.png) no-repeat center;
+}
+.bank_card_module .card_img.CMB{
+  background: url(images/cmb.png) no-repeat center;
+}
+.bank_card_module .card_img.CMBC{
+  background: url(images/cmbc.png) no-repeat center;
+}
+.bank_card_module .card_img.ICBC{
+  background: url(images/icbc.png) no-repeat center;
+}
+.bank_card_module .card_img.PSBC{
+  background: url(images/psbc.png) no-repeat center;
+}
+.bank_card_module .card_txt,
+.bank_card_module .card_nu{
+  color: #fff;
+  font-size: 26px;
+  margin-top: 40px;
+  height:40px;
+  line-height: 56px;
+}
+.bank_card_module .card_nu{
+  line-height: 40px;
+}
+.bank_card_module .bind_txt{
+  width: 510px;
+  margin: 55px auto 0;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 36px;
+}
+.bank_card_module .bind_txt a{
+  color: #9ea9cd;
+}

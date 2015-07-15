@@ -1,0 +1,38 @@
+
+.modifyPwd_module{  background: #fff; padding: 40px 50px 80px 50px;  }
+.modifyPwd_module p,.modifyPwd_module span,.modifyPwd_module lable,.modifyPwd_module button{color: #666;font-size: 14px; }
+.modifyPwd_module input{ border: 1px solid #e3e3e3;}
+.modifyPwd_module .bRed{ border: 1px solid #b80000;}
+.modifyPwd_module .red{ color: #b80000; }
+.modifyPwd_module button{ border: none; line-height: 40px; color: #fff; cursor: pointer;}
+.modifyPwd_module .f18{ font-size: 18px; padding-left: 200px;}
+.modifyPwd_module .mt10{ margin-top: 10px;}
+.modifyPwd_module .mt20{ margin-top: 20px;}
+.modifyPwd_module .mt30{ margin-top: 30px;}
+.modifyPwd_module .mt80{ margin-top: 100px;}
+
+
+
+.modifyPwd_module p.statusTitle{ font-size: 24px; color: #242d4f; }
+
+.modifyPwd_module div.statusBox1{ margin: auto; width: 336px; height: 300px; margin-top:10px; }
+.modifyPwd_module div.statusBox1 .submit{ margin-top: 30px; width: 100%; }
+.modifyPwd_module label{ position: relative;padding:10px 10px 10px 20px; display: inline-block; border: 1px solid #e3e3e3; width: 60%;}
+.modifyPwd_module label span{ width: 45px; display: inline-block;}
+.modifyPwd_module label input{ display: inline-block; border:none; background: none; margin-left:10px; padding-left: 10px; border-left:1px solid #e3e3e3;}
+
+.modifyPwd_module div.statusBox1{ display: block;}
+.modifyPwd_module div.statusBox1 .f12 input{ vertical-align: bottom; margin-right: 5px;  width: 16px; height: 16px;}
+.modifyPwd_module div.statusBox1 label{ width: 90%; position: relative;}
+.modifyPwd_module div.statusBox1 label span{ width: 65px;}
+.modifyPwd_module div.statusBox1 label p{  font-size: 12px; position: absolute; top:10px; right:-260px;  width: 250px;}
+.modifyPwd_module div.statusBox1 label input{ width: 210px;}
+.modifyPwd_module div.statusBox1 label#captcha1{ width: 55%;}
+.modifyPwd_module div.statusBox1 label#captcha1 input{ width: 90px;}
+.modifyPwd_module div.statusBox1 label#captcha1  p{ display: none; font-size: 12px; position: absolute; top:10px; right:-380px;  width: 250px;}
+.modifyPwd_module div.statusBox1 .captchaImg{ position:relative; margin-left: 10px; width: 30%; overflow: hidden; display: inline-block; border: 1px solid #e3e3e3; background: #fff; height: 42px;}
+.modifyPwd_module div.statusBox1 .captchaImg img{   width: 70%; height: 42px; }
+.modifyPwd_module div.statusBox1 .captchaImg div{ position:absolute; top:15px; right:8px; cursor: pointer; width: 15px; height: 13px; background: url('images/refresh.png') no-repeat;}
+
+
+.modifyPwd_module p.textDescript{ line-height: 25px; padding-left: 200px;}

@@ -1,0 +1,20 @@
+{
+	"status":"200",
+	"message":"not login",
+	"data":{
+		"isAgreement": false,
+		"isRefundAgreement":false,
+		"isAccount": true,
+		"username": "liang.tang",
+		"messageCount": 5,
+		"isBindTrus" :false,
+	  	"isBorrower": true,
+	  	"remain": 123456789.456,
+		"isBindCard" : true,
+        "isBindPone" : true,
+		"safeLevel": 2,
+		"lastLoginTime": "2015-09-11 12:22:22",
+		"leftMoney": "2000.00",
+		"serverTime": "1432634979843"
+	}
+}

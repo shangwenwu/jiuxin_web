@@ -1,0 +1,24 @@
+.invest_module .investTable { width: 1200px; margin: 10px auto; font-size: 14px; font-weight: 400; text-align: center;}
+.invest_module .investTable th{ background: #555f81; color: white; line-height: 36px;  }
+.invest_module .investTable td{ background: white; color:#666; border-bottom:1px solid #ccc; line-height: 65px;}
+.invest_module .investTable td a{ text-decoration: none; color: #555f81;}
+.invest_module .investTable .golden{ color:#af985c;}
+.invest_module .investTable td a.btn_gold{width: 120px; text-align: center; line-height: 35px; background: #b49b5d; color: #fff; border: none; border-radius: 5px; display: inline-block; cursor: pointer;}
+.invest_module .investTable td a.btn_gray{width: 120px; text-align: center; line-height: 35px; background: lightgrey; color: #b5a16b; border: none; border-radius: 5px; display: inline-block; cursor: inherit;}
+
+.invest_module .sifting{width: 1160px; font-size: 14px; background: white; margin: 20px auto 20px; padding:0px 20px;}
+.invest_module .sifting div{ padding:10px;}
+.invest_module .sifting div.borderB{ border-bottom: 1px solid #ccc; }
+.invest_module .sifting div span,.invest_module .sifting div a { cursor: pointer; text-align: center; text-decoration: none; display: inline-block; line-height: 28px; width: 85px; margin-right: 35px;}
+.invest_module .sifting div a:hover{ color: #666;}
+.invest_module .sifting div span.selected,.invest_module .sifting div span:hover{ background: #555f81; color: white;}
+
+.invest_module .tableFooter{ margin:30px auto; width:1200px; text-align: center;}
+.invest_module .tableFooter span,.invest_module .tableFooter a{ cursor: pointer; border: 1px #e5e5e5 solid; font-size: 14px; font-weight: bold; text-decoration:none;  display: inline-block; padding:5px 10px; margin:0 3px; }
+.invest_module .tableFooter span:hover,.invest_module .tableFooter a:hover,.invest_module .tableFooter a.pageactive{background: #324075; color:white;}
+.invest_module .tableFooter strong{ margin-right: 50px;}
+.invest_module .tableFooter .disabledClass{ cursor: inherit; opacity: .5; }
+.invest_module .tableFooter .disabledClass:hover{ background: none; color: #666;};
+
+.invest_module .investTable td a.rookieA{ display: inline-block; }
+.invest_module .investTable td span.rookie{ margin-left: 5px; width: 25px; height: 25px; vertical-align: middle; background:url(images/rookie.png) no-repeat; display: inline-block;}

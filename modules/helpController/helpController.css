@@ -1,0 +1,78 @@
+.help_page_module {
+    width: 998px;
+    margin: 40px auto 60px;
+}
+.help_page_module .tab_list {
+    float: left;
+    width: 152px;
+}
+.help_page_module .tab_list a {
+    display: block;
+    height: 55px;
+    line-height: 55px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    text-decoration: none;
+}
+.help_page_module .tab_list .active {
+    color: #fff;
+    background-color: #232b50;           
+}
+.help_page_module .content {
+    float: left;
+    margin-left: 20px;
+    padding: 30px;
+    width: 763px;
+    min-height: 500px;
+    _height: 500px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+.help_page_module .content .tab_item {
+    display: none;
+}
+.help_page_module .content .show {
+    display: block;
+}
+.help_page_module .content .tab_item .sub_question {
+  	background: #fbfdff;
+  	border-radius: 6px;
+  	border: 1px solid #e9f3ff;
+  	margin-bottom: 15px;
+}
+.help_page_module .tab_item .sub_question .question {
+	height: 40px;
+  	line-height: 40px;
+  	padding-left: 18px;
+  	padding-right: 25px;
+  	border-radius: 6px;
+  	color: #444445;
+  	font-size: 15px;
+ 	cursor: pointer;
+}
+.help_page_module .tab_item .sub_question .current {
+	background: #6f93b6;
+  	color: #fff;	
+}
+.help_page_module .tab_item .sub_question .text_list {
+  	padding-left: 18px;
+  	padding-right: 25px;
+  	padding-top: 15px;
+  	padding-bottom: 25px;
+  	line-height: 28px;
+  	font-size: 14px;
+  	color: #444445;
+  	display: none;
+}
+.help_page_module .tab_item table {
+  	border: 1px solid #A8A8A8;
+  	width: 400px;
+  	margin-top: 20px;
+  	text-align: center;
+}
+.help_page_module .tab_item table td {
+	border: 1px solid #A8A8A8;
+}
+

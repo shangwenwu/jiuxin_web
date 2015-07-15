@@ -1,0 +1,51 @@
+.accountPandect_module .f12{ font-size: 12px;}
+.accountPandect_module .f14{ font-size: 14px;}
+.accountPandect_module .f18{ font-size: 18px;}
+.accountPandect_module .f20{ font-size: 20px;}
+.accountPandect_module .f30{ font-size: 30px;}
+
+.accountPandect_module .color1{ color: #666;}
+.accountPandect_module .color2{ color: #333;}
+.accountPandect_module .color3{ color: #242d4f;}
+.accountPandect_module .color4{ color: red;}
+
+.accountPandect_module .bg1{ background-color: #242d4f;}
+.accountPandect_module .bg2{ background-color: #ac955a;}
+.accountPandect_module .bg3{ background-color: #c2c2c2;}
+.accountPandect_module .bg4{ background-color: #9aa3c6;}
+.accountPandect_module .bg5{ background-color: white;}
+
+.accountPandect_module .mt20{ margin-top: 20px;}
+.accountPandect_module .mt10{ margin-top: 10px;}
+.accountPandect_module .mt40{ margin-top: 40px;}
+
+.accountPandect_module .userInfo{  padding: 30px 45px 10px 45px; line-height: 40px;}
+
+.accountPandect_module .userInfo .fl div{ display: inline-block;}
+.accountPandect_module .userInfo .fl div.rank{ margin: 0 15px; position: relative; height: 6px; width: 130px;}
+.accountPandect_module .userInfo .fl div.rank div{ position: absolute;top: 0; left: 0; bottom: 0; width: 50%; }
+
+.accountPandect_module .userInfo div.fl li{ display: inline-block; width: 30px; height: 30px; margin-right: 15px;}
+.accountPandect_module .userInfo div.fl li.nomobile{ background: url('images/nomobile.png') no-repeat;}
+.accountPandect_module .userInfo div.fl li.nopay{background: url('images/nopay.png') no-repeat;}
+.accountPandect_module .userInfo div.fl li.nocard{background: url('images/nocard.png') no-repeat;}
+.accountPandect_module .userInfo div.fl li.mobile{ background: url('images/mobile.png') no-repeat;}
+.accountPandect_module .userInfo div.fl li.pay{background: url('images/pay.png') no-repeat;}
+.accountPandect_module .userInfo div.fl li.card{background: url('images/card.png') no-repeat;}
+
+.accountPandect_module .userInfo .fr a{ line-height: 28px; padding:0px 20px; margin-left: 10px; color: white; text-decoration: none; display: inline-block; margin-top: 20px;}
+
+.accountPandect_module .pie_calendar div{ }
+.accountPandect_module .pie_calendar .pie{ display: inline-block; width: 380px; padding:40px 60px ; }
+.accountPandect_module .pie_calendar .pie div{}
+.accountPandect_module .pie_calendar .pie .pie_block{ width: 170px; height: 170px; display: inline-block; }
+.accountPandect_module .pie_calendar .pie .pie_description{ padding-left: 40px;display: inline-block; }
+.accountPandect_module .pie_calendar .pie .pie_description div{ display: block; height: 25px;}
+.accountPandect_module .pie_calendar .pie .pie_description div.bg1,.accountPandect_module .pie_calendar .pie .pie_description div.bg2,.accountPandect_module .pie_calendar .pie .pie_description div.bg4{ width: 6px; height: 6px; display: inline-block; vertical-align: middle; margin-right:10px; }
+
+.accountPandect_module .pie_calendar .calendar{ width: 500px;}
+
+.accountPandect_module .curve{ width: 390px; height: 340px; padding:50px; position: relative;}
+.accountPandect_module .curve div.color1{ display: inline-block; width: 33.33%;}
+.accountPandect_module .curve a{ position: relative; z-index: 1000; text-decoration: none; cursor: pointer; margin-top:40px; color: white; width: 75px; margin-right: 15px; line-height: 20px; border-radius: 10px; display: inline-block; text-align: center;}
+.accountPandect_module .curve .pic{ z-index: 0; width: 520px; padding: 0; position: absolute;  bottom: 0; left: 0; right: 0; height: 270px;}

@@ -1,0 +1,99 @@
+Router.addRules({
+    'cmslist/id=:id' : function (type,id) {
+        J.Controllers['cmslist'] ? J.Controllers['cmslist'].render(id) : J.Controllers['cmslist'] = new CmsListController(id);
+    }
+});
+var CmsListController = function(id){
+	var t = this;
+	t.el = $('<div id="cmsListModule" class="cms_list_module">'+
+			    '<h1 id="cmsHead" class="cms_title"></h1>'+
+			    '<div id="cmsGrid" class="cms_grid"></div>'+
+		    '</div>');
+    t.cmsHead = t.el.find('#cmsHead');
+    t.cmsGrid = t.el.find('#cmsGrid');
+	t.render(id)
+};
+CmsListController.prototype = {
+	render: function(id){
+		var t = this;
+		t.id = id;
+    	t.config();
+		$('#mainBody').html(t.el);
+    	t.cmsHead.html(id == 'news' ? '媒体报道' : '最新公告');
+		t.fetchGrid(id);
+		t.events();
+		J.Common.matchRoute(location.hash);
+	},
+	fetchGrid: function(){
+		var t = this;
+		J.Common.renderTable(t.grid,function(con){
+		    t.cmsGrid.html(con);
+		    if(t.grid.footer){
+	    		var getPara = t.el.find('table');
+		    	var footerConfig = {
+					total:getPara.attr('total'),
+					currentPage:getPara.attr('currentPage'),
+					pageActive:'pageactive',
+					className:'tableFooter',
+					fristPage:'fristPage',
+					lastPage:'lastPage',
+					prevPage:'prevPage',
+					nextPage:'nextPage',
+					disabledClass:'disabledClass',
+					appendAfter:getPara.attr('class'),
+					pageSize:getPara.attr('pageSize')
+				}
+				J.Common.renderTableFooter(footerConfig,function(con){
+					$('.'+footerConfig.appendAfter).after(con);
+				});
+			}
+		});
+	},
+	config:function(){
+		var t = this;
+        t.grid = {
+			dataSource:J.Api.cmslist,
+			sendData:{
+				pageSize:10,
+				currentPage:1,
+				type:t.id
+			},
+			footer:true,
+			headTh:{
+				field:['name','time'],
+				name:['名称','时间']
+			},
+			className:'cms_table',
+			format:{
+				name:function(item){
+					return '<a class="name ellipsis fl" target="_blank" href="#cmspage/id='+item.id+'">'+item.name+'</a>';
+				},
+				time:function(item){
+                    return '<span class="time">'+item.time+'</span>';
+				}
+			}
+		};
+		
+	},
+	events: function(){
+       var t = this;
+	   //点击页码
+	    t.el.delegate('.tableFooter a', 'click', function(e){
+	    	t.grid.sendData.currentPage = $(this).html();
+	    	t.clearTime();
+	    	t.runTable();
+	    });
+	    //点击上一页下一页首页尾页
+	    t.el.delegate('.tableFooter span', 'click', function(e){
+	    	if(!$(this).hasClass("disabledClass")){
+		    	t.grid.sendData.currentPage = $(this).attr('page');
+		    	t.clearTime();
+		    	t.runTable();
+	    	}
+	    });
+	}
+};
+
+CmsListController.prototype.constructor = CmsListController;
+
+module.exports = CmsListController;

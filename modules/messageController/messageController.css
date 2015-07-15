@@ -1,0 +1,74 @@
+.message_page_module {
+    padding: 30px 50px;
+    background-color: #fff;
+    min-height: 300px;
+}
+.message_page_module .title {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 10px;
+}
+.message_page_module .nav {
+    margin: 20px 0px;
+}
+.message_page_module .nav li {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    padding: 0px 20px;
+    /*margin: 0px 10px;*/
+    margin-right: 10px;
+    cursor: pointer;
+}
+.message_page_module .nav li.active {
+    background-color: #242d4f;
+    color: #fff;
+}
+.message_page_module table {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.message_page_module th {
+    color: #232d4f;
+    font-size: 14px;
+    background-color: #e8e8e8;
+    height: 34px;
+}
+.message_page_module td {
+    font-size: 14px;
+    height: 45px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.message_page_module .noread td {
+    color: #000;
+}
+.message_page_module .pager_bar {
+    /*float: right;*/
+    text-align: right;
+    margin-top: 30px;
+    height: 20px;
+}
+.message_page_module .pager_bar span.on, .message_page_module .pager_bar a:hover  {
+    border-radius: 1px;
+    background: #242d4f;
+    color: #FFF;
+}
+.message_page_module .pager_bar a:hover  {
+    text-decoration: none;
+}
+.message_page_module .pager_bar a.pager-pre, .pager_bar a.pager-next {
+    /*border: 1px solid #ccc;*/
+/*  background-color: #fff;*/
+}
+.message_page_module .pager_bar a, .message_page_module .pager_bar span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+    margin: 0 3px;
+}
+/*.message_page_module .pager_bar a.pager_normal {
+    border: 1px solid #ccc;
+}*/

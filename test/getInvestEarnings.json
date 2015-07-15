@@ -1,0 +1,16 @@
+{
+	"status":"200",
+	"message":"ok",
+	"data":{
+		"totalEarnings":"1220.80",  
+        "lastMonth":"880.20",   
+        "dueinEarnings":"105.20",  
+		"totalInvest":"324.80", 
+		"investProject":"340.00", 
+		"dueinPrincipal":"0", 
+		"availableBalance":"10", 
+		"dueinInterest":"0.000", 
+		"frozenAmount":"0.000", 
+    	"totalAmount":"220.80"
+	}
+}

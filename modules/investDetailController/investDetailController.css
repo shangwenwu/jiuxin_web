@@ -1,0 +1,394 @@
+.investDetail_page_module {
+    width: 998px;
+    margin: 15px auto;
+}
+.investDetail_page_module .invest_data_wrapper {
+    float: left;
+    padding: 0 25px;
+    height: 315px;
+    width: 500px;
+    background-color: #fff;
+    border-radius: 2px;          
+}
+.investDetail_page_module .invest_data_wrapper .invest_title {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 20px;
+}
+.investDetail_page_module .invest_data_wrapper .invest_title .rookie {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    /*margin: 7px 10px 0px 0px;*/
+    top: 5px;
+    *top: 0px;
+    margin-right: 10px;
+    position: relative;
+    background: url(images/new.png) no-repeat;
+}
+.investDetail_page_module .invest_data_wrapper .invest_title .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.investDetail_page_module .invest_data_wrapper .invest_title .protocol {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-size: 14px;
+    color: #b5a16b;
+    text-decoration: underline;
+}
+.investDetail_page_module .invest_data_wrapper .content {
+    margin-top: 20px;
+    padding: 10px 0px;
+    border-bottom: 1px solid #b5a16b;
+    border-top: 1px solid #b5a16b;        
+}
+.investDetail_page_module .invest_data_wrapper .content .item {
+    float: left;
+    padding: 10px 0px 10px 20px;
+    height:  78px;
+    width: 99px;
+    border-right: 1px solid #b5a16b;
+}
+.investDetail_page_module .invest_data_wrapper .content .name {
+    height: 30px;
+    line-height: 30px;
+    color: #939393;
+    font-size: 16px;           
+}
+.investDetail_page_module .invest_data_wrapper .content .value {
+    margin-top: 5px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    color: #232b50;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: sans-serif,Hiragino Sans GB;
+}
+.investDetail_page_module .invest_data_wrapper .content .value span {
+    position: relative;
+    font-size: 16px;
+    top: -1px;
+}
+.investDetail_page_module .invest_data_wrapper .content .itemFirst .value {
+   color: #b49b5d;
+}
+.investDetail_page_module .invest_data_wrapper .content .itemFirst .value {
+   color: #b49b5d;
+}
+.investDetail_page_module .invest_data_wrapper .content .itemSecond {
+    width: 165px;
+}
+.investDetail_page_module .invest_data_wrapper .content .itemThird {
+    border-right: none;
+}
+.investDetail_page_module .invest_data_wrapper .info_list {
+    margin-top: 20px;
+    line-height: 25px;
+    font-size: 14px;
+}
+.investDetail_page_module .itemt .goldenDot {
+    color: #b5a16b;
+    margin-right: 5px;
+}
+.investDetail_page_module .itemt .blueDot {
+    color: #232b50;
+    margin-right: 5px;
+}
+.investDetail_page_module .detail_wrapper {
+    margin-top: 50px;
+    background-color: #fff;
+    min-height: 560px;
+}
+.investDetail_page_module .detail_wrapper .nav_item {
+    height: 38px;
+    background-color: #f5f5f5;
+    /*border-bottom: 1px solid #f5f5f5;*/
+}
+.investDetail_page_module .detail_wrapper .nav_item li {
+    float: left;
+    width: 125px;
+    height: 38px;
+    line-height: 38px;
+    background-color: #e8e8e8;
+    margin-right: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    /*background: #e8e8e8;*/
+    color: #000;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    cursor: pointer;
+}
+.investDetail_page_module .detail_wrapper .nav_item li.active {
+    background-color: #fff;
+}
+.investDetail_page_module .detail_wrapper .sub_content {
+    padding: 50px;
+    display: none;
+}
+.investDetail_page_module .detail_wrapper .basic {
+    display: block;
+}
+.investDetail_page_module .detail_wrapper .basic .title {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #232d4f;
+}
+.investDetail_page_module .detail_wrapper .basic .text {
+/*            height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #232d4f;*/
+    margin: 10px 0px 15px; 
+    font-size: 14px;
+    line-height: 25px;
+}
+.investDetail_page_module .detail_wrapper table {
+    width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.investDetail_page_module .detail_wrapper table thead tr {
+    /*line-height: 25px;*/
+    color: #232d4f;
+    font-size: 14px;
+    background-color: #e8e8e8;
+    height: 34px;
+}
+.investDetail_page_module .detail_wrapper table td {
+    font-size: 14px;
+    line-height: 45px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+}
+.investDetail_page_module .do_invest_wrapper {
+    position: relative;
+    float: right;
+    width: 440px;
+    height: 315px;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #fff;            
+}
+.investDetail_page_module .do_invest_wrapper .status {
+    margin: 58px auto 0px;
+    position: relative;           
+}
+.investDetail_page_module .do_invest_wrapper .full {
+    background: url(./images/full.png) no-repeat 0 0;
+    width: 381px;
+    height: 192px;
+    /*margin: 0px auto;*/
+}
+.investDetail_page_module .do_invest_wrapper .finished {
+    background: url(./images/end.png) no-repeat 0 0;
+    width: 408px;
+    height: 192px;
+}
+.investDetail_page_module .do_invest_wrapper .processing {
+    background: url(./images/refunding.png) no-repeat 0 0;
+    width: 381px;
+    height: 192px;
+}
+.investDetail_page_module .do_invest_wrapper .invest_info {
+    position: relative;
+    padding-top: 28px;
+    /*background-color: #fff;*/
+    padding-bottom: 10px;
+}
+.investDetail_page_module .do_invest_wrapper .invest_margin {
+    height: 10px;
+    background-color: #f5f5f5;
+}
+.investDetail_page_module .invest_wrapper .invest_err {
+    position: absolute;
+    top: 85px;
+    left: 20px;
+    padding-left: 20px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #e8e8e8;
+    color: #f00;
+    font-size: 14px;
+    min-width: 200px;
+    text-align: center;
+}
+.investDetail_page_module .do_invest_wrapper .invest_info .progress_bg {
+    background: url(./images/processing.png) no-repeat 0 0;
+    width: 381px;
+    height: 32px;
+    margin: 0px auto;
+}
+.investDetail_page_module .do_invest_wrapper .invest_info .valiableInvest {
+    float: left;
+    width: 160px;
+    display: inline-block;
+    text-align: left;
+    text-indent: 26px;
+}
+.investDetail_page_module .do_invest_wrapper .invest_info .valiableInvest .money {
+    color: #222d4f;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+}
+.investDetail_page_module .do_invest_wrapper .invest_info .time {
+    position: relative;
+    width: 155px;
+    padding-left: 25px;
+    height: 30px;
+    line-height: 30px;
+    color: #222d4f;
+    font-size: 14px;
+    float: right;
+    text-align: left;
+}
+.investDetail_page_module .do_invest_wrapper .action_wrapper {
+    height: 145px;
+    /*margin-top: 5px;*/
+    background-color: #e8e8e8;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #6b6b6b;
+    padding: 10px 30px 0 30px;
+    position: relative;            
+}
+.investDetail_page_module .do_invest_wrapper .action_wrapper p {
+    color: #6b6b6b;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.investDetail_page_module .do_invest_wrapper .action_wrapper .btn {
+    height: 34px;
+    color: #fff;
+    background: #b5a16b;
+    font-size: 16px;
+    line-height: 34px;
+    padding: 0;
+    border: none;
+    display: block;
+    width: 240px;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-decoration: none;
+}
+.investDetail_page_module .do_invest_wrapper .time .clock {
+    /*display: inline-block;*/
+    position: absolute;
+    left: 0px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: url("https://www.jiuxinfinance.com/ccc/loan/img/icon-3fd5fc2a.png") no-repeat 0 0;
+    vertical-align: middle;
+}
+.investDetail_page_module .invest_wrapper {
+    height: 146px;
+    /*margin-top: 5px;*/
+    background-color: #e8e8e8;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #6b6b6b;
+    padding: 10px 30px 0 30px;
+    position: relative;
+}
+.investDetail_page_module .do_invest_wrapper .waiting {
+    margin-top: 130px;
+}
+.investDetail_page_module .do_invest_wrapper .waiting .waiting_time {
+    line-height: 30px;
+    font-size: 16px;
+}
+.investDetail_page_module .do_invest_wrapper .waiting .waiting_time span {
+    font-size: 20px;
+    color: #b5a16b;
+}
+.investDetail_page_module .do_invest_wrapper .waiting .text {
+    line-height: 35px;
+    font-size: 18px;
+}
+.investDetail_page_module .do_invest_wrapper .next_refund {
+    position: absolute;
+    background-color: #fff;
+    /*width: 100%;*/
+    width: 380px;
+    height: 40px;
+    line-height: 40px;
+    left: 0px;
+    top: 110px;
+}
+.investDetail_page_module .invest_wrapper .leftMoney {
+    font-size: 13px;
+    color: #6b6b6b;
+    text-align: left;
+    margin-bottom: 5px;
+    text-indent: 15px;
+    padding-top: 10px;
+}
+.investDetail_page_module .invest_wrapper .leftMoney .red {
+    color: #980a0a;
+    font-style: normal;
+}
+.investDetail_page_module .invest_wrapper .leftMoney .recharge {
+    float: right;
+    color: #6b6b6b;
+    text-decoration: underline;
+}
+.investDetail_page_module .invest_wrapper .to_invest {
+    margin: 10px 0px 5px;
+}
+.investDetail_page_module .invest_wrapper .to_invest input {
+    float: left;
+    width: 200px;
+    padding: 6px 12px;
+    height: 22px;
+    line-height: normal;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) 0 1px #000;
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) 0 1px #000;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075) 0 1px #000;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.investDetail_page_module .invest_wrapper .to_invest .invest_btn {
+    float: right;
+    height: 34px;
+    width: 140px;
+    color: #fff;
+    background: #b5a16b;
+    font-size: 16px;
+    line-height: 34px;
+    padding: 1px;
+    border: none;
+    text-decoration: none;
+    border-radius: 3px;
+}
+.investDetail_page_module .invest_wrapper .expect {
+    padding-left: 15px;
+    line-height: 30px;
+    text-align: left;
+    font-size: 13px;
+}
+.investDetail_page_module .coupon_list {
+    display: none;
+    float: left;
+    height: 28px;
+    width: 200px;
+}
