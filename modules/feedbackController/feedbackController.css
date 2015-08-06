@@ -9,7 +9,7 @@
 	line-height: 40px;
 	font-weight: 200;
 	font-size: 20px;
-	color: #242d4f;
+	color: #00205c;
 }
 .feedback_page_module .wel {
 	padding-left: 10px;
@@ -94,7 +94,7 @@
 	height: 40px;
 	line-height: 40px;
 	text-decoration: none;
-	background-color: #242d4f;
+	background-color: #00205c;
 	color: #fff;
 	font-size: 14px;
 }
@@ -134,15 +134,21 @@
 .feedback_page_module .bottom_info .agree {
 	position: relative;
 	line-height: 20px;
-	padding-left: 20px;
+	/*padding-left: 20px;*/
 }
 .feedback_page_module .bottom_info .agree .to_agree {
 /*	margin: 3px 5px 0px 0px;
 	display: inline-block;*/
-	position: absolute;
+/*	position: absolute;
 	top: 4px;
 	*top: -2px;
-	left: 0px;
+	left: 0px;*/
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.feedback_page_module .bottom_info .agree label {
+	vertical-align: middle;
 }
 .feedback_page_module .new_user {
 	display: none;

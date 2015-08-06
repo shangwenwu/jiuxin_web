@@ -159,7 +159,7 @@ FeedbackController.prototype = {
         var text = $.trim($("#feedbackInput").val());
         if(text.length == 0) {
             J.Utils.alert({
-                content: '请填写建议和建议'
+                content: '请填写意见和建议'
             })
             return  false;
         } else if(text.length > 500) {
@@ -203,10 +203,15 @@ FeedbackController.prototype = {
             url: J.Api.feedback,
             data: data,
             callback: function(data) {
-                if(data.result == 'true') {
+                if(data.result == true) {
                     J.Utils.alert({
-                        content: '提交成功'
+                        content: '提交成功',
+                        onSureCallback: function () {
+                        Router.navigate('home');
+                            
+                        }
                     })
+
                 } else {
                     J.Utils.alert({
                         content: '提交失败'

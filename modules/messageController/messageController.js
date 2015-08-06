@@ -27,7 +27,7 @@ var MessageController = function(){
                         '<th width="20%">时间</th>' +
                     '</tr>' +
                 '</thead>' +
-               ' <tbody id="message_list"></tbody>' +
+               ' <tbody id="message_list"><tr><td class="ui_loading" colspan="3"></td></tr></tbody>' +
             '</table>' +
             '<div class="pager_bar clear" id="messagePager"></div>' +
         '</div>';
@@ -78,8 +78,9 @@ MessageController.prototype = {
 
     listenFun: function(){
         var t = this;
-        Transceiver.listen('userInfo','message.init',function(data){
-            if(!data.isLogin) {
+        Transceiver.listen('userInfo','message.init', function(data){
+            var user = JSON.parse(data);
+            if(!user.isLogin) {
                 require('pc:base/base64');
                 Router.navigate('login/url=' + new Base64().encode('login/url=' + new Base64().encode(location.href)));
             }

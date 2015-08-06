@@ -12,7 +12,7 @@
 .protocol_module .mt60{ margin-top: 60px;}
 
 
-.protocol_module p.statusTitle{ font-size: 24px; color: #242d4f; }
+.protocol_module p.statusTitle{ font-size: 20px; color: #00205c;}
 
 .protocol_module div.Box{ margin: auto; width: 380px; height: 300px;}
 .protocol_module div.Box div.statusBox{ margin: auto; width: 280px; height: 300px;}
@@ -26,9 +26,9 @@
 
 .protocol_module #remove,
 .protocol_module #remove1,
-.protocol_module #remove2{ background: #fff; border:1px solid #242d4f; color: #242d4f;}
+.protocol_module #remove2{ background: #fff; border:1px solid #00205c; color: #00205c;}
 .protocol_module #remove:hover,
 .protocol_module #remove1:hover,
-.protocol_module #remove2:hover{ background: #242d4f; border:1px solid #242d4f; color: #fff;}
+.protocol_module #remove2:hover{ background: #00205c; border:1px solid #00205c; color: #fff;}
 
 .protocol_module .buttonGather button{ display: none;}

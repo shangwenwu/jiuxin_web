@@ -411,6 +411,7 @@
 	function uuiPager($this, options) {
 		// 拓展默认配置        
 		this.processOpt(options);
+		$(this.opt.target).empty();
 
 		//生成链接
 		this.returnLink = function(classaName, href, innerHTML) {
@@ -428,7 +429,7 @@
 
 		if(this.opt.totalPage > 1) {
 			this.update(this.opt);
-		}	
+		}
 	};
 	uuiPager.prototype = {
 		processOpt: function(options) {
@@ -542,6 +543,13 @@
 		 * */
 		update: function(options) {
 			this.processOpt(options);
+			this.link = {
+				start: this.returnLink(this.opt.prePageClassName, "#", this.opt.prePage),
+				end: this.returnLink(this.opt.nextPageClassName, "#", this.opt.nextPage),
+				first: this.returnLink(this.opt.normalPageClassName, "#", 1),
+				last: this.returnLink(this.opt.normalPageClassName, "#", this.opt.totalPage),
+				more: this.returnLink(this.opt.morePageClassName, "", "...")
+			};
 			// if(this.opt.totalPage > 1) {
 				this.selectPage();
 			// }			

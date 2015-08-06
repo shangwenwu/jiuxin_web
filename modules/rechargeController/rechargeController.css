@@ -1,7 +1,8 @@
 /* 充值页面 */
 .recharge_page_module {
-  font-family: 'Microsoft Yahei', 'YouYuan SimYou?', SimSun, Helvetica, Arial, sans-serif;
+  /*font-family: 'Microsoft Yahei', 'YouYuan SimYou?', SimSun, Helvetica, Arial, sans-serif;*/
   font-size: 14px;
+  position: relative;
   /*注意事项*/
   /*充值成功*/
 }
@@ -10,13 +11,16 @@
 }
 .recharge_page_module .box {
   background-color: #FFFFFF;
-  padding: 46px 50px;
+  padding: 40px 50px;
 }
 .recharge_page_module p.label {
   margin-bottom: 10px;
 }
 .recharge_page_module h2 {
   font-size: 20px;
+  color: #00205c;
+  font-weight: inherit;
+  margin-bottom: 26px;
 }
 .recharge_page_module .tab {
   border-left: 1px #E8E8E8 solid;
@@ -43,27 +47,38 @@
 }
 .recharge_page_module .operate {
   margin-top: 20px;
-  padding: 22px 25px;
+  padding: 22px 25px 22px 150px;
   background-color: #F4F4F4;
 }
 .recharge_page_module .operate .remain {
-  float: left;
-  width: 195px;
-  margin-top: 4px;
+  /*float: left;*/
+  /*width: 195px;*/
+  /*margin-top: 4px;*/
+  line-height: 30px;
 }
 .recharge_page_module .operate .remain .price {
   color: #127a12;
 }
 .recharge_page_module .operate .recharge {
-  float: left;
+  /*float: left;*/
+  position: relative;
   height: 60px;
+  margin-top: 10px;
+}
+.recharge_page_module .operate .recharge .unit {
+  position: absolute;
+  line-height: 36px;
+  left: 305px;
+  top: 0px;
+  font-size: 14px;
+  color: #232d4f;
 }
 .recharge_page_module .operate .recharge label {
   vertical-align: middle;
 }
 .recharge_page_module .operate .recharge_money {
-  width: 230px;
-  height: 36px;
+  width: 228px;
+  height: 34px;
   padding: 0 15px;
   line-height: 36px;
   font-size: 14px;
@@ -74,32 +89,42 @@
   padding-left: 128px;
   color: #b80000;
   font-size: 14px;
+  line-height: 22px;
 }
-.recharge_page_module .operate .recharge_record {
-  margin-left: 15px;
+.recharge_page_module .recharge_record {
+/*  margin-left: 15px;
   color: #B6BBD8;
-  vertical-align: middle;
+  vertical-align: middle;*/
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  line-height: 30px;
+  color: #00205c;
+  text-decoration: underline;
+}
+.recharge_page_module .bank_online .bank_list{
+  width: 924px
 }
 .recharge_page_module .bank_online .item {
   position: relative;
   float: left;
-  margin-right: 22px;
+  margin-right: 24px;
   margin-bottom: 15px;
   background: url(img/yinhangka.png) 0 0 no-repeat;
   border: 1px #ffffff solid;
 }
 .recharge_page_module .bank_online .item:hover {
-  border: 1px #242d4f solid;
+  border: 1px #00205c solid;
 }
 .recharge_page_module .bank_online .item .item_link {
   display: block;
-  width: 122px;
+  width: 126px;
   height: 38px;
   border: 1px #C9C9C9 solid;
   text-indent: -9999em;
 }
 .recharge_page_module .bank_online .item .item_link:hover {
-  border: 1px #242d4f solid;
+  border: 1px #00205c solid;
 }
 .recharge_page_module .bank_online .item .icon_active {
   display: none;
@@ -128,7 +153,7 @@
   border: 1px solid #243d4f;
 }
 .recharge_page_module .bank_online .item_active .item_link {
-  border: 1px solid #242d4f;
+  border: 1px solid #00205c;
 }
 .recharge_page_module .bank_online .item_active .icon_active {
   display: block;
@@ -142,10 +167,12 @@
 .recharge_page_module .bank_online .item_BOC {
   background-position: 0 -80px;
 }
-.recharge_page_module .bank_online .item_BCCB {
+.recharge_page_module .bank_online .item_BCCB,
+.recharge_page_module .bank_online .item_BJBANK,
+.recharge_page_module .bank_online .item_BJB {
   background-position: 0 -600px;
 }
-.recharge_page_module .bank_online .item_BOCOM {
+.recharge_page_module .bank_online .item_COMM {
   background-position: 0 -560px;
 }
 .recharge_page_module .bank_online .item_CCB {
@@ -181,7 +208,7 @@
 .recharge_page_module .bank_online .item_SPDB {
   background-position: 0 -480px;
 }
-.recharge_page_module .bank_online .item_SRCB {
+.recharge_page_module .bank_online .item_SHRCB {
   background-position: 0 -680px;
 }
 .recharge_page_module .bank_online .item_WZCB {
@@ -196,11 +223,13 @@
 .recharge_page_module .recharge_btn .btn_submit {
   display: inline-block;
   width: 260px;
-  height: 35px;
-  line-height: 35px;
+  height: 36px;
+  line-height: 36px;
   border: 0 none;
   cursor: pointer;
   color: #FFFFFF;
+  font-size: 14px;
+  padding: 0;
 }
 .recharge_page_module .recharge_btn .btn_submit:hover {
   background-color: #656b84;
@@ -294,6 +323,7 @@
 .recharge_page_module .bank_limit_table th,
 .recharge_page_module .bank_limit_table td {
   padding-left: 12px;
+  font-weight: inherit;
 }
 .recharge_page_module .bank_limit_table th {
   line-height: 34px;
@@ -307,4 +337,5 @@
   border-right: 1px #F4F4F4 solid;
   border-bottom: 1px #F4F4F4 solid;
   border-left: 1px #F4F4F4 solid;
+  font-size: 12px;
 }

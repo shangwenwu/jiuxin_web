@@ -8,6 +8,7 @@ var InvestController = function(){
 	t.el = $('<div id="investModule" class="invest_module">'+
 				'<div class="tableHead"></div>'+
 				'<div class="tableCon"></div>'+
+				'<div class="pager_bar clear" id="messagePager"></div>' +
 			'</div>');
     t.init();
 };
@@ -46,7 +47,31 @@ InvestController.prototype = {
 	    	t.el.find('.tableCon').append(con);
 	    	if(t.grid.footer){
 	    		var getPara = t.el.find('table');
-		    	var footerConfig = {
+
+
+	    		$('#messagePager').uuiPager({
+	                currentPage: getPara.attr('currentPage'),
+	                totalPage: Math.ceil(getPara.attr('total') / getPara.attr('pageSize')) || 1,
+	                pageSize:getPara.attr('pageSize'),
+	                nextPage: ">",
+	                prePage: "<",
+	                target: '#messagePager',
+	                prePageClassName: "page_pre",
+	                nextPageClassName: "pager_next",
+	                currentPageClassName: "on",
+	                morePageClassName: "pager_more",
+	                normalPageClassName: "pager_normal",
+	                // destroy: false,
+	                pageChange: function(page) {
+	                    t.grid.sendData.currentPage = page;
+	                    //t.fetchTable();
+	                    t.runTable();
+	                }
+	            });
+
+
+	    		
+		    	/*var footerConfig = {
 					total:getPara.attr('total'),
 					currentPage:getPara.attr('currentPage'),
 					pageActive:'pageactive',
@@ -61,7 +86,8 @@ InvestController.prototype = {
 				}
 				J.Common.renderTableFooter(footerConfig,function(con){
 					$('.'+footerConfig.appendAfter).after(con);
-				});
+				});*/
+
 			}
 	    });
 	},//ARCHIVED 归档 不显示 ，SCHEDULED 倒记时 
@@ -70,6 +96,15 @@ InvestController.prototype = {
 	   {type:'input',placeholder:'输入文字信息',textType:'text',id:'inputId'},
 	   {type:'select',id:'selectId',option:[['key','val'],['key1','val1'],['key2','val2'],['key3','val3'],['key4','val4'],['key5','val5']]}
     */
+
+    /*fetchTable: function(){
+        var t = this;
+        J.Common.renderTable(t.grid,function(con,totalSize){
+            t.tableBox.html(con);
+            t.totalSize = totalSize;
+            t.setPages();
+        });
+    },*/
 
 	config:function(){
 		var t = this;
@@ -91,6 +126,7 @@ InvestController.prototype = {
 			}
 		};
 		t.grid = {
+			id:'tableCon',
 			dataSource:J.Api.investData,
 			sendData:{
 				pageSize:10,
@@ -108,6 +144,12 @@ InvestController.prototype = {
 			},
 			className:'investTable',
 			format:{
+				deadline:function(item){
+					return '<div style="width:200px;">'+item.deadline+'</div>';
+				},
+				money:function(item){
+					return '<div style="width:80px; padding-right:40px; text-align:right;">'+item.money+'</div>';
+				},
 				progress:function(item){
         				var option = {
 		        			radius  : [19, 22],//饼图半径19，边框22-19
@@ -121,27 +163,27 @@ InvestController.prototype = {
 		        			J.Common.chartSmallPie(option);
 		        			clearTimeout(timeClear);
 		        		},50);
-		        		return '<div id="'+item.id+'_abc" style="margin:0 auto;width:45px; height:45px;"></div>';
+		        		return '<div style="width:160px;"><div id="'+item.id+'_abc" style="margin:0 auto;width:45px; height:45px;"></div></div>';
 				},
 				title:function(item){
 					if(item.rookie){
-						return '<a href="#investDetail/id='+item.id+'" target="_blank" class="rookieA">'+item.title+'</a><span class="rookie"></span>'
+						return '<div style="width:240px;padding-left:60px;text-align:left;"><a href="#investDetail/id='+item.id+'" target="_blank" class="rookieA">'+item.title+'</a><span class="rookie"></span></div>'
 					}else{
-						return '<a href="#investDetail/id='+item.id+'" target="_blank">'+item.title+'</a>'
+						return '<div style="width:240px;padding-left:60px;text-align:left;"><a href="#investDetail/id='+item.id+'" target="_blank">'+item.title+'</a></div>'
 					}
 				},
 				yield:function(item){
-					return '<span class="golden">'+item.yield+'</span>'
+					return '<div style="width:200px;"><span class="golden">'+item.yield+'</span></div>'
 				},
 				state:function(item){
 					if(item.status == 'OPENED'){
-						return '<a href="#investDetail/id='+item.id+'" class="btn_gold" target="_blank">立即投资</a>';
+						return '<div style="width:220px; text-align:center;"><a href="#investDetail/id='+item.id+'" class="btn_gold" target="_blank">立即投资</a></div>';
 					}else if(item.status == 'SCHEDULED'){
 					
 						var timeout  = setInterval(function(){
-							item.endTime=item.endTime-1000;
-							J.Common.getCountDownTime(item.endTime,item.startTime,item.id);
-							if ((item.endTime - item.startTime) < 0) {
+							item.startTime=item.startTime-1000;
+							J.Common.getCountDownTime(item.startTime,item.serverTime,item.id);
+							if ((item.startTime - item.serverTime) < 0) {
 				            	clearInterval(timeout);
 				            	$("#"+item.id).html('<a href="#investDescribe/id='+item.id+'" class="btn_gold" >立即投资</a>');
 				                return;
@@ -149,14 +191,14 @@ InvestController.prototype = {
 			            },1000);
 
 			            J.Common.intervalArray.push(timeout);
-
-						return '<a id="'+item.id+'">'+J.Common.getCountDownTime(item.endTime,item.startTime,item.id,'one')+'</a>';
+			            var myTime = J.Common.getCountDownTime(item.startTime,item.serverTime,item.id,'one') || '';
+						return '<div style="width:220px; text-align:center;"><a id="'+item.id+'">'+myTime+'</a></div>';
 					}else if(item.status == 'FINISHED'){
-						return '<a class="btn_gray">已满标</a>';
+						return '<div style="width:220px; text-align:center;"><a class="btn_gray">已满标</a></div>';
 					}else if(item.status == 'SETTLED'){
-						return '<a class="btn_gray">还款中</a>';
+						return '<div style="width:220px; text-align:center;"><a class="btn_gray">还款中</a></div>';
 					}else if(item.status == 'CLEARED'){
-						return '<a class="btn_gray">还款结束</a>';
+						return '<div style="width:220px; text-align:center;"><a class="btn_gray">还款结束</a></div>';
 					}
 				}
 			}
@@ -187,7 +229,7 @@ InvestController.prototype = {
 
 	    	t.runTable();
 	    });
-	    //点击页码
+	    /*//点击页码
 	    t.el.delegate('.tableFooter a', 'click', function(e){
 	    	t.grid.sendData.currentPage = $(this).html();
 	    	t.clearTime();
@@ -200,7 +242,7 @@ InvestController.prototype = {
 		    	t.clearTime();
 		    	t.runTable();
 	    	}
-	    });
+	    });*/
 
 	}
 };

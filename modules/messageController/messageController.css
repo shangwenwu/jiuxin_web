@@ -1,12 +1,14 @@
 .message_page_module {
     padding: 30px 50px;
     background-color: #fff;
-    min-height: 300px;
+    min-height: 600px;
 }
 .message_page_module .title {
     font-size: 20px;
     line-height: 28px;
     margin-top: 10px;
+    color: #00205c;
+    font-weight: inherit;
 }
 .message_page_module .nav {
     margin: 20px 0px;
@@ -21,7 +23,7 @@
     cursor: pointer;
 }
 .message_page_module .nav li.active {
-    background-color: #242d4f;
+    background-color: #00205c;
     color: #fff;
 }
 .message_page_module table {
@@ -30,10 +32,11 @@
     margin-top: 30px;
 }
 .message_page_module th {
-    color: #232d4f;
+    color: #666;
     font-size: 14px;
     background-color: #e8e8e8;
     height: 34px;
+    font-weight: inherit;
 }
 .message_page_module td {
     font-size: 14px;
@@ -52,7 +55,7 @@
 }
 .message_page_module .pager_bar span.on, .message_page_module .pager_bar a:hover  {
     border-radius: 1px;
-    background: #242d4f;
+    background: #00205c;
     color: #FFF;
 }
 .message_page_module .pager_bar a:hover  {

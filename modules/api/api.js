@@ -1,4 +1,4 @@
-var path = '/jxjr-web/'
+var path = '/zeus/'
 var Api = {
 	//获取资料类别列表
 	login : path+'users/login',//登录
@@ -76,8 +76,10 @@ var Api = {
     project: path+'invest/status', //投资
 	repayRecord: path+'repayment/receiveList',//收款记录
 	underRepay: path + 'repayment/pending', //待收款列表
-
+	downloadContactTemplate: path + 'contract/defaultTemplate', //借款协议
 	// 红包列表
-	getCouponList: path + 'coupon/getCouponByType'
+	getCouponList: path + 'coupon/getCouponByType',
+
+	getinterest: path + 'loans/getinterest' //计算预期收益
 };
 module.exports = Api;

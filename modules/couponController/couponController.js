@@ -19,7 +19,7 @@ var CouponController = function () {
 CouponController.TYPE = {
     INTEREST: '加息券',
     PRINCIPAL: '增值券',
-    REBATE: '返现券',
+    REBATE: '抵扣券',
     CASH: '现金券' // 暂时不用
 };
 

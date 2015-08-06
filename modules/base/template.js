@@ -115,9 +115,9 @@
         settings = defaults(settings || {}, templateSettings);
         
 		if (!text) {
-			console.error('template missing');
+			// console.error('template missing');
 			// debug_start
-			console.dir(data);
+			// console.dir(data);
 			// debug_end
 			return;
 		} 

@@ -49,11 +49,11 @@
 				return false;
 			} else {
 				var reg = el.val().match(reg);
-
+				
 				function judge(el, reg, obj) {
 					if (reg == null) {
 						el.parent().addClass('bRed');
-						el.siblings('p').html(errorText).show();
+						el.siblings('p').html(obj.errorText).show();
 						return false;
 					} else {
 						if (obj.otherFun) {
@@ -66,13 +66,23 @@
 						}
 					}
 				}
-
 				return obj.before ? obj.before(obj, judge) : judge(el, reg, obj);
+
 			}
 		},
 
 		//渲染表格
 		renderTable: function(obj, callback) {
+			if(obj.id){
+				var loadingHtml = [
+		            '<div class="loading">',
+		                '<img src="static/pc/lib/img/loading.gif" width="40" height="40">',
+		                '<p style="font-size:16px; margin-top:30px;">正在请求数据，请耐心等待！</p>',
+		            '</div>'
+		        ].join('');
+		        $('.'+obj.id).html(loadingHtml);
+	        }
+
 			var th = obj.headTh.name || [],
 				widths = obj.headTh.width || [],
 				field = obj.headTh.field || [],
@@ -112,7 +122,7 @@
 						con += '</tr>'
 					});
 				} else {
-					con += '<tr><td colspan="6">该筛选条件没有查到数据！</td></tr>';
+					con += '<tr><td class="no_data" colspan="' + th.length + '">暂无数据！</td></tr>';
 				}
 				con += "</tbody></table>"
 

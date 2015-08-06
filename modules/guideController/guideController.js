@@ -7,9 +7,9 @@ Router.addRules({
 var GuideController = function(options){
 	var t = this;
 	this.url = options && options.url || '';
-
+    var img1 = __inline('images/guide-header.png');
 	t.el = $('<div id="guidePageModule" class="guide_page_module">'+
-        '<div class="guide_header"></div>' +
+        '<div class="guide_header"><img src="' + img1 + '" alt="" /></div>' +
         '<div class="section_white">' +
             '<div class="desc_wrapper wrapper">' +
                 '<h2 class="title">九信金融简介</h2>' +
@@ -58,6 +58,7 @@ GuideController.prototype = {
 	init: function(){
 		var t = this;
 		$('#mainBody').html(t.el);
+        J.Common.matchRoute(location.hash);
 	},
 	render: function(){
 		var t = this;

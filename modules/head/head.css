@@ -21,18 +21,28 @@
 .head_module .user_info {
   float: right;
   color: #fff;
+  padding-top: 3px;
+  height: 20px;
+  line-height: 20px;
+  margin-right: 65px;
+  /**line-height: 30px;*/
 }
 .head_module .user_info a {
   display: inline-block;
+  *display: inline;
+  *zoom: 1;
   float: none;
   margin: 0px;
   padding: 0px 10px;
-  position: inherit;
+  position: static;
+ *line-height: 20px;
   line-height: 20px;
-  margin-top: 5px;  
+  /*margin-top: 5px;  */
 }
 .head_module .user_info i {
   font-style: normal;
+  margin-left: 5px;
+  color: #a1aee2;
 }
 .head_module .user_info .message {
   padding: 0px 5px;
@@ -102,7 +112,7 @@ img {
   height: inherit;
   line-height: 28px;
   color: #fff;
-  font-size: 0.8em;
+  font-size: 12px;
 }
 a {
   text-decoration: none;
@@ -136,7 +146,7 @@ a, input, textarea, button {
   height: inherit;
   line-height: 28px;
   color: #fff;
-  font-size: .8em;
+  font-size: 12px;
 }
 .head_module-info-content a.text {
   height: 16px;
@@ -178,8 +188,18 @@ a, input, textarea, button {
   background: url("images/fankui.png") no-repeat;
   width: 19px;
   height: 19px;
-  float: right;
+  /*float: right;*/
+  position: absolute;
   padding: 0px;
+  right: 0px;
+  top: 3px;
+}
+.head_module-info-content .help_center {
+    position: absolute;
+    padding: 0px;
+    right: 30px;
+    top: 3px;
+    *top: 5px;
 }
 .head_module-menu-content .u-nolist-ul {
   float: right;

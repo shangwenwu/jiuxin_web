@@ -8,6 +8,7 @@ var CmsListController = function(id){
 	t.el = $('<div id="cmsListModule" class="cms_list_module">'+
 			    '<h1 id="cmsHead" class="cms_title"></h1>'+
 			    '<div id="cmsGrid" class="cms_grid"></div>'+
+			    '<div class="pager_bar clear" id="messagePager"></div>' +
 		    '</div>');
     t.cmsHead = t.el.find('#cmsHead');
     t.cmsGrid = t.el.find('#cmsGrid');
@@ -30,28 +31,33 @@ CmsListController.prototype = {
 		    t.cmsGrid.html(con);
 		    if(t.grid.footer){
 	    		var getPara = t.el.find('table');
-		    	var footerConfig = {
-					total:getPara.attr('total'),
-					currentPage:getPara.attr('currentPage'),
-					pageActive:'pageactive',
-					className:'tableFooter',
-					fristPage:'fristPage',
-					lastPage:'lastPage',
-					prevPage:'prevPage',
-					nextPage:'nextPage',
-					disabledClass:'disabledClass',
-					appendAfter:getPara.attr('class'),
-					pageSize:getPara.attr('pageSize')
-				}
-				J.Common.renderTableFooter(footerConfig,function(con){
-					$('.'+footerConfig.appendAfter).after(con);
-				});
+
+	    		$('#messagePager').uuiPager({
+	                currentPage: getPara.attr('currentPage'),
+	                totalPage: Math.ceil(getPara.attr('total') / getPara.attr('pageSize')) || 1,
+	                pageSize:getPara.attr('pageSize'),
+	                nextPage: ">",
+	                prePage: "<",
+	                target: '#messagePager',
+	                prePageClassName: "page_pre",
+	                nextPageClassName: "pager_next",
+	                currentPageClassName: "on",
+	                morePageClassName: "pager_more",
+	                normalPageClassName: "pager_normal",
+	                // destroy: false,
+	                pageChange: function(page) {
+	                    t.grid.sendData.currentPage = page;
+	                    t.fetchGrid();
+	                    //t.runTable();
+	                }
+	            });
 			}
 		});
 	},
 	config:function(){
 		var t = this;
         t.grid = {
+        	id:'cms_grid',
 			dataSource:J.Api.cmslist,
 			sendData:{
 				pageSize:10,
@@ -69,7 +75,7 @@ CmsListController.prototype = {
 					return '<a class="name ellipsis fl" target="_blank" href="#cmspage/id='+item.id+'">'+item.name+'</a>';
 				},
 				time:function(item){
-                    return '<span class="time">'+item.time+'</span>';
+                    return '<span class="time">'+J.Utils.formatTime(item.time,"Y-M-D")+'</span>';
 				}
 			}
 		};

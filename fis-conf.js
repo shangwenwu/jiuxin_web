@@ -1,3 +1,4 @@
+
 fis.config.merge({
     statics: '/static',
     templates:'/template',
@@ -40,7 +41,10 @@ fis.config.merge({
         ext: {
             less: 'css'
         },
-        path: [{
+        path:[/*{ 
+            reg:/^\/${statics}\/${namespace}\/css\/modules\/([^\/]+)\/\1\.(css)$/i,
+            useSprite: true
+        },*/{
             reg: /^\/components\/.*\.js$/i,
             isMod: true
         },{
@@ -103,7 +107,10 @@ fis.config.merge({
         }]
     },
     pack: {
-        'pkg/base.js': ['/modules/base/**.js']
+        //'pkg/base.js': ['/modules/base/**.js']
+        'pkg/all.css':/^\/modules\/([^\/]+)\/\1\.(css)$/i,
+        'pkg/lib.css':['/lib/**/**.css'],
+        'pkg/all.js':['/modules/**/**.js']
     }
 });
 
@@ -122,4 +129,15 @@ fis.config.merge({
 
 //csssprite处理时图片之间的边距，默认是3px
 //fis.config.set('settings.spriter.csssprites.margin', 20);
+
+
+
+fis.config.set('modules.spriter', 'csssprites');
+// fis.config.set('roadmap.path', []);
+fis.config.set('settings.spriter.csssprites', {
+    //图之间的边距
+    margin: 10,
+    //使用矩阵排列方式，默认为线性`linear`
+    layout: 'matrix'
+});
 

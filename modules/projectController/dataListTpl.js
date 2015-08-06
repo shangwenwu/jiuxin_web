@@ -3,9 +3,9 @@ var dataListTpl = Template(
         '<% $.each(moduleData.results, function(i, item) { %>'+
             '<li class="meassage_wrapper_data <% if(i % 2 == 1){ %> even<% } %>">' + 
                 '<div class="data container1">' +
-                    '<a class="name" href="#"><%- item.title %></a>' +
-                    '<p class="time"><%- item.time %></p>' +
-                    '<p><span class="rate">利率: <%- item.rate %>%</span><span class="duretion"><%- item.duretion %></span></p>' +
+                    '<a class="name" href="#investDetail/id=<%- item.id %>" target="_blank"><%- item.title %></a>' +
+                    '<p class="time"><%- J.Utils.formatTime(item.time, "Y-M-D H:S") %></p>' +
+                    '<p><span class="rate">利率: <%- item.rate %>%</span><span class="duretion">期限: <%- item.duretion %></span></p>' +
                 '</div>' +
                 '<div class="data container2"><%- item.amount %></div>' +
                 '<div class="data container3"><%- item.profit %></div>' +
@@ -20,14 +20,14 @@ var dataListTpl = Template(
                     '</div>' +
                 '<% } else { %>' +
                     '<div class="data container6">' +
-                        '<p class="status"><%- item.collecting %></p>' +
+                        '<p class="status"><%- item.statusName %></p>' +
                         '<p class="current"><%- item.period %></p>' +         
                     '</div>' +
                     '<div class="data container7">' +
-                        '<a class="agreemengt" href="#" target="_blank">查看协议</a>' +
+                        '<a class="agreemengt" href="/zeus/contract/investContract?investId=<%- item.investId %>" target="_blank">查看协议</a>' +
                         '<a class="repay_record" href="#" target="_blank" data-id="<%- item.id %>">收款记录</a>' +        
-                    '</div>' +                    
-                '<% } %>' +              
+                    '</div>' +
+                '<% } %>' +
             '</li>' +
         '<% }) %>' +
     '<%} else { %>' +

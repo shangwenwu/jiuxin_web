@@ -217,7 +217,7 @@
     color: #f00;
     font-size: 14px;
     min-width: 200px;
-    text-align: center;
+    text-align: left;
 }
 .investDetail_page_module .do_invest_wrapper .invest_info .progress_bg {
     background: url(./images/processing.png) no-repeat 0 0;
@@ -392,3 +392,49 @@
     height: 28px;
     width: 200px;
 }
+.investDetail_page_module .loading {
+    height: 440px;
+    /*background: url(images/loading.gif) no-repeat center;*/
+}
+
+.investDetail_page_module .coupon_tip {
+    display: none;
+    float: left;
+    margin-left: 10px;
+    font-size: 12px;
+    line-height: 30px;
+    color: #E52E2E;
+}
+.investDetail_page_module .post_loading {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #000;
+    opacity: 0.5;
+    z-index: 101;
+    /*filter: ();*/
+}
+.investDetail_page_module .post_loading  .post_loading_img {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -25px;
+    background: url(./images/loading.gif) no-repeat;
+}
+
+/*.investDetail_page_module .post_loading .post_loading_cont {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    background: #fff;
+}*/

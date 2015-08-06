@@ -1,7 +1,7 @@
-.invest_module .investTable { width: 1200px; margin: 10px auto; font-size: 14px; font-weight: 400; text-align: center;}
-.invest_module .investTable th{ background: #555f81; color: white; line-height: 36px;  }
+.invest_module .investTable { width: 1200px; margin: 10px auto; font-size: 14px; font-weight: normal; text-align: center;}
+.invest_module .investTable th{ background: #555f81; color: white; line-height: 36px; font-weight: normal;  }
 .invest_module .investTable td{ background: white; color:#666; border-bottom:1px solid #ccc; line-height: 65px;}
-.invest_module .investTable td a{ text-decoration: none; color: #555f81;}
+.invest_module .investTable td a{ text-decoration: none; color: #354473;}
 .invest_module .investTable .golden{ color:#af985c;}
 .invest_module .investTable td a.btn_gold{width: 120px; text-align: center; line-height: 35px; background: #b49b5d; color: #fff; border: none; border-radius: 5px; display: inline-block; cursor: pointer;}
 .invest_module .investTable td a.btn_gray{width: 120px; text-align: center; line-height: 35px; background: lightgrey; color: #b5a16b; border: none; border-radius: 5px; display: inline-block; cursor: inherit;}
@@ -22,3 +22,29 @@
 
 .invest_module .investTable td a.rookieA{ display: inline-block; }
 .invest_module .investTable td span.rookie{ margin-left: 5px; width: 25px; height: 25px; vertical-align: middle; background:url(images/rookie.png) no-repeat; display: inline-block;}
+
+
+
+.invest_module .pager_bar {
+  text-align: center;
+  margin-top: 50px;
+  height: 100px;
+}
+.invest_module .pager_bar span.on, 
+.invest_module .pager_bar a:hover  {
+    border-radius: 1px;
+    background: #00205c;
+    color: #FFF;
+}
+.invest_module .pager_bar a:hover  {
+    text-decoration: none;
+}
+.invest_module .pager_bar a, 
+.invest_module .pager_bar span {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 32px;
+    margin: 0 3px;
+    font-size: 14px;
+}

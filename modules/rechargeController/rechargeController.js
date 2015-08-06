@@ -5,6 +5,8 @@
 
 var tpl = require('pc:rechargeController/rechargeController.tpl');
 
+     
+var newTab;
 var tplFunc = Template(tpl.content);
 
 var RechargeController = function () {
@@ -42,8 +44,8 @@ RechargeController.BLANK_LIST = {
                 remarks: '存量静态密码用户的总累计限额为300元'
             },
             {
-                singleLimit: 1000000,
-                dayLimit: 1000000,
+                singleLimit: '100万',
+                dayLimit: '100万',
                 condition: '办理U盾',
                 remarks: ''
             }
@@ -70,9 +72,15 @@ RechargeController.BLANK_LIST = {
         name: '中国银行',
         detail: [
             {
-                singleLimit: 50000,
-                dayLimit: 100000,
-                condition: '开通中银e令或中银e盾',
+                singleLimit: 1000,
+                dayLimit: 5000,
+                condition: '网银快付',
+                remarks: ''
+            },
+            {
+                singleLimit: '5万',
+                dayLimit: '50万',
+                condition: '专业版',
                 remarks: ''
             }
         ]
@@ -87,9 +95,9 @@ RechargeController.BLANK_LIST = {
                 remarks: ''
             },
             {
-                singleLimit: 1000000,
-                dayLimit: 1000000,
-                condition: '开通短信密码',
+                singleLimit: '100万',
+                dayLimit: '100万',
+                condition: '证书版',
                 remarks: '开通证书'
             }
         ]
@@ -111,7 +119,19 @@ RechargeController.BLANK_LIST = {
             {
                 singleLimit: 5000,
                 dayLimit: 5000,
-                condition: '1.账号支付，无需办理网银，需要预留的手机号接收验证码；2.无网银盾的网银用户（如办理短信动态口令、刮刮卡）',
+                condition: '账号支付',
+                remarks: '无需办理网银，需要预留的手机号接收验证码'
+            },
+            {
+                singleLimit: '5万',
+                dayLimit: '10万',
+                condition: '一代网银盾用户',
+                remarks: ''
+            },
+            {
+                singleLimit: '50万',
+                dayLimit: '50万',
+                condition: '二代网银盾用户',
                 remarks: ''
             }
         ]
@@ -126,8 +146,8 @@ RechargeController.BLANK_LIST = {
                 remarks: ''
             },
             {
-                singleLimit: 1000000,
-                dayLimit: 1000000,
+                singleLimit: '100万',
+                dayLimit: '100万',
                 condition: '开通证书保护，或通过柜面开通短信口令保护的用户',
                 remarks: ''
             }
@@ -137,8 +157,8 @@ RechargeController.BLANK_LIST = {
         name: '招商银行',
         detail: [
             {
-                singleLimit: 500,
-                dayLimit: 500,
+                singleLimit: 5000,
+                dayLimit: 5000,
                 condition: '开通大众版网上支付功能',
                 remarks: ''
             },
@@ -154,15 +174,21 @@ RechargeController.BLANK_LIST = {
         name: '光大银行',
         detail: [
             {
-                singleLimit: 10000,
-                dayLimit: 10000,
-                condition: '手机动态密码',
+                singleLimit: 5000,
+                dayLimit: 5000,
+                condition: '开通大众版',
                 remarks: ''
             },
             {
-                singleLimit: 500000,
-                dayLimit: 500000,
-                condition: '办理阳光网盾或令牌动态密码',
+                singleLimit: '20万',
+                dayLimit: '50万',
+                condition: '办理阳光网盾',
+                remarks: ''
+            },
+            {
+                singleLimit: '50万',
+                dayLimit: '50万',
+                condition: '办理动态口令牌',
                 remarks: ''
             }
         ]
@@ -171,15 +197,21 @@ RechargeController.BLANK_LIST = {
         name: '民生银行',
         detail: [
             {
-                singleLimit: 5000,
-                dayLimit: 5000,
-                condition: '办理短信验证码或者浏览器证书',
+                singleLimit: 300,
+                dayLimit: 300,
+                condition: '大众版',
                 remarks: ''
             },
             {
-                singleLimit: 500000,
-                dayLimit: 500000,
-                condition: '办理otp或者u宝',
+                singleLimit: 5000,
+                dayLimit: 5000,
+                condition: '贵宾版数字证书',
+                remarks: ''
+            },
+            {
+                singleLimit: '2万',
+                dayLimit: '10万',
+                condition: '贵宾版（U宝）',
                 remarks: ''
             }
         ]
@@ -191,13 +223,13 @@ RechargeController.BLANK_LIST = {
                 singleLimit: 1000,
                 dayLimit: 5000,
                 condition: '办理文件证书',
-                remarks: ''
+                remarks: '柜台开通'
             },
             {
-                singleLimit: 1000000,
-                dayLimit: 1000000,
+                singleLimit: '100万',
+                dayLimit: '100万',
                 condition: '办理移动证书',
-                remarks: ''
+                remarks: '柜台开通'
             }
         ]
     },
@@ -211,8 +243,8 @@ RechargeController.BLANK_LIST = {
                 remarks: ''
             },
             {
-                singleLimit: 300000,
-                dayLimit: 300000,
+                singleLimit: '30万',
+                dayLimit: '30万',
                 condition: 'key盾',
                 remarks: ''
             }
@@ -222,10 +254,22 @@ RechargeController.BLANK_LIST = {
         name: '华夏银行',
         detail: [
             {
-                singleLimit: '',
-                dayLimit: 50000,
-                condition: '',
-                remarks: '如果您在银行设置的网上支付额度低于左表限额，以您的设置为准。'
+                singleLimit: 300,
+                dayLimit: 1000,
+                condition: '签约客户',
+                remarks: '网上开通'
+            },
+            {
+                singleLimit: 5000,
+                dayLimit: 5000,
+                condition: '证书/U-key',
+                remarks: '柜台开通 '
+            },
+            {
+                singleLimit: '无限额',
+                dayLimit: '无限额',
+                condition: '电子钱包用户',
+                remarks: '柜台开通 '
             }
         ]
     },
@@ -234,15 +278,15 @@ RechargeController.BLANK_LIST = {
         detail: [
             {
                 singleLimit: 5000,
-                dayLimit: 20000,
-                condition: '网上银行业务',
-                remarks: ''
+                dayLimit: '2万',
+                condition: '手机动态密码',
+                remarks: '柜台开通'
             },
             {
-                singleLimit: 50000,
-                dayLimit: 200000,
-                condition: '办理文件证书',
-                remarks: ''
+                singleLimit: '100万',
+                dayLimit: '100万',
+                condition: 'U盾',
+                remarks: '柜台开通'
             }
         ]
     },
@@ -250,21 +294,21 @@ RechargeController.BLANK_LIST = {
         name: '邮政储蓄银行',
         detail: [
             {
-                singleLimit: 50000,
-                dayLimit: 50000,
-                condition: '办理手机短信服务',
+                singleLimit: '1万',
+                dayLimit: '1万',
+                condition: '个人网银短信客户',
+                remarks: '包含手机银行、电视银行普通客户'
+            },
+            {
+                singleLimit: '20万',
+                dayLimit: '20万',
+                condition: '电子令牌客户',
                 remarks: ''
             },
             {
-                singleLimit: 200000,
-                dayLimit: 200000,
-                condition: '办理电子令牌以及手机短信服务',
-                remarks: ''
-            },
-            {
-                singleLimit: 2000000,
-                dayLimit: 2000000,
-                condition: '办理USB-KEY以及开通短信服务',
+                singleLimit: '200万',
+                dayLimit: '200万',
+                condition: 'UK客户',
                 remarks: ''
             }
         ]
@@ -273,20 +317,41 @@ RechargeController.BLANK_LIST = {
         name: '浦发银行',
         detail: [
             {
-                singleLimit: 200000,
-                dayLimit: 200000,
-                condition: '开通动态密码版网上支付功能',
+                singleLimit: '5万',
+                dayLimit: '20万',
+                condition: '动态密码',
+                remarks: ''
+            },
+            {
+                singleLimit: '自行设置',
+                dayLimit: '自行设置',
+                condition: '数字证书',
                 remarks: ''
             }
         ]
     },
-    SRCB: {
+    SHRCB: {
         name: '上海农村商业银行',
         detail: [
             {
-                singleLimit: 1000000,
-                dayLimit: 5000000,
-                condition: '',
+                singleLimit: 50,
+                dayLimit: 100,
+                condition: '证书专业版支付',
+                remarks: '网银证书'
+            },{
+                singleLimit: 1000,
+                dayLimit: 5000,
+                condition: '短信专业版支付',
+                remarks: ''
+            },{
+                singleLimit: 2000,
+                dayLimit: 5000,
+                condition: '卡号密码支付',
+                remarks: ''
+            },{
+                singleLimit: 5000,
+                dayLimit: 5000,
+                condition: '手机支付',
                 remarks: ''
             }
         ]
@@ -305,6 +370,12 @@ RechargeController.BLANK_LIST = {
                 dayLimit: 800,
                 condition: '开通大众版网银支付功能并办理手机验证',
                 remarks: '付款金额超过1000元，需要专业版网银证书进行验证。'
+            },
+            {
+                singleLimit: '自行设置',
+                dayLimit: '自行设置',
+                condition: '专业版',
+                remarks: ''
             }
         ]
     }
@@ -336,12 +407,21 @@ RechargeController.currentRechargeType = RechargeController.RECHARGE_TYPE_PERSON
 RechargeController.setRechargeType = function(type) {
     this.currentRechargeType = type;
     this.tplData.rechargeType = type;
+    RechargeController.tplData.bankList = RechargeController._getBankList();
 };
 
 // 根据账户类型获取银行列表
 RechargeController._getBankList = function() {
     var result = [];
-    var bankList = J.Utils.bankName;
+    var bankList = [];
+    $.extend(bankList,J.Utils.bankName);
+    if(this.currentRechargeType == this.RECHARGE_TYPE_ENTERPRISE){
+        delete bankList['BJBANK'];
+        delete bankList['HKBEA'];
+        delete bankList['SHRCB'];
+        delete bankList['WZCB'];
+        bankList['BJB'] = '北京银行';
+    }
     for (var key in bankList) {
         result.push({
             shortName: key,
@@ -471,19 +551,20 @@ RechargeController.prototype = {
             }
 
             // 6位有效数字
-            if (/^\d{1,6}(\.\d{1,})?$/.test(value) === true || /^\d{1,6}(\.)?$/.test(value) === true) {
+            // if (/^\d{1,6}(\.\d{1,})?$/.test(value) === true || /^\d{1,6}(\.)?$/.test(value) === true) {
 
-            } else {
-                showTip('单笔充值最高100,000.00元！');
-                $rechargeValue.focus();
-                return;
-            }
+            // } else {
+            //     showTip('单笔充值最高100,000.00元！');
+            //     $rechargeValue.focus();
+            //     return;
+            // }
             if ($bankCode.val() === '') {
                 J.Utils.alert({
                     content: '请选择银行卡！'
                 });
                 return;
             }
+            newTab = window.open('about:blank');
             // 先ajax请求-prepareRecharge
             t._ajaxPrepareRecharge(value, $bankCode.val());
         });
@@ -512,7 +593,7 @@ RechargeController.prototype = {
         }
         J.Utils.sendAjax({
             url: RechargeController.URL.prepareRecharge,
-            type: 'GET',
+            type: 'get',
             data: {
                 bankCode: bankCode,
                 amount: amount,
@@ -523,6 +604,7 @@ RechargeController.prototype = {
             }
         });
     },
+
     /**
      * 提交充值表单
      * @param data
@@ -535,6 +617,7 @@ RechargeController.prototype = {
             url: data.url,
             method: 'post',
             param: data.param,
+            windowTarget: newTab,
             onSubmit: function(){
                 // 要订单ID
                 t._showRechargeDialog(data.orderId);
@@ -556,20 +639,22 @@ RechargeController.prototype = {
                 // 调用接口
                 J.Utils.sendAjax({
                     url: RechargeController.URL.getRechargeResult,
-                    type: 'GET',
+                    // type: 'GET',
                     data: {
                         orderId: orderId
                     },
                     callback: function(result) {
+                        _hmt && _hmt.push(['_trackEvent', 'chongzhi', 'queren',]);
                         t.renderTip(result);
                     }
                 });
             },
             cancelValue: '充值失败',
             onCancelCallback: function() {
-                t.renderTip({
-                    status: 500
-                });
+                // t.renderTip({
+                //     status: 500
+                // });
+                location.reload();
             }
         });
     },

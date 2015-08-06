@@ -17,8 +17,7 @@
             ICBC: '中国工商银行',
             ABC: '中国农业银行',
             BOC: '中国银行',
-            BCCB: '北京银行',
-            BOCOM: '交通银行',
+            COMM: '交通银行',
             CCB: '建设银行',
             CIB: '兴业银行',
             CMB: '招商银行',
@@ -30,9 +29,10 @@
             HKBEA: '东亚银行',
             PSBC: '邮政储蓄银行',
             SPDB: '浦发银行',
-            SRCB: '上海农村商业银行',
-            SDBC: '深圳发展银行',
-            WZCB: '温州银行'
+            SHRCB: '上海农村商业银行',
+            // SDB: '深圳发展银行',
+            WZCB: '温州银行',
+            BJBANK: '北京银行'  //企业:BJB  图片：BCCB
         },
 		//错误消息
 		errorMsg: {
@@ -412,16 +412,24 @@
 		},
 
 		sendAjax: function(params) {
+			var userstate = $("#headModule").data("cur"),
+				cur = J.cookie.get('userstate');
+			if(userstate && userstate != cur && !params.url.match(/.*(login|logout)/)) {
+				location.reload();
+			}
+			var disabled = params.disabled || false;
+			if(disabled) disabled.on();
 			$.ajax({
 				url: params.url,
 				type: params.type || 'POST',
 				data: params.data,
-				async: params.async || true,
-				cache: params.cache || false,
+				async: params.async == 'false' ? false : true,
+				cache: params.cache || true,
 				// contentType: false,
 				dataType: 'json',
 				beforeSend: function(xhr, settings) {},
 				success: function(data) {
+					disabled && disabled.off();
 					if (data.status == 200) {
 						if (params.scope) {
 							params.callback && params.callback.call(params.scope, data.data);
@@ -429,8 +437,9 @@
 							params.callback && params.callback(data.data);
 						}
 					} else if (data.status == 401) {
-						if(!params.url.match(/.*(getBasicUserInfo|getUserInfo)/) && !!location.hash.match(/^#account/i)){
-                           Router.navigate('home');
+						if(!params.url.match(/.*(getBasicUserInfo|getUserInfo|logout)/) && !!location.hash.match(/^#account/i)){
+                           location.href = "/";
+                           //Router.navigate('home');
 						}else{
 							if (params.scope) {
 								params.notLoginCallback && params.notLoginCallback.call(params.scope, data.data);
@@ -439,6 +448,9 @@
 							}
 						}
 					}else if(data.status == 500){
+						if(params.url.match(/.*(buy)/)){
+							$('.post_loading').hide();
+						}
 						if(data.message){
 							var para = {
 									 content: data.message,
@@ -447,11 +459,18 @@
 							J.Utils.alert(para);
 						}
 					}
+					
 				},
-
+				complete: function (xhr, status) {
+					if(xhr.status == 302) {
+					}
+					// body...
+				}
+				,
 				error: function(xhr, status, errorThrow) {
+					disabled && disabled.off();
 					params.errorCallback && params.errorCallback();
-					console.log('请求失败')
+					// console.log('请求失败')
 					// common.showTip('请求失败', $('.form-tip'));
 				}
 			});
@@ -529,6 +548,10 @@
  						mon = mon + 12 - months;
  					}
 				}
+				if(mon > 12) {
+					mon = mon - 12;
+					++year;
+				}
 				if(mon < 10) {
 					mon = '0' + mon;
 				} 
@@ -539,9 +562,16 @@
 			}
 		},
 
+        closeDialog: function(){
+            var t = this;
+            t.artDialog && t.artDialog.remove();
+            t.alertDialog && t.alertDialog.remove();
+            t.confirmDialog && t.confirmDialog.remove();
+        },
 
 		dialog: function(options) {
-			return artDialog(options);
+            var t = this;
+			return t.artDialog = artDialog(options);
 		},
 		/**
 		 * alert对话框
@@ -557,6 +587,7 @@
 		 *	})
 		 */
 		alert: function(config) {
+			var t = this;
 			if (!config.content) {
 				throw new Error('The content of alertDialog is must !');
 			}
@@ -580,8 +611,8 @@
 			if (config.hideClose === true) {
 				params.cancel = false;
 			}
-			var alertDialog = artDialog(params);
-			alertDialog.showModal();
+			t.alertDialog = artDialog(params);
+			t.alertDialog.showModal();
 		},
 		/**
 		 * 确认对话框
@@ -599,6 +630,7 @@
 		 *	})
 		 */
 		confirm: function(config) {
+			var t = this;
 			if (!config.content) {
 				throw new Error('The content of confirmDialog is must !');
 			}
@@ -608,7 +640,7 @@
 			if (config.onCancelCallback && typeof config.onCancelCallback !== 'function') {
 				throw new Error('The onCancelCallback of confirmDialog is must be a function !');
 			}
-			var confirmDialog = artDialog({
+			t.confirmDialog = artDialog({
 				id: 'Confirm',
 				fixed: true,
 				title: ' ',
@@ -628,7 +660,7 @@
 					}
 				}
 			});
-			confirmDialog.showModal();
+			t.confirmDialog.showModal();
 		},
 		/**
 		 * 显示气泡
@@ -668,6 +700,7 @@
 			d.show(option.element);
 			return d;
 		},
+
         /**
 		*Util.submitForm({
 		*   url:'',
@@ -677,21 +710,31 @@
 		*})
 		*/
 		submitForm: function(config){
-            var submitForm = $('#submitForm');
-			if(!submitForm.length){
-				submitForm = $('<form id="submitForm" action="'+config.url+'" style="display: none;" method="'+config.method+'" target="_blank"></form>');
-				$('body').append(submitForm);
-			}else{
-			    submitForm.attr({'action': config.url, 'method': config.method});
-			}
-			 submitForm.empty();
-			var param = '';
-			for(var k in config.param){
-				param += '<input type="hidden" id="'+ k +'" name="'+ k +'" value="'+ config.param[k] +'">' 
-			}
-			$(param).appendTo(submitForm);
-			submitForm.submit();
-			config.onSubmit();
+   //          var submitForm = $('#submitForm');
+			// if(!submitForm.length){
+			// 	submitForm = $('<form id="submitForm" action="'+config.url+'" style="display: none;" method="'+config.method+'" target="_blank"></form>');
+			// 	$('body').append(submitForm);
+			// }else{
+			//     submitForm.attr({'action': config.url, 'method': config.method});
+			// }
+			//  submitForm.empty();
+			// var param = '';
+			// for(var k in config.param){
+			// 	param += '<input type="hidden" id="'+ k +'" name="'+ k +'" value="'+ config.param[k] +'">' 
+			// }
+			// $(param).appendTo(submitForm);
+			// submitForm.submit();
+			// config.onSubmit();
+				var param = [];
+				for(var k in config.param){
+					param.push(k +'='+ config.param[k])
+				}
+				if(config.windowTarget) {
+					config.windowTarget.location.href = config.url+'?'+param.join("&"),"action_target_window";
+				} else {
+					window.open(config.url+'?'+param.join("&"),"action_target_window");
+				}
+				config.onSubmit();
 		}
 	};
 	win.J.Utils = Utils;

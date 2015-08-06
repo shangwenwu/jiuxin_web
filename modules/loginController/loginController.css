@@ -86,12 +86,15 @@
 
 }
 .login_page_module .login_container .input_wrapper input {
-	height: 26px;
-	padding: 15px 0;
-  	line-height: normal;
+	position: relative;
+	z-index: 1;
+	height: 21px;
+	padding: 17px 0;
+  	line-height: 21px;
   	width: 252px;
   	font-size: 14px;
   	border: none;
+  	background-color: transparent;
 }
 .login_page_module .login_container .input_wrapper label {
 	position: absolute;
@@ -100,14 +103,24 @@
 	line-height: 56px;
 	color: #666;
 	font-size: 14px;
+	z-index: 2;
 }
 .login_page_module .login_container .other_info {
+	position: relative;
 	width: 328px;
 	margin: 0px auto;
 	line-height: 40px;
 }
-.login_page_module .login_container .err {
+.login_page_module .login_container .other_info .login_loading{
+	position: absolute;
 	display: none;
+	left: 0px;
+	top: 0px;
+	color: #333;
+}
+.login_page_module .login_container .err {
+	/*display: none;*/
+	visibility: hidden;
 	color: #f00;
 	float: left;
 }

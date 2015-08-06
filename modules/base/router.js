@@ -275,14 +275,15 @@ var Router = {
         }
 
         t.addRules(options.rules);
-
+        var hashchange = 'hashchange',  DOC = document,  documentMode = DOC.documentMode,
+            supportHashChange = ('on' + hashchange in window) && ( documentMode === void 0 || documentMode > 7 );
         // 绑定监听事件
-        if ('onhashchange' in window) {
+        if (supportHashChange) {
             window.onhashchange = bind(t._listener, t);
             // 初始化时就直接开始匹配当前url 免得再独立写start之类的方法
             t._listener();
         } else {
-            console.log('onhashchange is NOT support');
+            // console.log('onhashchange is NOT support');
             setInterval(bind(t._listener, t), 100);
         }
 
@@ -307,10 +308,10 @@ var Router = {
     _trigger : true,
     log : function () {
         var t = this;
-        console.log('> currentHash:');
-        console.log(t.currentHash);
-        console.log('> lastHash:');
-        console.log(t.lastHash);
+        // console.log('> currentHash:');
+        // console.log(t.currentHash);
+        // console.log('> lastHash:');
+        // console.log(t.lastHash);
     }
 };
 

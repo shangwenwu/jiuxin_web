@@ -10,7 +10,7 @@
 		"price": 50,
 		"status": "PLACED",
 		"description": "投资10000元以上，可选用。",
-		"name": "投资返现券",
+		"name": "投资抵扣券",
 		"displayName": "新用户首次投资",
 		"type": "REBATE"
 	  },

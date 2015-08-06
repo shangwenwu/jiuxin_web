@@ -86,7 +86,7 @@ Array.toStringify = function(arr){
 	return arr;
 };
 
-;(function (win) {
+;(function (win, doc) {
 
 	var jiuxin = {
 		DEBUG : true,
@@ -137,4 +137,4 @@ Array.toStringify = function(arr){
 
 	win.J = jiuxin;
 
-})(window);
+})(window, document);

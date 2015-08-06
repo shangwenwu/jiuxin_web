@@ -42,6 +42,7 @@
 }
 .news_list_module .news_box .list .item{
   width: 508px;
+  vertical-align: middle;
 }
 
 .one_new_module lable{
@@ -49,8 +50,12 @@
 }
 .one_new_module .one_title{
 	width: 1000px;
+  vertical-align: middle;
 }
 .one_new_module .new_more{
-  float: right;
-  color: #b5a16b;
+/*  float: right;
+  color: #b5a16b;*/
+  position: absolute;
+  right: 0px;
+  top: 0px;
 }

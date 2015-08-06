@@ -6,15 +6,19 @@ h1,h2,h3,h4,h5,h6{font-size:100%;}
 legend{color:#000;}
 input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
 input,button,select{margin:0;*font-size:100%;line-height:1.2;}
+
 a img,img{-ms-interpolation-mode:bicubic;}
-body{background:#FFF;}
+html {
+	/*overflow-x: hidden;*/
+}
+body{background:#FFF;min-width: 1200px;}
 a{color:#06c;text-decoration:none;}
 a:hover,a:active,a:focus{color:#06c;text-decoration:underline;}
 table{border-collapse:collapse;border-spacing:0px;}
 select{min-height: 22px;}
 header,aside,section{display: block;}
 body, button, input, select, textarea{font: 12px/1.5 tahoma,arial,"宋体";color:#666;font-family: "微软雅黑",'Microsoft Yahei','幼圆','YouYuan SimYou?',SimSun,'宋体',Helvetica,Arial,sans-serif;}
-
+input{ font-size: 14px; }
 strong, b {font-weight: bold;color: #000;}
 
 .hide{display:none;}
@@ -26,19 +30,19 @@ strong, b {font-weight: bold;color: #000;}
 .fl{display:inline-block;zoom:1;*display:inline;vertical-align: top;}
 .fr{float: right;}
 
-.btn_blue{background: #242d4f;text-align: center;}
+.btn_blue{background: #00205c;text-align: center;}
 .btn_gold{background:#b5a16b;text-align:center;}
 
-::-webkit-scrollbar-track-piece{background-color:#fff; -webkit-border-radius:3px; }
-::-webkit-scrollbar{width:12px; height:10px; }
+/*::-webkit-scrollbar-track-piece{background-color:#fff; -webkit-border-radius:3px; }*/
+/*::-webkit-scrollbar{width:12px; height:10px; }
 ::-webkit-scrollbar-thumb{height:30px; background-color:#999; -webkit-border-radius:7px; outline:2px solid #fff; outline-offset:-2px; border: 2px solid #fff; }
-::-webkit-scrollbar-thumb:hover{height:30px; background-color:#9f9f9f; -webkit-border-radius:8px; }
+::-webkit-scrollbar-thumb:hover{height:30px; background-color:#9f9f9f; -webkit-border-radius:8px; }*/
 
 input.input_class{ line-height: 30px;height: 30px; padding:0 10px; margin: 0 5px}
 
 select.select_class{ height: 35px;padding:0 10px;margin: 0 5px}
 
 
-.agreement{ height: 450px; overflow: scroll; text-align: left; font-family: "微软雅黑",'Microsoft Yahei','幼圆','YouYuan SimYou?',SimSun,'宋体',Helvetica,Arial,sans-serif;}
+.agreement{ height: 450px; overflow: scroll; text-align: left; font-family: "微软雅黑",'Microsoft Yahei','幼圆','YouYuan SimYou?',SimSun,'宋体',Helvetica,Arial,sans-serif; overflow-x: hidden;}
 .agreement p {  padding-bottom: 25px; color: #666; line-height: 25px;}
 .agreement p strong{ color: #000;}

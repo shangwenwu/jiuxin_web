@@ -6,40 +6,40 @@ var AccountPandectController = function(){
 				'<div class="userInfo color1 f14 bg5">'+
 					'<div class="fl">'+
 						'<p>上次登录：<span id="lastLoginTime">2015年05月15日 21:34</span></p>'+
-						'<div><div>账户安全级别</div><div class="rank bg3"><div class="bg1" id="safeLevel"></div></div><div id="Level" class="color4">低</div></div>'+
+						'<div><div>账户安全级别</div><div class="rank bg3"><div class="bg1" id="safeLevel"></div></div><div id="Level">低</div></div>'+
 						'<ul><li class="nomobile" id="isBindPone"></li><li class="nopay" id="isAccount"></li><li id="isBindCard" class="nocard"></li></ul>'+
 					'</div>'+
-					'<div class="fr tar">'+
-						'<p>可用余额（元）：￥<span class="color3 f30" id="leftMoney">99,999,999.00</span></p>'+
+					'<div class="fr tar" style="margin-right:75px;">'+
+						'<p>可用余额（元）：<span class="color3 f30" id="leftMoney">99,999,999.00</span></p>'+
 						'<a class="bg1" href="#account/recharge">充&nbsp;&nbsp;值</a><a class="bg2" href="#account/withdraw">提&nbsp;&nbsp;现</a>'+
 					'</div>'+
 				'</div>'+
 				'<div class="pie_calendar mt20 bg5 f14 color1">'+
 					'<div class="pie">'+
-						'<p><span>总资产：<font class="f18 color2 totalAmount">10,000</font>元</span><span class="fr">累计收益：<font class="f18 color2 totalEarnings">10,000</font>元</span></p>'+
-						'<div class="pie_block mt20" style="width:170px; height:170px;"></div>'+
+						'<p><span>总资产：<font class="f18 color2 totalAmount">10,000</font>元</span><span class="fr" style="width:155px;">累计收益：<font class="f18 color2 totalEarnings">10,000</font>元</span></p>'+
+						'<div class="pie_block mt20" style="width:100px; height:100px;"></div>'+
 						'<div class="pie_description">'+
 							'<div class="f12"><div class="bg1"></div>可用余额：<span class="availableBalance">10,000</span>元</div>'+
 							'<div class="f12"><div class="bg4"></div>待收本息：<span class="dueinInterest">10,000</span>元</div>'+
 							'<div class="f12"><div class="bg2"></div>冻结资金：<span class="frozenAmount">10,000</span>元</div>'+
 						'</div>'+
 					'</div>'+
-					'<div class="calendar fr"></div>'+
+					'<!--div class="calendar fr"></div-->'+
 				'</div>'+
 				'<div class="curve mt20 bg5 fl">'+
 					'<p class="f20 color3">收&nbsp;&nbsp;益</p>'+
-					'<div class="color1 mt10 f14">累计收益（元）<br>￥<span class="f18 color3 totalEarnings">220.80</span></div>'+
-					'<div class="color1 mt10 f14">近一个月收益（元）<br>￥<span class="f18 color3 lastMonth">10.20</span></div>'+
-					'<div class="color1 mt10 f14">待收收益（元）<br>￥<span class="f18 color3 dueinEarnings">510.20</span></div>'+
+					'<div class="color1 mt10 f14">累计收益(元)<br>￥<span class="f18 color3 totalEarnings">220.80</span></div>'+
+					'<div class="color1 mt10 f14">近一个月收益(元)<br>￥<span class="f18 color3 lastMonth">10.20</span></div>'+
+					'<div class="color1 mt10 f14">待收收益(元)<br>￥<span class="f18 color3 dueinEarnings">510.20</span></div>'+
 					'<a class="f14 bg1" index="pic1_0">待收收益</a><a index="pic1_1"  class="f14 bg3">累计收益</a>'+
 					'<div id="pic1" class="pic pic1 mt20"></div>'+
 					'<div id="pic2" class="pic pic1 mt20" style=" display:none;"></div>'+
 				'</div>'+
 				'<div class="curve mt20 bg5 fr">'+
 					'<p class="f20 color3">投&nbsp;&nbsp;资</p>'+
-					'<div class="color1 mt10 f14">累计投资（元）<br>￥<span class="f18 color3 totalInvest">220.80</span></div>'+
-					'<div class="color1 mt10 f14">在投项目（元）<br>￥<span class="f18 color3 investProject">10.20</span></div>'+
-					'<div class="color1 mt10 f14">待收本金（元）<br>￥<span class="f18 color3 dueinPrincipal">510.20</span></div>'+
+					'<div class="color1 mt10 f14">累计投资(元)<br>￥<span class="f18 color3 totalInvest">220.80</span></div>'+
+					'<div class="color1 mt10 f14">在投项目(个)<br><span class="f18 color3 investProject">10</span></div>'+
+					'<div class="color1 mt10 f14">待收本金(元)<br>￥<span class="f18 color3 dueinPrincipal">510.20</span></div>'+
 					'<a class="f14 bg1" index="pic2_0">待收本金</a><a index="pic2_1"  class="f14 bg3">累计本金</a>'+
 					'<div id="pic3" class="pic pic2 mt20"></div>'+
 					'<div id="pic4" class="pic pic2 mt20" style=" display:none;"></div>'+
@@ -63,7 +63,7 @@ AccountPandectController.prototype = {
 					//var totalVal = Number(data.availableBalance)+Number(data.dueinInterest)+Number(data.frozenAmount);
 					var numArr = [Number(data.availableBalance),Number(data.dueinInterest),Number(data.frozenAmount)];
 					var totalVal = numArr[0] + numArr[1] + numArr[2],
-					    colorArr = ['#ac955a','#9aa3c6','#242d4f'];
+					    colorArr = ['#ac955a','#9aa3c6','#00205c'];
 
 					numArr.map(function(item,index){
 						if(item){
@@ -81,8 +81,8 @@ AccountPandectController.prototype = {
 					}
 					
 		    		var option = {
-			    			radius  : [50, 85],//饼图半径19，边框22-19
-			    			colors  : ['#ac955a','#9aa3c6','#242d4f'],//边框数值边色，边框底色
+			    			radius  : [30, 50],//饼图半径19，边框22-19
+			    			colors  : ['#ac955a','#9aa3c6','#00205c'],//边框数值边色，边框底色
 			    			val     : [percentage(numArr[0],totalVal),percentage(numArr[1],totalVal),percentage(numArr[2],totalVal)], //文字百分比，如80
 			    			dom     : t.el.find('.pie_block')[0]
 		    		};
@@ -91,7 +91,7 @@ AccountPandectController.prototype = {
 		    			var soleData = [0.000000001,0.000000001,0.000000001];
 		    			soleData[indexArr[0]] = sole;
 		    			var option = {
-			    			radius  : [50, 85],//饼图半径19，边框22-19
+			    			radius  : [30, 50],//饼图半径19，边框22-19
 			    			colors  : colorArr,//边框数值边色，边框底色
 			    			val     : soleData, //文字百分比，如80
 			    			dom     : t.el.find('.pie_block')[0]
@@ -101,7 +101,7 @@ AccountPandectController.prototype = {
 						var soleData = [0.000000001,99,0.000000001];
 		    			var colorArr = ['#c2c2c2','#c2c2c2','#c2c2c2'];
 		    			var option = {
-			    			radius  : [50, 85],//饼图半径19，边框22-19
+			    			radius  : [30, 50],//饼图半径19，边框22-19
 			    			colors  : colorArr,//边框数值边色，边框底色
 			    			val     : soleData, //文字百分比，如80
 			    			dom     : t.el.find('.pie_block')[0]
@@ -109,7 +109,7 @@ AccountPandectController.prototype = {
 						t.chartPie(option);
 					}else{
 						var option = {
-			    			radius  : [50, 85],//饼图半径19，边框22-19
+			    			radius  : [30, 50],//饼图半径19，边框22-19
 			    			colors  : colorArr,//边框数值边色，边框底色
 			    			val     : [percentage(numArr[0],totalVal),percentage(numArr[1],totalVal),percentage(numArr[2],totalVal)], //文字百分比，如80
 			    			dom     : t.el.find('.pie_block')[0]
@@ -136,7 +136,6 @@ AccountPandectController.prototype = {
 
 		t.requestCurve(1);
 		t.requestCurve(3);
-		
     	t.events();
 	},
 	render: function(){
@@ -150,25 +149,82 @@ AccountPandectController.prototype = {
 			    safeLevel    = user.safeLevel,
 			    safeLevelDom = $('#safeLevel'),
 			    levelDom     = $("#Level");
-			$('#leftMoney').html(user.leftMoney);
+			$('#leftMoney').html(new Number(user.leftMoney).toFixed(2));
 			$('#lastLoginTime').html(J.Utils.formatTime(user.lastLoginTime));
 			if(safeLevel == 1){
-				safeLevelDom.css("width",'30%');
-				levelDom.html('低');
+				safeLevelDom.css({"width":'30%'});
+				levelDom.html('低').css({'color':'red'});
 			}else if(safeLevel == 2){
-				safeLevelDom.css("width",'60%');
-				levelDom.html('中');
+				safeLevelDom.css({"width":'60%'});
+				levelDom.html('中').css({'color':'orange'});
 			}else if(safeLevel == 3){
-				safeLevelDom.css("width",'100%');
-				levelDom.html('高');
+				safeLevelDom.css({"width":'100%'});
+				levelDom.html('高').css({'color':'green'});
 			}
 			user.isBindPone && $('#isBindPone').addClass('mobile');
 			user.isBindCard && $('#isBindCard').addClass('card');
 			user.isAccount && $('#isAccount').addClass('pay');
 		});
 	},
+	tooltipConfig:[
+		{
+			name:'tooltip1',
+			dom:'.nomobile.mobile',
+			width:'70',
+			text:'已绑定手机'
+		},
+		{
+			name:'tooltip2',
+			dom:'.nomobile',
+			width:'70',
+			text:'未绑定手机'
+		},
+		{
+			name:'tooltip3',
+			dom:'.nopay.pay',
+			width:'120',
+			text:'已绑定第三方支付'
+		},
+		{
+			name:'tooltip4',
+			dom:'.nopay',
+			width:'120',
+			text:'未绑定第三方支付'
+		},
+		{
+			name:'tooltip5',
+			dom:'.nocard.card',
+			width:'90',
+			text:'已绑定银行卡'
+		},
+		{
+			name:'tooltip6',
+			dom:'.nocard',
+			width:'90',
+			text:'未绑定银行卡'
+		}
+	],
+	createTooltip:function(obj){
+		var t = this;
+	    t.el.delegate(obj.dom, 'mouseenter', function(e){
+			obj.name = J.Utils.tooltip({
+				element: $(obj.dom)[0],
+				position: 'top',
+				width: obj.width,
+				content: '<div style="text-align:center;">'+obj.text+'</div>'
+			});
+	    });
+	    t.el.delegate(obj.dom, 'mouseleave', function(e){
+			obj.name.remove();
+		});
+	},
 	events : function(){
 	    var t = this;
+
+	    t.tooltipConfig.map(function(item){
+			t.createTooltip(item);
+		});
+
 	    t.el.delegate('.curve a', 'click', function(e){
 	    	var arr = $(this).attr('index').split('_');
 	    	if(arr[0] == 'pic1'){
@@ -181,6 +237,7 @@ AccountPandectController.prototype = {
 		    	t.tabCurve(tab,con,3,2,arr);
 		    }
 	    });
+
 	},
 	requestCurve:function(type){
 		var t=this;
@@ -275,9 +332,9 @@ AccountPandectController.prototype = {
 		            smooth:false,
 		            itemStyle: {
 			            	normal: {
-			            		color:'#242d4f',
+			            		color:'#00205c',
 			            		lineStyle:{
-							    color:'#242d4f',
+							    color:'#00205c',
 							    width:2
 							},
 							areaStyle:{

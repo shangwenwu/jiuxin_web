@@ -40,7 +40,7 @@ Router.addRules({
     //待收款
     'account/underRepay' : function () {
     	J.Controllers['account'] ? J.Controllers['account'].render() : J.Controllers['account'] = new AccountController();
-        J.Controllers['underRepay'] ? J.Controllers['underRepay'].render() : J.Controllers['underRepay'] = new UnderRepayController();
+        J.Controllers['underRepay'] ? J.Controllers['underRepay'].init() : J.Controllers['underRepay'] = new UnderRepayController();
 	},
 
 
@@ -153,9 +153,7 @@ AccountController.prototype = {
             }
 			
 		});
-    },
-
-
+    }
 };
 
 AccountController.prototype.constructor = AccountController;

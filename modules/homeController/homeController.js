@@ -6,6 +6,11 @@ var InvestHome = require('pc:investHome');
 Router.addRules({
     'home' : function () {
         J.Controllers['home'] ? J.Controllers['home'].render() : J.Controllers['home'] = new HomeController();
+    },
+    'home/source=:source' : function (type, source) {
+    	$.cookie('source', source, { expires: 365, path: '/' });
+        // var options = {url : url};
+        J.Controllers['home'] ? J.Controllers['home'].render() : J.Controllers['home'] = new HomeController();
     }
 });
 var HomeController = function(){
@@ -36,7 +41,8 @@ var HomeController = function(){
                         '</div>'+
                     '</div>'+
 			    '</div>'+
-			    '<div id="investList">'+
+			    '<div id="investList" class="invest_list">'+
+			    		
 			    '</div>'+
 			    '<a class="invest_more" href="#invest">查看更多</a>'+
 			    '<div id="newsBulletin">'+

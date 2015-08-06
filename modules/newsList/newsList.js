@@ -6,21 +6,21 @@ var NewsList = function(){
 	t.el = $('<div id="newsListModule" class="news_list_module">'+
 		        '<div class="news_box left fl">'+
 		            '<p class="title">'+
-		               '<span class="hint">最新公告</span><a class="more fr" href="#cmslist/id=bulletin">更多》</a>'+
+		               '<a class="more fr" href="#cmslist/id=bulletin">更多》</a><span class="hint">最新公告</span>'+
 		            '</p>'+
 		            '<ul class="list" id="bulletin">'+
 		            '</ul>'+
 		        '</div>'+
 		        '<div class="news_box fl">'+
 		            '<p class="title">'+
-		               '<span class="hint">媒体报道</span><a class="more fr" href="#cmslist/id=news">更多》</a>'+
+		               '<a class="more fr" href="#cmslist/id=news">更多》</a><span class="hint">媒体报道</span>'+
 		            '</p>'+
 		            '<ul class="list" id="report">'+
 		            '</ul>'+
 		        '</div>'+
 		    '</div>');
 	t.oneNew = $('<div class="one_new_module">'+
-                    '<lable>最新公告：</lable><a class="one_title ellipsis fl"></a><a class="new_more" href="#cmslist/id=bulletin">全部公告</a>'+
+                    '<label>最新公告：</label><a class="one_title ellipsis fl"></a><a class="new_more" href="#cmslist/id=bulletin">全部公告</a>'+
 		         '</div>');
 	t.bulletin = t.el.find('#bulletin');
 	t.report = t.el.find('#report');

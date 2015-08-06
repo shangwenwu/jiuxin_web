@@ -1,6 +1,7 @@
 require('pc:base/uuiPager');
 var projectTpl = require('pc:projectController/dataListTpl'),
-    repayRecordTpl = require('pc:projectController/recordListTpl');
+    repayRecordTpl = require('pc:projectController/recordListTpl'),
+    loadingImg = __inline('images/loading.gif');
 // var WdatePicker = require('pc:datePicker/WdatePicker');
 
 
@@ -18,6 +19,7 @@ ProjectController.prototype = {
         pagerStatus = true;
         repayPagerStatus = true;
 		$('#accountMain').html(t.el);
+        $("#projectWrapper").html('<div class="ui_loading"></div>');
         t.filter = {
             pageSize:10,
             status: 0,
@@ -33,7 +35,7 @@ ProjectController.prototype = {
         t.fetch();
         t.events();
         J.checkTime = function () {
-            var startTime = $("#startTime").val()
+            var startTime = $("#startTime").val(),
                 endTime = $("#endTime").val();
             if(startTime && endTime && endTime >= startTime) {
                 t.filter.startTime = startTime;
@@ -50,7 +52,10 @@ ProjectController.prototype = {
 	render: function(data){
         var t = this;
         $("#projectWrapper").html($(projectTpl({ moduleData : data })));
-        if(pagerStatus) {
+        if(data.totalSize <= 10) {
+            $("#project_pager").empty();
+            pagerStatus = true;    
+        } else if(pagerStatus) {
             $('#project_pager').uuiPager({
                 currentPage: 1,
                 totalPage: Math.ceil(parseInt(data.totalSize) / 10),
@@ -68,7 +73,7 @@ ProjectController.prototype = {
                     t.filter.currentPage = page;
                     t.fetch();
                 }
-            });
+            });                
             pagerStatus = false;           
         }
 	},
@@ -76,7 +81,10 @@ ProjectController.prototype = {
     renderRepayRecord: function (data) {
         var t = this;
         $("#repayRecordWrapper").html($(repayRecordTpl({ moduleData : data })));
-        if(repayPagerStatus) {
+        if(data.totalSize <= 10) {
+            $("#repay_record_pager").empty();
+            repayPagerStatus = true;
+        } else if(repayPagerStatus) {
             $('#repay_record_pager').uuiPager({
                 currentPage: 1,
                 totalPage: Math.ceil(parseInt(data.totalSize) / 10),
@@ -95,7 +103,7 @@ ProjectController.prototype = {
                     t.repayFetch();
                 }
             });
-            repayPagerStatus = false;           
+            repayPagerStatus = false;        
         }
     },
 
@@ -107,6 +115,7 @@ ProjectController.prototype = {
             data: t.filter,
             scopt: t,
             callback: function(data) {
+                $('.repay_recordlist_wrapper').hide();
                 t.render(data);
             }
         };
@@ -179,6 +188,7 @@ ProjectController.prototype = {
                 t.updateTime(time);
                 pagerStatus = true;
                 repayPagerStatus = true;
+                t.filter.currentPage = 1;
                 t.fetch();
             }
 		});
@@ -189,15 +199,18 @@ ProjectController.prototype = {
                 t.filter.status = $(this).attr("data-status");
                 pagerStatus = true;
                 repayPagerStatus = true;
+                t.filter.currentPage = 1;
                 t.fetch();
             }
         });
 
         t.el.delegate('.repay_record', 'click', function(e){//关闭弹窗
             e.preventDefault();
+            $('.meassage_wrapper_data').css("margin-bottom", 0);
             t.repayFilter.id = $(this).data("id");
             repayPagerStatus = true;
             t.repayFetch()
+            $("#repayRecordWrapper").html('<tr><td colspan="6"><img src="' + loadingImg + '" alt="" /></td></tr>');
             $('.repay_recordlist_wrapper').css('top', $(this).offset().top - 90).show();
             $(this).closest('.meassage_wrapper_data').css("margin-bottom", $(".repay_recordlist_wrapper").height() + 70)
             // console.log($(this).offset())
@@ -206,7 +219,7 @@ ProjectController.prototype = {
         t.el.delegate('.close_recordlist_wrapper', 'click', function(e){//关闭弹窗
             e.preventDefault();
             $('.repay_recordlist_wrapper').hide();
-             $('.meassage_wrapper_data').css("margin-bottom", 0);
+            $('.meassage_wrapper_data').css("margin-bottom", 0);
         });
 	}
 };

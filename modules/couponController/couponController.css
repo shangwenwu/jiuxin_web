@@ -8,10 +8,12 @@
 }
 .coupon_page_module .box {
   background-color: #FFFFFF;
-  padding: 46px 50px;
+  padding: 40px 50px;
 }
 .coupon_page_module h2 {
   font-size: 20px;
+  color: #00205c;
+  font-weight: inherit;
 }
 .coupon_page_module .operate {
   margin: 25px 0;
@@ -76,7 +78,7 @@
   text-decoration: none;
 }
 .coupon_page_module .operate_date .date_type_active {
-  background-color: #242d4f;
+  background-color: #00205c;
   color: #fff;
   text-decoration: none;
 }
@@ -97,7 +99,8 @@
   color: #666666;
 }
 .coupon_page_module .list .item p.use {
-  margin-top: 25px;
+  margin-top: 7px;
+  font-size: 14px;
 }
 .coupon_page_module .list .item_left {
   float: left;
@@ -105,17 +108,17 @@
   border-right: 3px #FFFFFF dotted;
 }
 .coupon_page_module .list .item_left_info {
-  padding: 20px 18px;
+  padding: 24px 18px 20px;
 }
 .coupon_page_module .list .item_left_info p.title {
-  font-size: 18px;
+  font-size: 16px;
 }
 .coupon_page_module .list .item_left_info p.time {
-  font-size: 13px;
+  font-size: 12px;
 }
 .coupon_page_module .list .item_left_info p.detail {
-  margin-top: 20px;
-  font-size: 16px;
+  margin-top: 11px;
+  font-size: 14px;
 }
 .coupon_page_module .list .item_right {
   float: left;
@@ -127,12 +130,12 @@
   line-height: 1;
 }
 .coupon_page_module .list .item_right p.price .price_lable {
-  font-size: 12px;
-  vertical-align: text-bottom;
+  font-size: 14px;
+  vertical-align: super;
   line-height: 16px;
 }
 .coupon_page_module .list .item_right p.price .price_num {
-  font-size: 30px;
+  font-size: 26px;
   vertical-align: text-bottom;
 }
 .coupon_page_module .list .item_last {
@@ -143,28 +146,28 @@
   color: #FFFFFF;
 }
 .coupon_page_module .list .item_INTEREST .item_right {
-  padding-top: 45px;
+  padding-top: 40px;
 }
 .coupon_page_module .list .item_PRINCIPAL {
   background-color: #555D82;
   color: #FFFFFF;
 }
 .coupon_page_module .list .item_PRINCIPAL .item_right {
-  padding-top: 45px;
+  padding-top: 40px;
 }
 .coupon_page_module .list .item_REBATE {
   background-color: #E9714F;
   color: #FFFFFF;
 }
 .coupon_page_module .list .item_REBATE .item_right {
-  padding-top: 45px;
+  padding-top: 40px;
 }
 .coupon_page_module .list .item_CASH {
   background-color: #92CBE6;
   color: #FFFFFF;
 }
 .coupon_page_module .list .item_CASH .item_right {
-  padding-top: 45px;
+  padding-top: 40px;
 }
 .coupon_page_module .list .item_USED,
 .coupon_page_module .list .item_EXPIRED,
@@ -193,7 +196,7 @@
 .coupon_page_module .page span.on,
 .coupon_page_module .page a:hover {
   border-radius: 1px;
-  background: #242d4f;
+  background: #00205c;
   color: #FFF;
 }
 .coupon_page_module .page a:hover {

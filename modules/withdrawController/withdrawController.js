@@ -1,11 +1,13 @@
+var newTab;
 var WithdrawController = function(){
 	var t = this;
 	t.el = $('<div id="withdrawModule" class="withdraw_module">'+
+		        '<a href="#account/fundsRecord/record=withdraw" class="withdraw_record fl">提现记录</a>'+
 		        '<h1 class="hd">提 现</h1>'+
 		        '<div class="box">'+
 		            '<div class="top">'+
-		            	'<span class="title fl">可提现金额（元）：</span>'+
-		            	'<span id="bancRemaining" class="greet fl">￥12312,123.00</span>'+
+		            	'<span class="title fl">可提现金额：</span>'+
+		            	'<span id="bancRemaining" class="greet fl"></span>'+
 		            '</div>'+
 		            '<div>'+
 		            	'<span class="title fl">提现银行卡：</span>'+
@@ -14,22 +16,22 @@ var WithdrawController = function(){
 		            		'<span id="bankNu" class="bank_nu fl">5368</span>'+
 		            	'</div>'+
 		            '</div>'+
-		            '<p><span class="hint">为保证资金安全，支持提现的您绑定的银行卡。</span></p>'+
-		            '<div >'+
-		            	'<span class="title fl">提现金额（元）：</span>'+
+		            // '<p><span class="hint"></span></p>'+
+		            '<div class="money_cont">'+
+		            	'<span class="title fl">提现金额：</span>'+
 		            	'<input type="text" id="amount" class="amount fl" placeholder="请输入提现金额"></input>'+
-		            	'<a href="#account/fundsRecord/record=withdraw" class="href fl">提现记录</a>'+
+		            	'<span class="unit">元</span>' +
 		            '</div>'+
 		            '<p class="red"><span id="tip" class="tip"></span></p>'+
 		        '</div>'+
-		        '<button id="submit" class="btn_blue submit">立即提现</button>'+
+		        '<button id="submit" class="btn_blue submit">提&nbsp;&nbsp;&nbsp;&nbsp;现</button>'+
 		        '<div class="explanation">'+
 		            '<ul>'+
 		               '<li>提现说明：</li>'+
-		               '<li>1、您的提现手续费由平台支付，免除所以提现手续费，每次提现都会产生费用，请您不要恶意充值提现。</li>'+
-		               '<li>2、请输入您要提现的金额，并确认您所绑定银行卡信息的正确性。</li>'+
+		               '<li>1、活动期间提现手续费由平台承担。</li>'+
+		               '<li>2、单笔提现金额最低100元，不足100元需全部提现。</li>'+
 		               '<li>3、资金将会在24小时之内转入您绑定的银行卡账户中。</li>'+
-		               '<li>4、在双休日和法定节假日期间，用户可申请提现，但资金托管系统暂不处理，到账时间顺延至工作日。</li>'+
+		               '<li>4、双休日和法定节假日期间，用户可申请提现，但资金托管系统暂不处理，到账时间顺延至工作日。</li>'+
 		            '</ul>'+
 		        '</div>'+
 			'</div>');
@@ -57,14 +59,22 @@ WithdrawController.prototype = {
         	var v = $(this).val();
         	if (v === '') {
 				t.tip.html('');
+				t.cash = '';
 				return;
 			} else if (!parseFloat(v)) {
 				t.tip.html('请输入正确提现金额');
+				t.cash = false;
 				return;
 			} else if (parseFloat(v) > t.amount) {
+				t.cash = false;
 				t.tip.html('您的可用余额不足');
 				return;
-			} else if (t.amount < 100 && parseFloat(v) != t.amount) {
+			} else if (t.amount > 100 && parseFloat(v) < 100) {
+				t.cash = false;
+				t.tip.html('单笔提现金额最低为100元');
+				return;
+			}else if (t.amount < 100 && parseFloat(v) != t.amount) {
+				t.cash = false;
 				t.tip.html('不足100元时请全部提现');
 				return;
 			} else {
@@ -75,10 +85,13 @@ WithdrawController.prototype = {
         });
         t.el.delegate('#submit','click',function(e){
         	if (t.cash === '') {
+        		$('#amount').val('');
 				t.tip.html('请输入提现金额');
 				return;
+			}else if(t.cash === false){
+                return;
 			}
-
+			newTab = window.open('about:blank');
         	J.Utils.sendAjax({
         	    url:J.Api.withdraw,
 	        	type:'get',
@@ -89,6 +102,7 @@ WithdrawController.prototype = {
         				url:data.url,
         				method:'post',
         				param:data.param,
+        				windowTarget: newTab,
         				onSubmit:function(){
 							J.Utils.confirm({
 								content: '提现金额是否成功！',
@@ -122,7 +136,7 @@ WithdrawController.prototype = {
         	type:'get',
         	callback:function(data){
         		t.amount = data.availableWithdrawAmount;
-        		t.bancRemaining.html('￥'+J.Utils.formatAmount(data.availableWithdrawAmount,2));
+        		t.bancRemaining.html(J.Utils.formatAmount(data.availableWithdrawAmount,2) + '元');
         	    t.bankImg.attr('class','bank_img fl').addClass(data.bankCode);
                 t.bankNu.html(data.last4BankCardNo);
         	}

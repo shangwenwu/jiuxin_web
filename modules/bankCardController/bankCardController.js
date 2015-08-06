@@ -1,72 +1,48 @@
+var newTab;
+var wrapperTpl = require('pc:bankCardController/wrapperTpl');
 
 var BankCardController = function(){
 	var t = this;
-	t.html = '<div id="bankCardModule" class="bank_card_module">'+
-		        '<h1 class="hd">绑定提现银行卡</h1>'+
-                '<div id="step1" class="card_box">'+
-		        	'<p class="hint">请务必本人绑卡，请选择换开户银行卡</p>'+
-	                '<div id="cardList" class="card_list">'+
-	                    '<span class="card_item gs on fl" data-name="ICBC"></span>'+ 
-	                    '<span class="card_item ny fl" data-name="ABC"></span>'+ 
-	                    '<span class="card_item zg fl" data-name="BOC"></span>'+ 
-	                    '<span class="card_item js fl" data-name="CCB"></span>'+ 
-	                    '<span class="card_item xy fl" data-name="CIB"></span>'+ 
-	                    '<span class="card_item ms fl" data-name="CMBC"></span>'+ 
-	                    '<span class="card_item yz fl" data-name="PSBC"></span>'+ 
-	                    '<span class="card_item zs fl" data-name="CMB"></span>'+ 
-	                    '<span class="card_item gd fl" data-name="CEB"></span>'+ 
-	                '</div>'+
-	                '<p class="card_number">'+
-	                	'<label class="label">银行卡号：</label><input id="cardInput" class="card_input" type="text" placeholder="请输入储蓄卡"></input>'+
-	                '</p>'+
-	                '<p class="card_hint">（该银行卡可用于充值、提现）</p>'+
-	                '<button id="submit" class="btn_blue submit">确认</button>'+
-                '</div>'+
-                '<div id="step2" class="card_box">'+
-                    '<div id="cardImg" class="card_img">'+
-                        '<span class="card_txt fl">****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;</span>'+
-                        '<span id="cardNu" class="card_nu fl">5118</span>'+
-                    '</div>'+
-                    '<div class="bind_txt">'+
-                    	'<p>您的提现银行卡由账户托管方进行维护管理。</p>'+
-                    	'<p>账户托管方将在工作日11:00、14:00、16:00，每天三次处理您的提现请求。</p>'+
-                    '</div>'+
-                '</div>'+
-			'</div>';
-    t.el = $(t.html)
-    t.hd = t.el.find('.hd');
-	t.step1 = t.el.find('#step1');
-	t.step2 = t.el.find('#step2');
-	t.cardImg = t.el.find('#cardImg');
-	t.cardNu = t.el.find('#cardNu');
+	t.html = '<div id="bankCardModule" class="bank_card_module"><div class="ui_loading"></div></div>';
     t.render();
     t.listenFun();
-    t.events();
 };
 
 BankCardController.prototype = {
 	render: function(){
 		var t = this;
+    	t.el = $(t.html)
 		$('#accountMain').html(t.el);
+		 t.events();
 	},
     listenFun: function(){
 		var t = this;
-		Transceiver.listen('userInfo','bankCardModule.init',function(data){
+		Transceiver.listen('userInfo','bankCard.init',function(data){
 			var user = JSON.parse(data);
-			t.el.find('.hide').removeClass('hide');
-			if(user.isBindCard){
-				t.step1.addClass('hide');
-				t.hd.html('已绑定提现银行卡');
+            if(!user.isLogin) {
+                require('pc:base/base64');
+                Router.navigate('login/url=' + new Base64().encode('login/url=' + new Base64().encode(location.href)));
+            } else {
 				t.fetch();
-			}else{
-				t.hd.html('绑定提现银行卡');
-				t.step2.addClass('hide');
-			};
+            }
+			// t.el.find('.hide').removeClass('hide');
+
+			// if(user.isBindCard){
+			// 	// t.step1.addClass('hide');
+			// 	// t.hd.html('已绑定提现银行卡');
+			// 	t.fetch();
+			// }else{
+			// 	t.fetch();
+			// 	// t.hd.html('绑定提现银行卡');
+			// 	// t.step2.addClass('hide');
+			// };
 		});
     },
 	events: function(){
         var t = this;
-        t.data = {};
+        t.data = {
+        	bankCode:'ICBC'
+        };
         t.el.delegate('.card_item','click',function(e){
         	var item = $(this);
         	t.el.find('.card_item.on').removeClass('on');
@@ -81,10 +57,10 @@ BankCardController.prototype = {
                 });
                 return false;
         	}
-
+        	newTab = window.open('about:blank');
 			J.Utils.sendAjax({
 				url:J.Api.bankCardInfo,
-				type:'post',
+				type:'get',
 				data: t.data,
 				callback:function(data){
 					// 绑定过银行卡
@@ -102,25 +78,27 @@ BankCardController.prototype = {
 								J.Utils.submitForm({
 									url:data.url,
 									method:'post',
+									windowTarget: newTab,
 									param:data.param,
 									onSubmit:function(){
+										var callback = function(){
+											J.Utils.sendAjax({
+												url:J.Api.bankCardInfo,
+												data: t.data,
+												callback:function(data){
+													t.fetch();
+												}
+											});
+										};
 										J.Utils.confirm({
 											content: '银行卡是否绑定成功！',
 											okValue: '绑定成功',
 											cancelValue: '绑定失败',
 											onSureCallback: function(){
-												J.Utils.sendAjax({
-													url:J.Api.bankCardInfo,
-													type:'post',
-													data: t.data,
-													callback:function(data){
-														if(data.last4BankCardNo){
-															t.render();
-														}else{
-															J.DEBUG && console.log('绑定银行卡接口失败！');
-														}
-													}
-												});
+												callback();
+											},
+											onCancelCallback: function(){
+                                                callback();
 											}
 										});
 									}
@@ -134,14 +112,23 @@ BankCardController.prototype = {
 
         });
 	},
-	fetch: function(){
+	fetch: function(user){
         var t = this;
         J.Utils.sendAjax({
         	url:J.Api.bankCardInfo,
         	type:'get',
         	callback:function(data){
-        	    t.cardImg.attr('class','card_img').addClass(data.bankCode);
-                t.cardNu.html(data.last4BankCardNo);
+        		$("#bankCardModule").html($(wrapperTpl({ 
+        			moduleData : data
+        		})));
+			    t.hd = t.el.find('.hd');
+				t.step1 = t.el.find('#step1');
+				t.step2 = t.el.find('#step2');
+				t.cardImg = t.el.find('#cardImg');
+				t.cardNu = t.el.find('#cardNu');
+
+        	    // t.cardImg.attr('class','card_img').addClass(data.bankCode);
+             //    t.cardNu.html(data.last4BankCardNo);
         	}
         });
 	}

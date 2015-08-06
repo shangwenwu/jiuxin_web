@@ -6,9 +6,9 @@ Router.addRules({
 
 var SafeController = function(){
 	var t = this;
-
+	var img = __inline('images/safe_header.png');
 	t.el = $('<div id="safeModule" class="safe_module">'+
-				'<div class="headBg"></div>'+
+				'<div class="headBg"><img src="'+ img + '" alt="" /></div>'+
 				'<div class="safe_row">'+
 					'<div class="fixedW">'+
 						'<h3>集团背景</h3>'+
@@ -123,6 +123,7 @@ SafeController.prototype = {
 		var t = this;
 		$('#mainBody').html(t.el);
 		t.events();
+		J.Common.matchRoute(location.hash);
 	},
 	render: function(){
 		var t = this;

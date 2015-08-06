@@ -1,12 +1,17 @@
+
 var InvestHome = function(){
 	var t = this;
-
+	// var loadingImg = __inline('./images/jiuxinjinrong-02.jpg'),
 	t.el = $('<div id="investHomeModule" class="invest_home_module">'+
-
+				'<div class="loading">'+
+			                '<img src="static/pc/lib/img/loading.gif" width="40" height="40">'+
+			                '<p style="font-size:16px; margin-top:30px;">正在请求数据，请耐心等待！</p>'+
+            	'</div>'+
 		    '</div>');
     t.config();
     t.init();
 };
+
 InvestHome.prototype = {
 	init: function(){
 		var t = this;
@@ -31,7 +36,6 @@ InvestHome.prototype = {
 			J.Common.intervalArray = [];
 		}
 	},
-	
 	config:function(){
 		var t = this;
         t.grid = {
@@ -47,6 +51,12 @@ InvestHome.prototype = {
 			},
 			className:'invest_table',
 			format:{
+				deadline:function(item){
+					return '<div style="width:200px;">'+item.deadline+'</div>';
+				},
+				money:function(item){
+					return '<div style="width:80px; padding-right:40px; text-align:right;">'+item.money+'</div>';
+				},
 				progress:function(item){
 	    				var option = {
 		        			radius  : [19, 22],//饼图半径19，边框22-19
@@ -60,27 +70,27 @@ InvestHome.prototype = {
 		        			J.Common.chartSmallPie(option);
 		        			clearTimeout(timeClear);
 		        		},50);
-		        		return '<div id="'+item.id+'_abc" style="margin:0 auto;width:45px; height:45px;"></div>';
+		        		return '<div style="width:160px;"><div id="'+item.id+'_abc" style="margin:0 auto;width:45px; height:45px;"></div></div>';
 				},
 				title:function(item){
 					if(item.rookie){
-						return '<a href="#investDetail/id='+item.id+'" target="_blank" class="rookieA">'+item.title+'</a><span class="rookie"></span>'
+						return '<div style="width:240px;padding-left:60px;text-align:left;"><a href="#investDetail/id='+item.id+'" target="_blank" class="rookieA">'+item.title+'</a><span class="rookie"></span></div>'
 					}else{
-						return '<a href="#investDetail/id='+item.id+'" target="_blank">'+item.title+'</a>'
+						return '<div style="width:240px;padding-left:60px;text-align:left;"><a href="#investDetail/id='+item.id+'" target="_blank">'+item.title+'</a></div>'
 					}
 				},
 				yield:function(item){
-					return '<span class="golden">'+item.yield+'</span>'
+					return '<div style="width:200px;"><span class="golden">'+item.yield+'</span></div>'
 				},
 				state:function(item){
 					if(item.status == 'OPENED'){
-						return '<a href="#investDetail/id='+item.id+'" class="btn_gold" >立即投资</a>';
+						return '<div style="width:220px; text-align:center;"><a href="#investDetail/id='+item.id+'" class="btn_gold" >立即投资</a></div>';
 					}else if(item.status == 'SCHEDULED'){
 					
 						var timeout  = setInterval(function(){
-							item.endTime=item.endTime-1000;
-							J.Common.getCountDownTime(item.endTime,item.startTime,item.id);
-							if ((item.endTime - item.startTime) < 0) {
+							item.startTime=item.startTime-1000;
+							J.Common.getCountDownTime(item.startTime,item.serverTime,item.id);
+							if ((item.startTime - item.serverTime) < 0) {
 				            	clearInterval(timeout);
 				            	$("#"+item.id).html('<a href="#investDetail/id='+item.id+'" class="btn_gold" >立即投资</a>');
 				                return;
@@ -89,20 +99,18 @@ InvestHome.prototype = {
 
 			            J.Common.intervalArray.push(timeout);
 
-						return '<a id="'+item.id+'">'+J.Common.getCountDownTime(item.endTime,item.startTime,item.id,'one')+'</a>';
+						return '<div style="width:220px; text-align:center;"><a id="'+item.id+'">'+J.Common.getCountDownTime(item.startTime,item.serverTime,item.id,'one')+'</a></div>';
 					}else if(item.status == 'FINISHED'){
-						return '<a class="btn_gray">已满标</a>';
+						return '<div style="width:220px; text-align:center;"><a class="btn_gray">已满标</a></div>';
 					}else if(item.status == 'SETTLED'){
-						return '<a class="btn_gray">还款中</a>';
+						return '<div style="width:220px; text-align:center;"><a class="btn_gray">还款中</a></div>';
 					}else if(item.status == 'CLEARED'){
-						return '<a class="btn_gray">还款结束</a>';
+						return '<div style="width:220px; text-align:center;"><a class="btn_gray">还款结束</a></div>';
 					}
 				}
 			}
 		};
-		
 	}
-
 };
 
 InvestHome.prototype.constructor = InvestHome;

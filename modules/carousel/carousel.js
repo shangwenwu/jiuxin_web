@@ -46,7 +46,7 @@ Carousel.prototype = {
 			item.width = t.picItemW;
 			item.index = index;
             picItem += picTpl(item);
-            pointItem += '<li class="point_item point'+index+' fl '+active+'" data-index="'+index+'"></li>';
+            pointItem += '<li class="point_item point'+index + ' ' + active+'" data-index="'+index+'"></li>';
         });
         t.pic.html(picItem);
         t.point.html(pointItem);
@@ -69,7 +69,7 @@ Carousel.prototype = {
         cPoint.addClass('active');
         uPic.css({'z-index':10});
         cPic.css({'left':t.picItemW+'px','z-index':10});
-        t.pic.animate({'left': -t.picItemW+'px'}, 500, function(){
+        t.pic.stop(true,true).animate({'left': -t.picItemW+'px'}, 500, function(){
             t.pic.css('left','0px');
             cPic.css({'left':'0px'});
             uPic.css({'left':t.picItemW+'px','z-index':0});

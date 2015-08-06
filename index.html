@@ -10,24 +10,34 @@
     <link href="lib/css/common.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="lib/js/mod.js"></script>
     <script type="text/javascript" src="lib/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="lib/js/placeholders.min.js"></script>
+  
+
 
     <script type="text/javascript" src="lib/js/echarts-all.js"></script>
     <script type="text/javascript" src="lib/datePicker/WdatePicker.js"></script>
     <script type="text/javascript" src="lib/js/json2.js"></script>
     <!--[if lt IE 9]>
-    <script src="lib/html5shiv.min.js"></script>
+    <script src="/static/pc/lib/js/html5shiv.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?de3ff742cf63834c09dde9a4962d4584";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+          //document.getElementById('goodFaith').oncontextmenu = function(){return false;}
+        })();</script>
 </head>
 <body>
-    <header id="mainHeader">
-
-    </header>
+    <div id="mainHeader"></div>
     <div id="mainBody">
 
     </div>
-    <footer id="mainFooter">
+    <div id="mainFooter">
 
-    </footer>
+    </div>
 
     <script type="text/javascript">
         require('pc:index');

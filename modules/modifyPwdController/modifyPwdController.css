@@ -13,7 +13,7 @@
 
 
 
-.modifyPwd_module p.statusTitle{ font-size: 24px; color: #242d4f; }
+.modifyPwd_module p.statusTitle{ font-size: 20px; color: #00205c; }
 
 .modifyPwd_module div.statusBox1{ margin: auto; width: 336px; height: 300px; margin-top:10px; }
 .modifyPwd_module div.statusBox1 .submit{ margin-top: 30px; width: 100%; }
@@ -36,3 +36,5 @@
 
 
 .modifyPwd_module p.textDescript{ line-height: 25px; padding-left: 200px;}
+
+.modifyPwd_module div.statusBox1 label .placeholder{ position: absolute; top:8px; right: 10px; display: block; width: 217px; line-height: 25px; color: #a9a9a9;}

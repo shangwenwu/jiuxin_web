@@ -17,7 +17,7 @@
 .trusteeship_module .l25{ line-height: 25px;}
 
 
-.trusteeship_module p.statusTitle{ font-size: 24px; color: #242d4f; }
+.trusteeship_module p.statusTitle{ font-size: 20px; color: #00205c; }
 
 .trusteeship_module div.status{ margin-top:10px; height: 34px;}
 .trusteeship_module div.bg1{ background: url('images/progress1.png') 240px 0 no-repeat;}
@@ -35,7 +35,7 @@
 .trusteeship_module div.statusBox2 .submit,
 .trusteeship_module div.statusBox1 .submit,
 .trusteeship_module div.statusBox3 .submit{ margin-top: 30px; width: 100%; }
-.trusteeship_module label{ position: relative; background: #f5f5f5;padding:10px 10px 10px 20px; display: inline-block; border: 1px solid #e3e3e3; width: 60%;}
+.trusteeship_module label{ position: relative; background: #fff;padding:10px 10px 10px 20px; display: inline-block; border: 1px solid #e3e3e3; width: 60%;}
 .trusteeship_module label span{ width: 45px; display: inline-block;}
 .trusteeship_module label input{ display: inline-block; border:none; background: none; margin-left:10px; padding-left: 10px; border-left:1px solid #e3e3e3;}
 .trusteeship_module div.statusBox2 div button{ background: #c2c2c2; cursor: pointer;  width: 28%;display: inline-block; line-height: 42px;}
@@ -53,3 +53,5 @@
 
 .mobileIcon{ width: 29px; height: 48px; margin: 0 auto; margin-bottom:20px;  background: url(images/mobile1.png) no-repeat; }
 .trusteeship_module div.statusBox1 p a.aImg{cursor: pointer; vertical-align: middle; display: inline-block; width: 18px; height: 18px; background:url(images/question.png) no-repeat;}
+
+a#agreement2,a#agreement1{ text-decoration: underline; cursor: pointer;}

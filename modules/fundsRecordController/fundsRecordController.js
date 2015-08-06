@@ -5,15 +5,16 @@ var inquiryTpl = Template(
         '<% if (record == "amount"){%>'+
             '<label>交易类型：</label>'+
             '<span id="selectType" class="select_type"></span>'+
-        '<%}else{%>'+
+        '<%} else{ %>'+
             '<label>交易状态：</label>'+
             '<span class="inquiry_type_item sel" data-index="0">不限</span>'+
             '<span class="inquiry_type_item" data-index="1">成功</span>'+
             '<span class="inquiry_type_item" data-index="2">失败</span>'+
-            '<% if (record == "withdraw"){%>'+
             '<span class="inquiry_type_item" data-index="3">处理中</span>'+
-            '<%}%>'+
-        '<%}%>'+
+            '<% if (record == "recharge"){%>'+
+                '<span class="inquiry_type_item" data-index="4">取消</span>'+
+            '<% } %>'+
+        '<% } %>'+
     '</p>'+
     '<p class="inquiry_time box">'+
         '<label>交易时间：</label>'+
@@ -23,19 +24,20 @@ var inquiryTpl = Template(
         '<span class="inquiry_time_item" data-index="3">3个月内</span>'+
         '<span class="inquiry_time_item" data-index="6">6个月内</span>'+
         '<span class="time_wrapper">' +
-            '<span class="fl">起</span>' +
-            '<input class="fl" type="text" id="startTime" onclick="WdatePicker({onpicked: J.filterTime})"></input>' +
-        '</span>' +
-        '<span class="time_wrapper">' +
             '<span class="fl">止</span>' +
             '<input class="fl" type="text" id="endTime" onclick="WdatePicker({onpicked: J.filterTime})"></input>' +
         '</span> '+
+        '<span class="time_wrapper">' +
+            '<span class="fl">起</span>' +
+            '<input class="fl" type="text" id="startTime" onclick="WdatePicker({onpicked: J.filterTime})"></input>' +
+        '</span>' +
     '</p>'
 );
 
 var FundsRecordController = function(record){
 	var t = this;
 	t.el = $('<div id="fundsRecordModule" class="funds_record_module">'+
+                '<h1 class="hd">资金记录</h1>'+
 		        '<div class="tap_head">'+
                     '<span class="tap_item fl amount" data-href="amount">资金记录</span>'+
                     '<span class="tap_item fl recharge" data-href="recharge">充值记录</span>'+
@@ -83,7 +85,7 @@ FundsRecordController.prototype = {
     },
     listenFun: function(){
         var t = this;
-        Transceiver.listen('userInfo','bankCardModule.init',function(data){
+        Transceiver.listen('userInfo','fundsRecord.init',function(data){
             var user = JSON.parse(data);
             t.serverTimeStamp = parseInt(user.serverTime)
             t.serverTime = J.Utils.formatTime(t.serverTimeStamp, 'Y-M-D');
@@ -150,6 +152,7 @@ FundsRecordController.prototype = {
     configTable: function(){
         var t = this;
         t.grid = {
+            id:'table_box',
             dataSource: t.record == 'amount' ? J.Api.fundsRecord : t.record == 'recharge' ? J.Api.fundsRecharge : J.Api.fundsWithdraw,
             sendData:{
                 pageSize:10,
@@ -160,13 +163,13 @@ FundsRecordController.prototype = {
             },
             footer:false,
             headTh: t.record == 'amount' ? {
-                field:['time','type','operation','income','disbursement','remaining','note'],
-                name:['交易时间','交易类型','资金操作','收入（元）','支出（元）',' 账户余额（元）','备注']
+                field:['time','type','operation','income','disbursement','remaining','status'],
+                name:['交易时间','交易类型','资金操作','收入（元）','支出（元）',' 账户余额（元）','状态']
             } : t.record == 'recharge' ? {
-                field:['time','number','rechargeMoney','fundChannel','note'],
-                name:['充值时间','编号','充值金额（元）','资金渠道','备注']
+                field:['time','number','rechargeMoney','fundChannel','status'],
+                name:['充值时间','编号','充值金额（元）','资金渠道','状态']
             } : {
-                field:['time','order','withdrawMoney','state'],
+                field:['time','order','withdrawMoney','status'],
                 name:['提现时间','订单号','提现金额（元）','状态']
             },
             className:'inquiry_table',
@@ -185,7 +188,7 @@ FundsRecordController.prototype = {
             $('#messagePager').uuiPager({
                 currentPage: 1,
                 totalPage: Math.ceil(t.totalSize / 10) || 1,
-                pageSize: 7,
+                pageSize: 10,
                 nextPage: ">",
                 prePage: "<",
                 target: '#messagePager',
@@ -210,6 +213,7 @@ FundsRecordController.prototype = {
          });
          t.el.delegate('#selectType','click',function(e){
             t.grid.sendData.transType = $(this).find('.dropdown').val();
+            t.grid.sendData.currentPage = 1;
             t.pagerStatus = true;
             t.fetchTable();
          });
@@ -218,6 +222,7 @@ FundsRecordController.prototype = {
             t.el.find('.inquiry_type_item.sel').removeClass('sel');
             $this.addClass('sel');
             t.grid.sendData.transType = $this.data('index');
+            t.grid.sendData.currentPage = 1;
             t.pagerStatus = true;
             t.fetchTable();
          });

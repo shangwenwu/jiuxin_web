@@ -1,9 +1,9 @@
-.invest_home_module .invest_table { width: 1200px; margin: 10px auto; font-size: 14px; font-weight: 400; text-align: center;}
-.invest_home_module .invest_table th{ background: #b5a16b; color: white; line-height: 36px;  }
-.invest_home_module .invest_table td{ background: white; color:#666; border-bottom:1px solid #ccc; line-height: 65px;}
-.invest_home_module .invest_table td a{ text-decoration: none; color: #b5a16b;}
+.invest_home_module .invest_table {width: 1200px; margin: 10px auto;  font-size: 14px;  text-align: center;}
+.invest_home_module .invest_table th{ font-size:18px; background: #b5a16b; color: white; line-height: 36px; font-weight: normal;  }
+.invest_home_module .invest_table td{  color:#666; border-bottom:1px solid #ccc; line-height: 65px;}
+.invest_home_module .invest_table td a{ text-decoration: none; color: #354473;}
 .invest_home_module .invest_table .golden{ color:#af985c;}
-.invest_home_module .invest_table td a.btn_gold{width: 120px; text-align: center; line-height: 35px; background: #242d4f; color: #fff; border: none; border-radius: 5px; display: inline-block; cursor: pointer;}
+.invest_home_module .invest_table td a.btn_gold{width: 120px; text-align: center; line-height: 35px; background: #00205c; color: #fff; border: none; border-radius: 5px; display: inline-block; cursor: pointer;}
 .invest_home_module .invest_table td a.btn_gray{width: 120px; text-align: center; line-height: 35px; background: lightgrey; color: #b5a16b; border: none; border-radius: 5px; display: inline-block; cursor: inherit;}
 
 .invest_home_module .invest_table td a.rookieA{ display: inline-block; }

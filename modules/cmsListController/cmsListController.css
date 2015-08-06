@@ -14,3 +14,31 @@
 .cms_list_module .tableFooter strong{ margin-right: 50px;}
 .cms_list_module .tableFooter .disabledClass{ cursor: inherit; opacity: .5; }
 .cms_list_module .tableFooter .disabledClass:hover{ background: none; color: #666;}
+
+
+
+
+.cms_list_module .pager_bar {
+  text-align: center;
+  margin-top: 50px;
+  height: 100px;
+}
+.cms_list_module .pager_bar span.on, 
+.cms_list_module .pager_bar a:hover  {
+    border-radius: 1px;
+    background: #00205c;
+    color: #FFF;
+}
+.cms_list_module .pager_bar a:hover  {
+    text-decoration: none;
+}
+.cms_list_module .pager_bar a, 
+.cms_list_module .pager_bar span {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 32px;
+    margin: 0 3px;
+    font-size: 14px;
+}
+

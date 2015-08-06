@@ -1,7 +1,7 @@
 
 var userInfoTpl = Template(
     '<% if(isLogin) {%>' +
-        '<i class="user_name">欢迎您 <%- username %></i>'+
+        '欢迎您<i class="user_name"><%- realName || username %></i>'+
         '<% if(messageCount > 0) {%>' +
             '<a href="#account/message" class="message">(<%- messageCount %>)</a>' +
         '<% } %>' +
@@ -18,6 +18,8 @@ var Head = function(){
   t.el = $('<div  id="headModule" class="head_module">'+
   				'<div class="head_module-info">'+
   					'<div class="head_module-info-content u-pos-r-center">'+
+              '<div id="userInfo" class="user_info">' +
+              '</div>' +
   						'<span class="hotline"></span>'+
   						'<span class="weiboIcon">'+
   							'<a href="http://weibo.com/jiuxinfinance" target="_blank"></a>'+
@@ -25,11 +27,10 @@ var Head = function(){
   						'<span class="weixinIcon"></span>'+
   						'<div class="dropdown" ></div>'+
               '<a class="feedback" href="#feedback" title="反馈建议"></a>' +
-  						'<a href="#help" title="帮助中心">'+
+  						'<a class="help_center" href="#help" title="帮助中心">'+
   							'<span class="why"></span>'+
   						'</a>'+
-              '<div id="userInfo" class="user_info">' +
-              '</div>' +
+
   					'</div>'+
   				'</div>'+
   				'<div class="head_module-menu">'+
@@ -53,6 +54,8 @@ var Head = function(){
   Transceiver.listen('userInfo','headModule.init',function(data){
     var user = JSON.parse(data);
     t.userInfoWrapper.html(userInfoTpl(user));
+    $("#headModule").attr("data-cur", J.cookie.get('userstate') || '');
+    // window.userstate = $.cookie('userstate') || '';
   });
 
   t.init();
@@ -72,7 +75,8 @@ Head.prototype = {
           url: J.Api.logout,
           notLoginCallback: function  () {
             location.href = "/";
-          }          
+            // Router.navigate('home');
+          }
         };
         J.Utils.sendAjax(options);        
     });

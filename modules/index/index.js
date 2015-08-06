@@ -1,3 +1,9 @@
+var hashchange = 'hashchange',  DOC = document,  documentMode = DOC.documentMode,
+    supportHashChange = ('on' + hashchange in window) && ( documentMode === void 0 || documentMode > 7 );
+/*浏览器版本过低时，提示升级 */
+if(!supportHashChange) {
+    location.href = '/upload_browser.html';
+}
 require('pc:base/bootinit');
 require('pc:base/router');
 require('pc:base/storage');
@@ -7,10 +13,9 @@ require('pc:base/utils');
 require('pc:base/common');
 
 
-// J.Api = require('pc:api');
-
-var Rewrite = require('pc:rewrite');
-J.Api = new Rewrite();
+J.Api = require('pc:api');
+// var Rewrite = require('pc:rewrite');
+// J.Api = new Rewrite();
 
 require('pc:accountController');
 require('pc:helpController');
@@ -26,11 +31,10 @@ require('pc:investDetailController');
 require('pc:cmspageController');
 require('pc:cmsListController');
 
-
 var Head = require('pc:head');
 var Footer = require('pc:footer');
 var HomeController = require('pc:homeController');
-
+// new Head();
 $('#mainHeader').html(new Head().el);
 $('#mainFooter').html(new Footer().el);
 
@@ -65,6 +69,8 @@ Router.init({
                 } */               
             },
             onRoute : function () {
+                //清除弹框
+                J.Utils.closeDialog();
                 //获取用户信息
                 var getUserInfo =  function  () {
                     var t = this, user = {};

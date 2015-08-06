@@ -23,8 +23,8 @@
 .about_page_module .content {
     float: left;
     margin-left: 20px;
-    padding: 0px 20px 30px 20px;
-    width: 783px;
+    padding: 0px 30px 30px;
+    width: 763px;
     border: 1px solid #ccc;
     background: #fff;
 }
@@ -36,8 +36,7 @@
 }
 .about_page_module .content .title {
     width: 120px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0px 10px;
     font-size: 20px;
     font-weight: bold;
     line-height: 50px;
@@ -46,14 +45,15 @@
     text-align: center;
 }
 .about_page_module .content .sub_title {
-    margin-top: 15px;
+    margin-top: 16px;
     line-height: 22px;
     font-size: 15px;
+    font-weight: bold;
 }
 .about_page_module .content .beijing .text,
 .about_page_module .content .jiuxin .text {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 26px;           
 }
 .about_page_module .content .beijing .table_desc {

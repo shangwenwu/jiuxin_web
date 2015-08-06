@@ -49,8 +49,8 @@
 }
 #mainFooter .sidebar .nav_item {
 	display: block;
-	width: 47px;
-	height: 47px;
+	width: 48px;
+	height: 48px;
 }
 #mainFooter .sidebar a.nav_item:hover {
 	background: #232b50;
@@ -60,32 +60,33 @@
 }
 #mainFooter .sidebar a span {
 	display: block;
-	width: 45px;
-	height: 45px;
+	width: 46px;
+	height: 46px;
 	border: 1px solid transparent;
-	background: url('images/icon.png') no-repeat;
+	/*background: url('images/icon.png') no-repeat;*/
 	margin-bottom: 1px;
 }
 #mainFooter .sidebar a:hover span {
 	border-color: #dfdfdf;
 }
 #mainFooter .sidebar .qq span {
-	background-position: 0 0;
+	/*background-position: 0 0;*/
+	background: url('images/QQ01.png') no-repeat;
 }
 #mainFooter .sidebar a.qq:hover span {
-	background-position: 0px -50px;
+	background: url('images/QQ02.png') no-repeat;
 }
 #mainFooter .sidebar .to_top span {
-	background-position: -50px 0px;
+	background: url('images/xiangshang01.png') no-repeat;
 }
 #mainFooter .sidebar a.to_top:hover span {
-	background-position: -50px -50px;
+	background: url('images/xiangshang02.png') no-repeat;
 }
 #mainFooter .sidebar .feedback span {
-	background-position: -102px 0;
+	background: url('images/fankui01.png') no-repeat;
 }
 #mainFooter .sidebar a.feedback:hover span {
-	background-position: -102px -50px;
+	background: url('images/fankui02.png') no-repeat;
 }
 
 

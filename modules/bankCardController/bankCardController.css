@@ -2,12 +2,17 @@
   background: #fff;
   display: inline-block;
   width: 100%;
-  height: 700px;
+  min-height: 450px;
+  padding-bottom:50px;
+}
+.bank_card_module .ui_loading{
+  margin-top:150px; 
 }
 .bank_card_module .hd{
-  margin: 46px 50px 42px;
+  margin: 40px 50px 42px;
   font-size: 20px;
-  color: #232d4f;
+  color: #00205c;
+  font-weight: inherit;
 }
 .bank_card_module .card_box{
   margin: 0 50px;
@@ -18,25 +23,26 @@
 }
 .bank_card_module .card_list{
   margin-bottom: 38px;
+  width: 924px;
 }
 .bank_card_module .card_list .card_item{
-  width: 130px;
-  height: 40px;
+  width: 128px;
+  height: 38px;
   border: 1px solid #c9c9c9;
-  margin-right: 26px;
+  margin-right: 24px;
   margin-bottom: 14px;
   background: url(images/cardlist.png) no-repeat;
   cursor: pointer;
 }
 .bank_card_module .card_list .card_item.on{
-  border: 1px solid #242d4f;
+  border: 1px solid #00205c;
 }
 .bank_card_module .card_list .card_item.on:before{
   content: "";
   width: 20px;
   height: 20px;
   position: relative;
-  right: -110px;
+  right: -108px;
   top: 0px;
   background: url(images/xuanze.png) no-repeat center;
   display: inline-block;
@@ -71,16 +77,18 @@
 .bank_card_module .card_number .label{
   width: 70px;
   display: inline-block;
+  font-size: 14px;
 }
 .bank_card_module .card_number .card_input{
-  width: 260px;
-  height: 36px;
+  width: 258px;
+  height: 32px;
   line-height: 36px;
   border: 1px solid #c9c9c9;
   text-indent: 15px;
 }
 .bank_card_module .card_hint{
   margin: 14px 0 14px 70px;
+  height: 1px;
 }
 .bank_card_module .submit{
   margin-left: 70px;
@@ -88,6 +96,7 @@
   width: 260px;
   height: 36px;
   color: #fff;
+  font-size: 14px;
 }
 .bank_card_module .card_img{
   width: 290px;

@@ -35,7 +35,7 @@ CmspageController.prototype = {
         	data:{cmsId:id},
         	callback:function(data){
                 t.cmsHead.html(data.title);
-                t.cmsTime.html(data.time);
+                t.cmsTime.html(J.Utils.formatTime(data.time,"Y-M-D"));
                 t.cmsContent.html(data.content);
         	}
         });

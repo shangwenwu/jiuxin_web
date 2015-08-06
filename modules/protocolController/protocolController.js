@@ -1,6 +1,6 @@
 var agreement1 = require('pc:agreement/invest');
 var agreement2 = require('pc:agreement/refund');
-
+var newTab;
 
 var ProtocolController = function(){
 	var t = this;
@@ -45,36 +45,54 @@ ProtocolController.prototype = {
 		var t = this;
 		t.init();
 	},
-	getUesrInfo:function(){
-		Transceiver.listen('userInfo','accountPandectModule.init',function(data){
-			var user         = JSON.parse(data);
-			$('.buttonGather button').hide();
-			if(!user.isAgreement && !user.isRefundAgreement && user.isBorrower){
-				$('#confirm').show();
-			}else if(user.isAgreement && user.isRefundAgreement && user.isBorrower){
+	getInfo:function(){
+		var t = this;
+		J.Utils.sendAjax({
+	    	    url:J.Api.getUserInfo,
+	        	callback:function(data){
+	        		t.setStatus(data);
+	        	},
+	        	notLoginCallback:function(data){
+	        		t.setStatus(data);
+	        	}
+        });
+	},
+	setStatus:function(user){
+		$('.isRefundAgreement').show();
+		$('#argee1').removeAttr('checked');
+		$('#argee2').removeAttr('checked');
+		$('.buttonGather button').hide();
+		if(!user.isAgreement && !user.isRefundAgreement && user.isBorrower){
+			$('#confirm').show();
+		}else if(user.isAgreement && user.isRefundAgreement && user.isBorrower){
+			$('input#argee1').attr("checked",'true').attr("disabled",'true');
+			$('input#argee2').attr("checked",'true').attr("disabled",'true');
+			$('#remove').show().html('解除协议');;
+		}else{
+			if(user.isAgreement){
 				$('input#argee1').attr("checked",'true').attr("disabled",'true');
-				$('input#argee2').attr("checked",'true').attr("disabled",'true');
-				$('#remove').show().html('解除协议');;
+				$('#remove2').show().html('解除协议');
 			}else{
-				if(user.isAgreement){
-					$('input#argee1').attr("checked",'true').attr("disabled",'true');
-					$('#remove2').show().html('解除协议');
-				}else{
-					$('#confirm1').show();
-				}
-
-				if(user.isBorrower){
-					if(user.isRefundAgreement){
-						$('input#argee2').attr("checked",'true').attr("disabled",'true');
-						$('#remove1').show().html('解除协议');
-					}else{
-						$('#confirm2').show();
-					}
-				}else{
-					$('.isRefundAgreement').hide();
-				}
+				$('#confirm1').show();
 			}
-			
+
+			if(user.isBorrower){
+				if(user.isRefundAgreement){
+					$('input#argee2').attr("checked",'true').attr("disabled",'true');
+					$('#remove1').show().html('解除协议');
+				}else{
+					$('#confirm2').show();
+				}
+			}else{
+				$('.isRefundAgreement').hide();
+			}
+		}
+	},
+	getUesrInfo:function(){
+		var t = this;
+		Transceiver.listen('userInfo','accountPandectModule.init',function(data){	
+			var user = JSON.parse(data);		
+			t.setStatus(user);
 		});
 	},
 	findEl :function(){
@@ -107,10 +125,22 @@ ProtocolController.prototype = {
 			}
 		};
 	},
-	openAgreement:function(arr){
+	openAgreement:function(arr,butName){
 		var t = this;
+		var butDom = $('#'+butName)
 		var params = {
+			disabled:{
+				on:function(){
+					//禁止开启行为
+					butDom.removeAttr('id').css({'background':'#666','cursor':'inherit'});
+				},
+				off:function(){
+					//禁止关闭行为
+					butDom.attr('id',butName).css({'background':'#00205c','cursor':'pointer'});
+				}
+			},
 			url: J.Api.prepareBindBindAgreement,
+			type:'get',
 			data: arr,
 			callback: function(data) {
 				//打开新窗口
@@ -118,17 +148,19 @@ ProtocolController.prototype = {
 					url:data.url,
 					method :'post',
 					param: data.param,
+					windowTarget: newTab,
 					onSubmit: function(){
 							//弹出框 
 							var obj = {
 						 		content: '请在弹出的窗口上进行签署投资协议操作，完成后请确认！',
 						 		onSureCallback: function(){
+						 			_hmt && _hmt.push(['_trackEvent', 'xieyi', 'kaitong',]);
 						 			//location.reload();
 						 			t.el = $(t.html);
 						 			$('#accountMain').html(t.el);
 									t.findEl();
 									t.events();
-									t.getUesrInfo();
+									t.getInfo();
 						 		},
 						 		okValue: '确 认',
 						 		cancelValue: '取消'
@@ -140,16 +172,29 @@ ProtocolController.prototype = {
 		}
 		J.Utils.sendAjax(params);
 	},
-	closeAgreement:function(arr){
+	closeAgreement:function(arr,butName){
 		var t = this;
+		var butDom = $('#'+butName)
 		var params = {
+			disabled:{
+				on:function(){
+					//禁止开启行为
+					butDom.removeAttr('id').css({'background':'#666','color':'#fff','cursor':'inherit'});
+				},
+				off:function(){
+					//禁止关闭行为
+					butDom.attr('id',butName).css({'background':'#fff','color':'#00205c','cursor':'pointer'});
+				}
+			},
 			url: J.Api.removeAgreement,
+			type:'get',
 			data: arr,
 			callback: function(data) {
 				//打开新窗口
 				J.Utils.submitForm({
 					url:data.url,
 					method :'post',
+					windowTarget: newTab,
 					param: data.param,
 					onSubmit: function(){
 							//弹出框 
@@ -161,7 +206,7 @@ ProtocolController.prototype = {
 						 			$('#accountMain').html(t.el);
 									t.findEl();
 									t.events();
-									t.getUesrInfo();
+									t.getInfo();
 						 		},
 						 		okValue: '确 认',
 						 		cancelValue: '取消'
@@ -186,7 +231,16 @@ ProtocolController.prototype = {
 	    t.el.delegate('#confirm', 'click', function(e){ 
 	    	var obj = t.getAgreement();
 	    	if(t.regEleInfo.argee1.otherFun(t.regEleInfo.argee1) || t.regEleInfo.argee2.otherFun(t.regEleInfo.argee2)){
-		    		t.openAgreement({isAgreement:obj.isAgreement,isRefundAgreement:obj.isRefundAgreement});	    		
+		    		//{isAgreement:obj.isAgreement,isRefundAgreement:obj.isRefundAgreement}
+		    		if(obj.isAgreement && obj.isRefundAgreement){
+		    			var agreementList = 'ZTBB0G00|ZHKB0H01';
+		    		}else if(obj.isAgreement && !obj.isRefundAgreement){
+		    			var agreementList = 'ZTBB0G00';
+		    		}else if(!obj.isAgreement && obj.isRefundAgreement){
+		    			var agreementList = 'ZHKB0H01';
+		    		}
+		    		newTab = window.open('about:blank');
+		    		t.openAgreement({agreementList:agreementList},'confirm');	    		
 		    }else{
 		    	var para = {
 					 content: '请阅读并同意签署至少一种协议',
@@ -198,7 +252,9 @@ ProtocolController.prototype = {
 	     t.el.delegate('#confirm1', 'click', function(e){ 
 	     	var obj = t.getAgreement();
 	    	if(t.regEleInfo.argee1.otherFun(t.regEleInfo.argee1)){
-		    		t.openAgreement({isAgreement:true,isRefundAgreement:obj.isRefundAgreement});	    		
+	    			//{isAgreement:true,isRefundAgreement:obj.isRefundAgreement}
+	    			newTab = window.open('about:blank');
+		    		t.openAgreement({agreementList:'ZTBB0G00'},'confirm1');	    		
 		    }else{
 		    	var para = {
 					 content: '请阅读并同意签署快速投资协议',
@@ -210,7 +266,9 @@ ProtocolController.prototype = {
 	     t.el.delegate('#confirm2', 'click', function(e){ 
 	     	var obj = t.getAgreement();
 	    	if(t.regEleInfo.argee2.otherFun(t.regEleInfo.argee2)){
-		    		t.openAgreement({isAgreement:obj.isAgreement,isRefundAgreement:true});	    		
+	    			//{isAgreement:obj.isAgreement,isRefundAgreement:true}
+	    			newTab = window.open('about:blank');
+		    		t.openAgreement({agreementList:'ZHKB0H01'},'confirm2');	    		
 		    }else{
 		    	var para = {
 					 content: '请阅读并同意签署快速还款协议',
@@ -220,16 +278,22 @@ ProtocolController.prototype = {
 		    }
 	    });
 	    t.el.delegate('#remove', 'click', function(e){
-    		t.closeAgreement({isAgreement:true,isRefundAgreement:true});	
+	    	//{isAgreement:true,isRefundAgreement:true}
+	    	newTab = window.open('about:blank');
+    		t.closeAgreement({agreementList:'ZTBB0G00|ZHKB0H01'},'remove');	
 	    });
 
 	    t.el.delegate('#remove2', 'click', function(e){ 
 	    	var obj = t.getAgreement();
-    		t.closeAgreement({isAgreement:true,isRefundAgreement:obj.isRefundAgreement});	
+	    	newTab = window.open('about:blank');
+	    	//{isAgreement:true,isRefundAgreement:obj.isRefundAgreement}
+    		t.closeAgreement({agreementList:'ZTBB0G00'},'remove2');	
 	    });
 	    t.el.delegate('#remove1', 'click', function(e){ 
 	    	var obj = t.getAgreement();
-    		t.closeAgreement({isAgreement:obj.isAgreement,isRefundAgreement:true});	
+	    	newTab = window.open('about:blank');
+	    	//{isAgreement:obj.isAgreement,isRefundAgreement:true}
+    		t.closeAgreement({agreementList:'ZHKB0H01'},'remove1');	
 	    });
 
 	    $('#agreement1').click(function(){
@@ -238,7 +302,11 @@ ProtocolController.prototype = {
 		 		width:600,
 		 		title:'快速投资协议',
 		 		okValue: '已阅读并同意快速投资协议',
-		 		ok: true
+		 		ok: function(){
+		 			if(!$('#argee1').attr('checked')){
+		 				$('#argee1').attr('checked',true);
+		 			}
+		 		}
 		 	}).show();
 	    });
 	    $('#agreement2').click(function(){
@@ -247,7 +315,11 @@ ProtocolController.prototype = {
 		 		width:600,
 		 		title:'快速还款协议',
 		 		okValue: '已阅读并同意快速还款协议',
-		 		ok: true
+		 		ok: function(){
+		 			if(!$('#argee2').attr('checked')){
+		 				$('#argee2').attr('checked',true);
+		 			}
+		 		}
 		 	}).show();
 	    });
 	    

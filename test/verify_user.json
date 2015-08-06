@@ -3,6 +3,6 @@
 	"message": "ok",
 	"data":{
 		"result":false,
-		"haveIdNum":false
+		"haveIdNum":true
 	}
 }

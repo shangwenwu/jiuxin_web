@@ -1,7 +1,7 @@
 // var min = '#F{$dp.$D("d4322",{d:1})';
 // var maxDate = '#F{$dp.$D(\'d4322\',{d:-3});}';
 var wrapperTpl = '<div id="ProjectPageModule" class="project_page_module">' +
-        '<p class="title">已投项目</p>' +
+        '<p class="title">我的投资</p>' +
         '<div class="filer_wrapper">' +
             '<div class="status_filter item">' +
                 '<span class="label fl">项目状态:</span>' +
@@ -21,13 +21,13 @@ var wrapperTpl = '<div id="ProjectPageModule" class="project_page_module">' +
                     '<li class="" data-time="6">6个月内</li>' +
                 '</ul>' +
                 '<div class="time_wrapper">' +
-                    '<span>起</span>' +
-                    '<input type="text" id="startTime" onclick="WdatePicker({onpicked: J.checkTime})">' +
-                '</div>' +
-                '<div class="time_wrapper">' +
                     '<span>止</span>' +
                     '<input type="text" id="endTime" onclick="WdatePicker({onpicked: J.checkTime})">' +
                 '</div> ' +
+                '<div class="time_wrapper">' +
+                    '<span>起</span>' +
+                    '<input type="text" id="startTime" onclick="WdatePicker({onpicked: J.checkTime})">' +
+                '</div>' +
             '</div>' +
         '</div>' +
         '<div class="project_wrapper_header">' +

@@ -13,6 +13,7 @@ UnderRepayController.prototype = {
         t.el = $(t.htmlText);
         pagerStatus = true;
 		$('#accountMain').html(t.el);
+        $("#dataWrapper").html('<tr><td class="ui_loading" colspan="6"></td></tr>')
         t.listenFun();
         t.filter = {
             pageSize:10,
@@ -28,7 +29,7 @@ UnderRepayController.prototype = {
                 endTime = $("#endTime").val();
             if(startTime && endTime && endTime >= startTime) {
                 t.filter.startTime = startTime;
-                t.filter.endTime = startTime;
+                t.filter.endTime = endTime;
                 t.fetch();
             } else if(startTime && endTime && endTime < startTime) {
                 J.Utils.alert({
@@ -50,9 +51,11 @@ UnderRepayController.prototype = {
 	render: function(data){
         var t = this;
         $("#dataWrapper").html($(underRepayTpl({ moduleData : data })));
-        // t.serverTimeStamp = parseInt(data.serverTime);
-        // t.serverTime = J.Utils.formatTime(t.serverTimeStamp, 'Y-M-D');
-        if(pagerStatus) {
+
+         if(data.totalSize <= 10) {
+            $("#underRepay_pager").empty();
+            pagerStatus = true;
+        } else if(pagerStatus) {
             $('#underRepay_pager').uuiPager({
                 currentPage: 1,
                 totalPage: Math.ceil(parseInt(data.totalSize) / 10),
@@ -71,7 +74,7 @@ UnderRepayController.prototype = {
                     t.fetch();
                 }
             });
-            pagerStatus = false;           
+            pagerStatus = false;        
         }
 	},
 
@@ -104,25 +107,25 @@ UnderRepayController.prototype = {
                 t.filter.endTime = '';
                 break;
             case '1': 
-                var $time = J.Utils.reduceTime(t.serverTimeStamp, 0, 7);
-                start.val($time);
-                end.val(t.serverTime);
-                t.filter.startTime = $time;
-                t.filter.endTime = t.serverTime;
+                var $time = J.Utils.reduceTime(t.serverTimeStamp, 0, -7);
+                start.val(t.serverTime);
+                end.val($time);
+                t.filter.startTime = t.serverTime;
+                t.filter.endTime = $time;
                 break;
             case '3': 
-                var $time = J.Utils.reduceTime(t.serverTimeStamp, 3, 0);
-                start.val($time);
-                end.val(t.serverTime);
-                t.filter.startTime = $time;
-                t.filter.endTime = t.serverTime;
+                var $time = J.Utils.reduceTime(t.serverTimeStamp, -3, 0);
+                start.val(t.serverTime);
+                end.val($time);
+                t.filter.startTime = t.serverTime;
+                t.filter.endTime = $time;
                 break;
             case '6': 
-                var $time = J.Utils.reduceTime(t.serverTimeStamp, 6, 0);
-                start.val($time);
-                end.val(t.serverTime);
-                t.filter.startTime = $time;
-                t.filter.endTime = t.serverTime;
+                var $time = J.Utils.reduceTime(t.serverTimeStamp, -6, 0);
+                start.val(t.serverTime);
+                end.val($time);
+                t.filter.startTime = t.serverTime;
+                t.filter.endTime = $time;
                 break;
         }
     },
@@ -137,6 +140,7 @@ UnderRepayController.prototype = {
                 t.updateTime(time);
                 pagerStatus = true;
                 repayPagerStatus = true;
+                t.filter.currentPage = 1;
                 t.fetch();
             }
 		});
@@ -147,6 +151,7 @@ UnderRepayController.prototype = {
                 t.filter.status = $(this).attr("data-status");
                 pagerStatus = true;
                 repayPagerStatus = true;
+                t.filter.currentPage = 1;
                 t.fetch();
             }
         });

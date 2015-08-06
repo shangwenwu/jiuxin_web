@@ -1,4 +1,12 @@
-.safe_module .headBg{background: url("images/safe_header.png") no-repeat center center;background-size: 100% 100%;width: 100%;min-width: 1200px;_width:1200px;height: 176px;margin-top: -20px;}
+.safe_module .headBg {
+	width: 100%;
+	max-width: 1920px;
+	min-width: 1200px;
+	margin: -20px auto 0px;
+}
+.safe_module .headBg img {
+	width: 100%;
+}
 .safe_module .safe_row{ width: 100%; background: #fff;}
 .safe_module .bgGray{background: #f3f2ef;}
 .safe_module .fixedW{width: 998px; margin: 0 auto;}

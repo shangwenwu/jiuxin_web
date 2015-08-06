@@ -1,11 +1,11 @@
 var agreement = require('pc:agreement/trusteeship');
 var invest = require('pc:agreement/invest');
-
+var newTab;
 var TrusteeshipController = function(){
 	var t = this;
 	t.html = '<div id="trusteeshipModule" class="trusteeship_module">'+
 				'<p class="statusTitle">账户托管</p>'+
-				'<div class="box1">'+
+				'<div class="box1 mt40">'+
 					'<div class="status bg1"></div>'+
 					'<div class="statusBox3">'+
 							'<div class="tac mt60" >您已绑定第三方托管账户，信息如下：</div>'+
@@ -13,25 +13,25 @@ var TrusteeshipController = function(){
 								'<div class="fl">资金托管账户<br>用户名<br>手机号码<br>支付密码</div>'+
 								'<div class="fl" style="padding-left:20px;"><span id="account1">02000156979762</span><br><span id="accountName1">UB2015051708540004011806</span><br><span id="mobile1">18600739687</span><br>见手机短信</div>'+
 							'</div>'+
-							'<a href="#account/withdraw" class="submit btn_blue">前往绑定提现银行卡</a>'+
+							'<a href="#account/bankCard" class="submit btn_blue">前往绑定提现银行卡</a>'+
 					'</div>'+
 					'<div class="statusBox2">'+
 							'<p class="discription tac">开通此功能才能进行投资操作，点击下一步<br>进入跳转页，请输入您手机收到的联动优势支付密码</p>'+
 							'<p class="mt40 pl100"><input type="checkbox" id="argee1" value="1" /><a class="blue uLine f16" id="agreement2">《快速投资协议》</a></p>'+
-							'<button id="submit" class="submit btn_blue">下 一 步</button>'+
+							'<button id="submit" class="submit btn_blue">下&nbsp;一&nbsp;步</button>'+
 					'</div>'+
 					'<div class="statusBox1">'+
-						'<p class="mt60" style="padding-bottom:10px">请填写以下信息，用于开通资金托管账户 <a class="aImg"></a><br>真实姓名需与您用于提现的银行卡账户名一致</p>'+
+						'<p class="mt60" style="padding-bottom:10px;text-align:center;">请填写以下信息，用于开通资金托管账户&nbsp;&nbsp; <a class="aImg"></a><br>真实姓名需与您用于提现的银行卡账户名一致</p>'+
 						'<p class="failed">验证失败</p>'+
 						'<label for="userName" class="mt20"><span>真实姓名</span><input type="text" id="userName"  placeholder="请输入您的姓名" /><p class="red"></p></label>'+
 						'<label for="idNumber" class="mt20"><span>身份证号</span><input type="text" id="idNumber"  placeholder="请输入身份证号码" /><p class="red"></p></label>'+
-						'<p class="mt20 f12"><input type="checkbox" checked id="argee" value="1" />我已阅读并同意<a class="blue uLine" id="agreement1">《九鼎金融账户托管协议》</a></p>'+
-						'<button id="nextStep" class="submit btn_blue" style="margin-top:10px">确 认</button>'+
+						'<p class="mt20 f12"><input type="checkbox" checked id="argee" value="1" />我已阅读并同意<a class="blue uLine" id="agreement1">《九信金融账户托管协议》</a></p>'+
+						'<button id="nextStep" class="submit btn_blue" style="margin-top:10px">确&nbsp;&nbsp;&nbsp;&nbsp;认</button>'+
 					'</div>'+
 				'</div>'+
 				'<div class="box2">'+
 					'<div class="tac mt60" >您已绑定第三方托管账户，信息如下：</div>'+
-					'<div class="mt60 l25" style="width:400px;  margin:30px auto 0 auto;">'+
+					'<div class="mt60 l25" style="width:400px;  margin:30px auto 0 auto; padding-bottom:100px;">'+
 						'<div class="fl">资金托管账户<br>用户名<br>手机号码<br>支付密码</div>'+
 						'<div class="fl" style="padding-left:20px;"><span id="account11">12345678901234567890123456789012</span><br><span id="accountName11">UB2015051708540004011806</span><br><span id="mobile11">18600739687</span><br>见手机短信</div>'+
 					'</div>'+
@@ -64,7 +64,7 @@ TrusteeshipController.prototype = {
 				t.el.find('.box1').hide().siblings('div').show();
 				t.el.find("#account11").html(user.account);
 				t.el.find("#accountName11").html(user.username);
-				t.el.find("#mobile11").html(user.username);
+				t.el.find("#mobile11").html(user.mobile);
 			}else{
 				t.el.find('.box2').hide().siblings('div').show();
 			}
@@ -151,7 +151,18 @@ TrusteeshipController.prototype = {
 	    t.el.delegate('#nextStep', 'click', function(e){ 
 	    	if(J.Common.regFun(t.regEleInfo.userName) && J.Common.regFun(t.regEleInfo.idNumber) && t.regEleInfo.argee.otherFun(t.regEleInfo.argee)){
 	    		//开通资金托管接口
+	    		var nextStep = $('#nextStep');
 	    		var params = {
+	    			disabled:{
+	    				on:function(){
+	    					//禁止开启行为
+	    					nextStep.removeAttr('id').css({'background':'#666','cursor':'inherit'});
+	    				},
+	    				off:function(){
+	    					//禁止关闭行为
+	    					nextStep.attr('id','nextStep').css({'background':'#00205c','cursor':'pointer'});
+	    				}
+	    			},
 					url: J.Api.bindTrusteeship,
 					data: {
 						userName:t.userName.val(),
@@ -190,23 +201,37 @@ TrusteeshipController.prototype = {
 
 	    t.el.delegate('#submit', 'click', function(e){ 
 	    	if(t.regEleInfo.argee.otherFun(t.regEleInfo.argee1)){
-
+	    			newTab = window.open('about:blank');
 	    			//准备开通无密协议
 		    		//J.Api.prepareBindBindAgreement
+		    		var submitButton = $('#submit');
 		    		var params = {
+		    			disabled:{
+		    				on:function(){
+		    					//禁止开启行为
+		    					submitButton.removeAttr('id').css({'background':'#666','cursor':'inherit'});
+		    				},
+		    				off:function(){
+		    					//禁止关闭行为
+		    					submitButton.attr('id','submit').css({'background':'#00205c','cursor':'pointer'});
+		    				}
+		    			},
 						url: J.Api.prepareBindBindAgreement,
-						data: {},
+						data: {agreementList:'ZTBB0G00'},
+						type:'get',
 						callback: function(data) {
 							//打开新窗口
 							J.Utils.submitForm({
 								url:data.url,
-								method :'post',
+								method :'get',
 								param: data.param,
+								windowTarget: newTab,
 								onSubmit: function(){
 										//弹出框 
 										var obj = {
 									 		content: '请在弹出的窗口上进行签署投资协议，操作完成后请确认！',
 									 		onSureCallback: function(){
+									 				_hmt && _hmt.push(['_trackEvent', 'xieyi', 'kaitong',]);
 									 				// location.reload();
 									 				t.status.removeClass('bg2').addClass('bg3');
 								    				t.statusBox2.hide();
@@ -230,9 +255,13 @@ TrusteeshipController.prototype = {
 	    	J.Utils.dialog({
 		 		content: agreement,
 		 		width:600,
-		 		title:'九鼎金融账户托管协议',
+		 		title:'九信金融账户托管协议',
 		 		okValue: '已阅读并同意账户托管协议',
-		 		ok: true
+		 		ok: function(){
+		 			if(!$('#argee').attr('checked')){
+		 				$('#argee').attr('checked',true);
+		 			}
+		 		}
 		 	}).show();
 	    });
 
@@ -242,7 +271,11 @@ TrusteeshipController.prototype = {
 		 		width:600,
 		 		title:'快速投资协议',
 		 		okValue: '已阅读并同意快速投资协议',
-		 		ok: true
+		 		ok: function(){
+		 			if(!$('#argee1').attr('checked')){
+		 				$('#argee1').attr('checked',true);
+		 			}
+		 		}
 		 	}).show();
 	    });
 

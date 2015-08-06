@@ -3,8 +3,11 @@
 	"status":"200",
 	"message":"ok",
 	"data":{
-		"last4BankCardNo":5801,
+		"last4BankCardNo": "",
 		"bankCode":"ABC",
-		"availableWithdrawAmount": 14.3
+		"availableWithdrawAmount": 200000,
+		"status": 0,
+		"newBankCode": "ABC",
+		"newLast4BankCardNo":8891
 	}
 }

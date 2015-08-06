@@ -5,6 +5,12 @@
   padding: 40px 50px;
   font-size: 14px;
 }
+.funds_record_module .hd{
+  font-size: 20px;
+  color: #00205c;
+  font-weight: inherit;
+  margin-bottom: 26px;
+}
 .funds_record_module .tap_head{
  border-bottom: 1px solid #e8e8e8;
 }
@@ -46,7 +52,7 @@
   display: inline-block;
   content: "";
   border: 5px solid transparent;
-  border-top: 10px solid #232d4e;
+  border-top: 10px solid #00205c;
   cursor: pointer;
   position: absolute;
   top: 11px;
@@ -83,16 +89,16 @@
 }
 .funds_record_module .inquiry_box .inquiry_type_item.sel,
 .funds_record_module .inquiry_box .inquiry_time_item.sel{
-  background: #232d4e;
+  background: #00205c;
   color: #fff;
 }
 .funds_record_module .inquiry_box .time_wrapper {
     display: inline-block;
-    margin-right: 10px;
+    margin-left: 10px;
     height: 24px;
-    line-height: 
-    width: 148px;
-    border: 1px solid #f6f6f6;
+    line-height: width: 148px;
+    border: 1px solid #e8e8e8;
+    float: right;
 }
 .funds_record_module .inquiry_box .time_wrapper span {
     display: inline-block;
@@ -122,6 +128,7 @@
 .funds_record_module .inquiry_table th{ 
 	background: #e8e8e8; 
 	line-height: 36px;  
+  font-weight: inherit;
 }
 .funds_record_module .inquiry_table td{ 
 	background: white; 
@@ -137,7 +144,7 @@
 .funds_record_module .pager_bar span.on, 
 .funds_record_module .pager_bar a:hover  {
     border-radius: 1px;
-    background: #242d4f;
+    background: #00205c;
     color: #FFF;
 }
 .funds_record_module .pager_bar a:hover  {

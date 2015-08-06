@@ -1,9 +1,13 @@
 .guide_page_module .guide_header {
 	width: 100%;
-	min-height: 176px;
+	max-width: 1920px;
+	margin: -20px auto 0px;
+/*	min-height: 176px;
 	_height: 176px;
-	background: url(images/guide-header.png) no-repeat center center;
-	margin-top: -20px;
+	background: url(images/guide-header.png) no-repeat center center;*/
+}
+.guide_page_module .guide_header img {
+	width: 100%;
 }
 .guide_page_module .section_white {
 	background: #fff;

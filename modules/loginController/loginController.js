@@ -20,7 +20,7 @@ var LoginController = function(options){
 				'<div class="login_container"><div class="input_wrapper">' +
 					'<div class="input_item username_item">' + 
 						'<span class="icon username"></span>' + 
-						'<input type="text" id="userName" autocomplete="off">' + 
+						'<input type="text" id="userName">' + 
 						'<label for="userName">请输入账号</label>' + 
 					'</div>' + 
 					'<div class="input_item">' + 
@@ -30,6 +30,7 @@ var LoginController = function(options){
 					'</div></div>' + 
 					'<div class="other_info clear">' + 
 						'<p class="err" id="loginErr"></p>' + 
+						'<p class="login_loading">加载中...</p>' + 
 						'<a href="#findpw"  class="forget_pass" rel="nofollow">忘记密码</a>' + 
 					'</div>' + 
 					'<div class="btns">' + 
@@ -47,12 +48,30 @@ LoginController.prototype = {
         t.el = $(t.htmlText);
 		$('#mainBody').html(t.el);
     	t.events();
+    	t.clearLable();
     	t.listenFun();
 	},
 	render: function(){
 		var t = this;
 		t.init();
 	},
+
+	/**
+     * 解决浏览器智能表单bug
+	 */
+    clearLable: function(){
+        window.setTimeout(function() {
+            if ($.trim($('#userName').val()).length > 0) {
+                $('#userName').siblings("label").hide();
+            }
+            if ($.trim($('#password').val()).length > 0) {
+                $('#password').siblings("label").hide();
+            }
+            if ($.trim($('#password').val()).length < 1 && $.trim($('#userName').val()).length < 1) {
+                window.setTimeout(arguments.callee, 100);
+            }
+        }, 100);
+    },
 
 	events : function(){
 	    var t = this;
@@ -64,19 +83,28 @@ LoginController.prototype = {
 			}
 		});
 
-		t.el.delegate('.input_item input', 'focus', function(e){
+		t.el.on('focus', '.input_item input', function(e){
 			var me = $(this);
 			if (me.val().length < 1) {
 				me.siblings("label").hide();
 			}
 		});
 
-		t.el.delegate('.input_item input', 'blur', function(e){
+		t.el.on('blur', '.input_item input', function(e){
 			var me = $(this);
 			if (me.val().length < 1) {
 				me.siblings("label").show();
 			}
 		});
+
+		t.el.delegate('#password', 'keyup', function(e){
+			var me = $(this);
+            var code = e.keyCode;
+            if (code === 13) {
+                $("#loginBtn").click();
+            }
+		});
+		
 	},
 
     listenFun: function(){
@@ -88,7 +116,9 @@ LoginController.prototype = {
             	if(t.url) {
             		location.href = new Base64().decode(t.url);
             	} else {
-            		location.href = '#home'
+ 					Router.navigate('home', {
+                        replace : true
+                    });
             	}
             }
         });
@@ -104,13 +134,13 @@ LoginController.prototype = {
 			err = $("#loginErr");
 
 		if (name.length < 1) {
-			err.text("请输入账号").show();
+			err.text("请输入账号").css('visibility', 'visible');
 			return false;
 		} else if (pass.length < 1) {
-			err.text("请输入密码").show();
+			err.text("请输入密码").css('visibility', 'visible');
 			return false;
 		}
-		err.hide();
+		err.css('visibility', 'hidden');
 		return true;
 	},
 
@@ -125,21 +155,26 @@ LoginController.prototype = {
 			pass = $.trim($("#password").val());
 		var data = {
 			username: name,
-			password: pass	
+			password: pass,
+			channel: 'WEB'
 		};
+		$('.login_loading').show();
 		var options = {
 			url: J.Api.login,
 			scopt: t,
 			data: data,
 			callback: function(data) {
+				$('.login_loading').hide();
 				if(data.result == true) {
 					if(t.url) {
 						location.href = new Base64().decode(t.url);
 					} else {
-						location.href = '#home'
+	 					Router.navigate('home', {
+	                        replace : true
+	                    });
 					}
 				} else {
-					err.text('用户名或密码错误').show();
+					err.html('用户名或密码错误').css('visibility', 'visible');
 				}
 			}
 		};

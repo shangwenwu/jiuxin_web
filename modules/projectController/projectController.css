@@ -1,21 +1,25 @@
 .project_page_module {
     position: relative;
     padding: 30px 50px;
-    min-height: 300px;
+    min-height: 600px;
     background-color: #fff;
 }
 .project_page_module .title {
     font-size: 20px;
     line-height: 28px;
-    margin-top: 10px;            
+    margin-top: 10px;
+    color: #00205c;           
 }
 .project_page_module .filer_wrapper {
     margin-top: 20px;
     line-height: 26px;
     font-size: 14px;
+    padding: 16px;
+    height: 66px;
+    border: 1px solid #e8e8e8;
 }
 .project_page_module .filer_wrapper .item {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 .project_page_module .filer_wrapper .label {
     display: inline-block;
@@ -25,6 +29,9 @@
     /*display: inline-block;*/
 
 }
+.project_page_module .filer_wrapper .nav.fl {
+    vertical-align: middle;
+}
 .project_page_module .filer_wrapper .nav li {
     float: left;
     height: 26px;
@@ -33,7 +40,7 @@
     cursor: pointer;            
 }
 .project_page_module .filer_wrapper .nav li.active {
-    background-color: #242d4f;
+    background-color: #00205c;
     color: #fff;
 }
 .project_page_module .filer_wrapper .time_wrapper {
@@ -42,11 +49,13 @@
     *zoom: 1;
     *display: inline;
     /**display: inline;*/
-    margin-right: 10px;
+    margin-left: 10px;
     height: 24px;
     line-height: 24px;
-    width: 148px;
-    border: 1px solid #f6f6f6;
+    width: 124px;
+    border: 1px solid #e8e8e8;
+    vertical-align: middle;
+    float: right;
 }
 .project_page_module .filer_wrapper .time_wrapper span {
     display: inline-block;
@@ -57,8 +66,9 @@
     overflow: hidden;
 }
 .project_page_module .filer_wrapper .time_wrapper input {
-    padding-left: 5px;
-    width: 113px;
+    padding-right: 20px;
+    text-align: right;
+    width: 80px;
     border: none;
     height: 22px;
     line-height: 22px;
@@ -77,18 +87,22 @@
     margin-top: 20px;
     height: 36px;
     line-height: 36px;
+    font-size: 14px;
     background-color: #e8e8e8;
 }
 .project_page_module .project_wrapper .meassage_wrapper_data {
     height: 120px;
     overflow: hidden ;
     position: relative;
+    border-bottom: 1px solid #e8e8e8;
 }
 .project_page_module .project_wrapper .no_data {
-    height: 120px;
-    line-height: 120px;
-    font-size: 16px;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
     text-align: center;
+    color: #666;
+    border-bottom: 1px solid #ddd;
 }
 .project_page_module .project_wrapper .meassage_wrapper_data .data{
     padding: 30px 0px;
@@ -97,7 +111,7 @@
 }
 .project_page_module .project_wrapper_header .container1, 
 .project_page_module .project_wrapper .meassage_wrapper_data .container1 {
-    width: 15.5%;
+    width: 22%;
     padding-left: 1.5%;
     display: inline-block;
 }
@@ -112,20 +126,24 @@
 .project_page_module .container4,
 .project_page_module  .container5,
 .project_page_module .container6 {
-    width: 12.6%;
+    width: 12.2%;
     display: inline-block;
     /*line-height: 60px;*/
 }
-.project_page_module .project_wrapper .container7 {
-    width: 17%;
+.project_page_module .container7 {
+    width: 15%;
     display: inline-block;
     *zoom: 1;
     *display: inline;
 }
-.project_page_module .project_wrapper .container1 .name {
-    color: #666;
+.project_page_module .project_wrapper .container1 a.name {
+    display: block;
+    color: #232e4e;
     font-size: 14px;
     line-height: 24px;
+    height: 24px;
+    white-space:nowrap; 
+    text-overflow:ellipsis;
 }
 .project_page_module .project_wrapper .container1 {
     font-size: 12px;
@@ -140,9 +158,9 @@
     width: 70px;
     height: 23px;
     line-height: 23px;
-    border: 1px solid #242d4f;
+    border: 1px solid #00205c;
     text-align: center;
-    color: #666;
+    color: #00205c;
     text-decoration: none;
 }
 .project_page_module .project_wrapper .container6 .status {
@@ -152,7 +170,7 @@
     line-height: 60px;
 }
 .project_page_module .project_wrapper .container7 .agreemengt {
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 }
 .project_page_module .project_wrapper .collecting .agreemengt {
     margin-top: 20px;
@@ -160,6 +178,7 @@
 }
 .project_page_module .project_wrapper .even {
     background-color: #f6f6f6;
+    border-bottom: none;
 
 }
 .project_page_module .repay_recordlist_wrapper {
@@ -168,8 +187,8 @@
     background-color: #eceef5;
     padding: 30px;
     width: 840px;
-    border: solid #242d4f;
-    border-width: 3px 0px 3px 0px;
+    border: solid #00205c;
+    border-width: 2px 0px 2px 0px;
     display: none;
 }
 .project_page_module .repay_recordlist_wrapper table {
@@ -184,7 +203,7 @@
       font-weight: normal;         
 }
 .project_page_module .repay_recordlist_wrapper td {
-    height: 45px;
+    height: 62px;
     border-bottom: 1px solid #ddd;
     font-size: 12px;
 }
@@ -214,7 +233,7 @@
 #project_pager span.on, #project_pager a:hover  {
     /*border: 1px solid #008cd7;*/
     border-radius: 1px;
-    background: #242d4f;
+    background: #00205c;
     color: #FFF;
 }
 #project_pager a:hover  {
@@ -241,7 +260,7 @@
 #repay_record_pager span.on, #repay_record_pager a:hover  {
     /*border: 1px solid #008cd7;*/
     border-radius: 1px;
-    background: #242d4f;
+    background: #00205c;
     color: #FFF;
 }
 #repay_record_pager a:hover  {
@@ -258,10 +277,21 @@
     padding: 0 20px;
     margin: 0 3px;
     background-color: #eceef5;
-    color: #242d4f;
-    border: 1px solid #242d4f;
+    color: #00205c;
+    border: 1px solid #00205c;
 }
 #repay_record_pager .pager_more {
     border: none;
     background: transparent;
+}
+.project_page_module  .loading {
+    height: 440px;
+    /*background: url(images/loading.gif) no-repeat center;*/
+}
+.project_page_module img {
+    display: inline-block;
+    padding: 0px;
+    height: 45px;
+    width: 45px;
+    /*background: url(images/loading.gif) no-repeat center;*/
 }
